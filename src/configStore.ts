@@ -1,0 +1,28 @@
+import { configureStore } from "@reduxjs/toolkit";
+import danhMucKhoaHoc from "Slices/courseCatalog";
+import auth from "Slices/auth";
+import khoaHocTheoDanhMuc from 'Slices/listCourseByCatalog'
+
+const store = configureStore({
+  reducer: {
+    danhMucKhoaHoc,
+    auth,
+    khoaHocTheoDanhMuc,
+  },
+});
+
+// type cho hàm dispatch
+export type AppDispatch = typeof store.dispatch;
+// type cho state
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
+
+//utility type
+//ReturnType: trả vê type của object
+//type abc (biến type giống var let const)
+// function A(): number {
+//   return 123;
+// }
+// // () => number
+// type typeCuaHamA = ReturnType<typeof A>;

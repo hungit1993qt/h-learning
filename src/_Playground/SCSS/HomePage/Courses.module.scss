@@ -1,0 +1,36 @@
+.heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-size: 4rem;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.heading span {
+  color: var(--green);
+  text-transform: uppercase;
+}
+.slide {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  user-select: none;
+ 
+  
+  h3.title {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--white);
+  }
+  img.imgCourses {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}
+.navLinkDanhMucKhoaHoc{
+  text-decoration: none;
+}
+

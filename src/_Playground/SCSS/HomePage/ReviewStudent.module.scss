@@ -1,0 +1,39 @@
+.slide {
+  border-radius: 0.5rem;
+  background-color: var(--light-bg);
+  padding: 2rem;
+  margin-bottom: 4rem;
+  user-select: none;
+  p {
+    line-height: 2;
+    font-size: 1.6rem;
+    color: var(--light-white);
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    img {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .user-info {
+      h3 {
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 0.7rem;
+      }
+      .stars {
+        
+        
+      }
+    }
+  }
+}
+i.iconReview {
+    font-size: 2rem;
+    color: var(--bs-yellow) ;
+  }

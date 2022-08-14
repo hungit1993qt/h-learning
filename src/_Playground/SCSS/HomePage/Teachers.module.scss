@@ -1,0 +1,44 @@
+.slide {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  user-select: none;
+  &:hover > .share {
+    left: 2rem;
+  }
+  .share {
+    position: absolute;
+    top: 1rem;
+    left: -10rem;
+    a {
+      display: block;
+      margin-top: 1rem;
+      height: 4.5rem;
+      width: 4.5rem;
+      line-height: 4.5rem;
+      border-radius: 0.5rem;
+      background-color: var(--white);
+      color: var(--black);
+      text-align: center;
+      font-size: 2rem;
+      &:hover {
+        background-color: var(--green);
+        color: var(--white);
+      }
+    }
+  }
+  h3.title {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--white);
+  }
+  img.imgTeacher {
+    height: 55rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}
+
+
