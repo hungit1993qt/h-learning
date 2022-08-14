@@ -22,20 +22,42 @@ img {
 
 .btn {
   color: #ffffff;
-  padding: 0.8rem;
-  font-size: 14px;
+  font-size: 1rem;
   text-transform: uppercase;
   border-radius: 4px;
   font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  width: 30%;
+  cursor: pointer;  
   background: transparent;
 }
-
+.bottom-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-review{
+  color: var(--green);
+  i{
+    font-size: 1.3rem;
+    margin-left: 15px;
+    span{
+      margin-left: 3px;
+    }
+  }
+  i:first-child{
+    font-size: 1.3rem;
+    margin-left: 0;
+    span{
+      margin-left: 5px;
+    }
+  }
+  
+}
 .btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: var(--green);
+  color: var(--black);
+  font-weight: bold;
 }
 
 .cards {
@@ -79,7 +101,7 @@ img {
 
 .card_title {
   color: var(--green);
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -89,7 +111,7 @@ img {
 .card_text {
   display: -webkit-box;
   color: var(--white);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
   font-weight: 400;

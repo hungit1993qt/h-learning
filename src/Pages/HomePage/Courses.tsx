@@ -22,7 +22,6 @@ const Courses = (props: Props) => {
   const { danhMucKhoaHoc, isLoading, error } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
-  console.log(danhMucKhoaHoc);
   return (
     <section className={styles["courses"]} id="courses">
       <h1 className={styles["heading"]}>
@@ -58,7 +57,7 @@ const Courses = (props: Props) => {
         {danhMucKhoaHoc.map((danhmuckhoahoc, index) => {
           return (
             <SwiperSlide key={danhmuckhoahoc.maDanhMuc}>
-              <NavLink className={styles["navLinkDanhMucKhoaHoc"]} to={""}>
+              <NavLink className={styles["navLinkDanhMucKhoaHoc"]} to={`danhmuckhoahoc/${danhmuckhoahoc.maDanhMuc}`}>
                 <div className={styles["slide"]}>
                   <img
                     className={styles["imgCourses"]}
