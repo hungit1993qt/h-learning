@@ -14,60 +14,36 @@ const ListCours = () => {
   const { khoaHocTheoDanhMuc, isLoading, error } = useSelector(
     (state: RootState) => state.khoaHocTheoDanhMuc
   );
-  console.log(khoaHocTheoDanhMuc);
+
   return (
     <section className={styles["detailListCourses"]}>
       <h1 className={styles["heading"]}>
         KHÓA <span> HỌC</span>
       </h1>
-      
-        {khoaHocTheoDanhMuc.map((khoahoctheodanhmuc) => {
-          return (
-            <div className={styles["blog-card"]}>
-              <div className={styles["meta"]}>
-                <div
-                  className={styles["photo"]}
-                  style={{
-                    backgroundImage: `url(${khoahoctheodanhmuc.hinhAnh})`,
-                  }}
-                />
-                <ul className={styles["details"]}>
-                  <li className={styles["author"]}>
-                    <a href="#">{khoahoctheodanhmuc.nguoiTao.hoTen}</a>
-                  </li>
-                  <li className={styles["date"]}>
-                    {khoahoctheodanhmuc.ngayTao}
-                  </li>
-                  <li className={styles["tags"]}>
-                    <ul>
-                      <li>
-                        <a href="#">Learn</a>
-                      </li>
-                      <li>
-                        <a href="#">Code</a>
-                      </li>
-                      <li>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li>
-                        <a href="#">CSS</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles["description"]}>
-                <h1>{khoahoctheodanhmuc.tenKhoaHoc}</h1>
-                <h2>{khoahoctheodanhmuc.danhMucKhoaHoc.tenDanhMucKhoaHoc}</h2>
-                <p>{khoahoctheodanhmuc.moTa}</p>
-                <p className={styles["read-more"]}>
-                  <a href="#">Read More</a>
-                </p>
-              </div>
-            </div>
-          );
+      <ul className={styles["cards"]}>
+        {khoaHocTheoDanhMuc.map((khoahoctheodanhmuc, index) => {
+          if (index < 6) {
+            return (
+              <li key={khoahoctheodanhmuc.maKhoaHoc} className={styles["cards_item"]}>
+                <div className={styles["card"]}>
+                  <div className={styles["card_image"]}>
+                    <img src={khoahoctheodanhmuc.hinhAnh} />
+                  </div>
+                  <div className={styles["card_content"]}>
+                    <h2 className={styles["card_title"]}>{khoahoctheodanhmuc.tenKhoaHoc}</h2>
+                    <p className={styles["card_text"]}>
+                      {khoahoctheodanhmuc.moTa}
+                    </p>
+                    <button className={`${styles["card_btn"]} ${styles["btn"]}`}>
+                      Đọc thêm...
+                    </button>
+                  </div>
+                </div>
+              </li>
+            );
+          }
         })}
-      
+      </ul>
     </section>
   );
 };
