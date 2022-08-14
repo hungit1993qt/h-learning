@@ -7,9 +7,11 @@ import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
 import { NavLink, useParams } from "react-router-dom";
 
 const ListCours = () => {
+  const {params} = useParams()
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
+    dispatch(getKhoaHocTheoDanhMuc(params!))
   }, []);
   const { khoaHocTheoDanhMuc, isLoading, error } = useSelector(
     (state: RootState) => state.khoaHocTheoDanhMuc
