@@ -74,11 +74,11 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: var(--green);
+  background: var(--light-bg);
 }
 
 .card_title {
-  color: var(--black);
+  color: var(--green);
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -88,7 +88,7 @@ img {
 
 .card_text {
   display: -webkit-box;
-  color: var(--black);
+  color: var(--white);
   font-size: 1.2rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
