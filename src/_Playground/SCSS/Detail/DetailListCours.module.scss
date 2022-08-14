@@ -28,7 +28,7 @@ img {
   font-weight: 400;
   display: inline-block;
   width: 30%;
-  cursor: pointer;  
+  cursor: pointer;
   background: transparent;
 }
 .bottom-card {
@@ -36,22 +36,23 @@ img {
   justify-content: space-between;
   align-items: center;
 }
-.icon-review{
+.icon-review {
   color: var(--green);
-  i{
+  i {
     font-size: 1.3rem;
     margin-left: 15px;
-    span{
+    span {
       margin-left: 3px;
     }
   }
-  i:first-child{
+  i:first-child {
     font-size: 1.3rem;
     margin-left: 0;
-    span{
+    span {
       margin-left: 5px;
     }
   }
+  
   
 }
 .btn:hover {

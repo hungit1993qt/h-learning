@@ -19,15 +19,16 @@ const ListCours = () => {
   const { danhMucKhoaHoc } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
-  
- const madm =  danhMucKhoaHoc.find((khoahoc) => khoahoc.maDanhMuc === maDanhMuc);
- 
+
+  const madm = danhMucKhoaHoc.find(
+    (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
+  );
+
   // const tenDanhMucKhoaHoc = khoaHocTheoDanhMuc[0].danhMucKhoaHoc.tenDanhMucKhoaHoc;
   return (
     <section className={styles["detailListCourses"]}>
       <h1 className={styles["heading"]}>
         KHÓA HỌC<span> {madm?.tenDanhMuc}</span>
-        
       </h1>
 
       <ul className={styles["cards"]}>
@@ -63,6 +64,23 @@ const ListCours = () => {
                           {" "}
                           <span>{khoahoctheodanhmuc.ngayTao}</span>
                         </i>
+                        <div className="stars">
+                          <i
+                            className={`fas fa-star ${styles["iconReview"]}`}
+                          />
+                          <i
+                            className={`fas fa-star ${styles["iconReview"]}`}
+                          />
+                          <i
+                            className={`fas fa-star ${styles["iconReview"]}`}
+                          />
+                          <i
+                            className={`fas fa-star ${styles["iconReview"]}`}
+                          />
+                          <i
+                            className={`fas fa-star ${styles["iconReview"]}`}
+                          />
+                        </div>
                       </div>
                       <button
                         className={`${styles["card_btn"]} ${styles["btn"]}`}
