@@ -3,6 +3,7 @@ import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "antd";
+import "antd/dist/antd.css";
 import { useNavigate } from "react-router-dom";
 import {LoginValue} from 'Interface/loginValue'
 import {login} from 'Slices/auth'
