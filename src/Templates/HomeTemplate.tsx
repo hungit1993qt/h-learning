@@ -2,7 +2,7 @@
 import { Outlet } from 'react-router-dom'
 import HeaderHome from '../Components/HeaderHome/HeaderHome'
 import  '_Playground/SCSS/index.scss'
-import FooterHome from 'Components/FooterHome/FooterHome'
+import FooterHome from 'Components/FooterHome/FooterHome';
 
 
 type Props = {}
