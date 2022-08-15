@@ -4,9 +4,10 @@ import { AppDispatch, RootState } from "configStore";
 import styles from "_Playground/SCSS/Detail/DetailListCours.module.scss";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 
 const ListCours = () => {
+  const navigate = useNavigate();
   const { maDanhMuc } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
@@ -23,6 +24,9 @@ const ListCours = () => {
   const madm = danhMucKhoaHoc.find(
     (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
   );
+  const handleCheckout = (maKhoaHoc: string) => {
+    navigate(`checkout/${maKhoaHoc}`);
+  };
 
   // const tenDanhMucKhoaHoc = khoaHocTheoDanhMuc[0].danhMucKhoaHoc.tenDanhMucKhoaHoc;
   return (
@@ -89,6 +93,9 @@ const ListCours = () => {
                           Chi tiết
                         </button>
                         <button
+                          onClick={() =>
+                            handleCheckout(khoahoctheodanhmuc.maKhoaHoc)
+                          }
                           className={`${styles["card_btn"]} ${styles["btn"]}`}
                         >
                           Đăng ký
