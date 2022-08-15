@@ -3,7 +3,6 @@ body {
 }
 .error-content {
   min-height: 770px;
-  
 }
 svg {
   position: absolute;
@@ -40,7 +39,7 @@ svg {
 }
 .buttons-con .action-link-wrap a {
   background: #68c950;
-  padding: 8px 25px;
+  padding: 11px 25px;
   border-radius: 4px;
   color: #fff;
   font-weight: bold;
@@ -53,6 +52,22 @@ svg {
 .buttons-con .action-link-wrap a:hover {
   background: #5a5c6c;
   color: #fff;
+}
+.link-button {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  &:hover {
+    background: #5a5c6c;
+    color: #fff;
+  }
 }
 
 #Polygon-1,

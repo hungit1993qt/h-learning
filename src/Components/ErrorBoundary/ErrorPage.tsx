@@ -6,9 +6,7 @@ type Props = {};
 
 const ErrorPage = (props: Props) => {
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(1);
-  };
+  const goBack = () => navigate(-2);
   return (
     <section className={styles["error-content"]}>
       <svg
@@ -66,7 +64,7 @@ const ErrorPage = (props: Props) => {
           <div className={styles["action-link-wrap"]}>
             <button
               onClick={() => goBack()}
-              className={styles["link-button link-back-button"]}
+              className={styles["link-button"]}
             >
               Go Back
             </button>
