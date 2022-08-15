@@ -10,6 +10,12 @@
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+.content{
+  display: block;
+  margin: auto;
+  width: 130px;
+  height: 130px;
+}
 
 @-webkit-keyframes spin {
   0% {
