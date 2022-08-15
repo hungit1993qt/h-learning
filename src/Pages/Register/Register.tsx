@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useRef, useEffect } from "react";
+import { Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
@@ -36,6 +37,20 @@ interface RegisterValues {
 }
 
 const Register = () => {
+  const [visibleRegister, setVisibleRegister] = useState(false);
+  const showModal = () => {
+    setVisibleRegister(true);
+  };
+
+  const handleCancel = () => {
+    setVisibleRegister(false);
+  };
+  useEffect(() => {
+    setVisibleRegister(true);
+    return function cleanup() {
+      setVisibleRegister(false);
+    };
+  }, []);
   const {
     register,
     handleSubmit,
@@ -52,54 +67,61 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <input
-            className={styles["box"]}
-            type="text"
-            {...register("taiKhoan")}
-            placeholder="Vui lòng nhập tài khoản!"
-          />
-          {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
-        </div>
-        <div>
-          <input
-            className={styles["box"]}
-            type="password"
-            {...register("matKhau")}
-            placeholder="Vui lòng nhập mật khẩu!"
-          />
-          {errors.matKhau && <span>{errors.matKhau?.message}</span>}
-        </div>
-        <div>
-          <input
-            className={styles["box"]}
-            type="email"
-            {...register("email")}
-            placeholder="Vui lòng nhập email!"
-          />
-          {errors.email && <span>{errors.email?.message}</span>}
-        </div>
-        <div>
-          <input
-            className={styles["box"]}
-            type="text"
-            {...register("hoTen")}
-            placeholder="Vui lòng nhập họ và tên!"
-          />
-          {errors.hoTen && <span>{errors.hoTen?.message}</span>}
-        </div>
-        <div>
-          <input
-            className={styles["box"]}
-            type="text"
-            {...register("soDt")}
-            placeholder="Vui lòng nhập số điện thoại!"
-          />
-          {errors.soDt && <span>{errors.soDt?.message}</span>}
-        </div>
-        <button className={styles["registerBtn"]}>Đăng ký</button>
-      </form>
+      <Modal
+        visible={visibleRegister}
+        title="ĐĂNG NHẬP"
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <input
+              className={styles["box"]}
+              type="text"
+              {...register("taiKhoan")}
+              placeholder="Vui lòng nhập tài khoản!"
+            />
+            {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
+          </div>
+          <div>
+            <input
+              className={styles["box"]}
+              type="password"
+              {...register("matKhau")}
+              placeholder="Vui lòng nhập mật khẩu!"
+            />
+            {errors.matKhau && <span>{errors.matKhau?.message}</span>}
+          </div>
+          <div>
+            <input
+              className={styles["box"]}
+              type="email"
+              {...register("email")}
+              placeholder="Vui lòng nhập email!"
+            />
+            {errors.email && <span>{errors.email?.message}</span>}
+          </div>
+          <div>
+            <input
+              className={styles["box"]}
+              type="text"
+              {...register("hoTen")}
+              placeholder="Vui lòng nhập họ và tên!"
+            />
+            {errors.hoTen && <span>{errors.hoTen?.message}</span>}
+          </div>
+          <div>
+            <input
+              className={styles["box"]}
+              type="text"
+              {...register("soDt")}
+              placeholder="Vui lòng nhập số điện thoại!"
+            />
+            {errors.soDt && <span>{errors.soDt?.message}</span>}
+          </div>
+          <button className={styles["registerBtn"]}>Đăng ký</button>
+        </form>
+      </Modal>
     </div>
   );
 };

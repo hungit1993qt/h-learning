@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }: Props) => {
 
   if (!user) {
     // Chưa đăng nhập
-    return <Navigate to="/danhmuckhoahoc/terter" />;
+    return <Navigate to="/login" />;
   }
 
   // Đã đăng nhập

@@ -25,8 +25,9 @@ const ListCours = () => {
     (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
   );
   const handleCheckout = (maKhoaHoc: string) => {
-    navigate(`checkout/${maKhoaHoc}`);
+    navigate(`/checkout/${maKhoaHoc}`);
   };
+  
 
   // const tenDanhMucKhoaHoc = khoaHocTheoDanhMuc[0].danhMucKhoaHoc.tenDanhMucKhoaHoc;
   return (

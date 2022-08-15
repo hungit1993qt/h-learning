@@ -36,7 +36,7 @@ function App() {
               <Route path="register" element={<Register />} />
               <Route path="about" element={<About />} />
               <Route
-                path="checkout"
+                path="checkout/:maKhoaHoc"
                 element={
                   <ProtectedRoute>
                     <Checkout />

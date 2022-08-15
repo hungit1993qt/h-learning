@@ -9,11 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Button, Modal } from "antd";
-import { useForm, FieldErrors } from "react-hook-form";
 
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
 import Login from "Pages/Login/Login";
 import Register from "Pages/Register/Register";
+import { login } from "Slices/auth";
 type Props = {};
 interface LoginValues {
   taiKhoan: string;
@@ -52,21 +52,13 @@ const HeaderHome = (props: Props) => {
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
     navigate(`danhmuckhoahoc/${e.target.value}`);
   };
-  const showModal = () => {
-    setVisibleLogin(true);
-  };
 
-  const handleCancel = () => {
-    setVisibleLogin(false);
+  const loginShow = () => {
+    navigate("/login");
   };
-  const showModalRegister = () => {
-    setVisibleRegister(true);
+  const registerShow = () => {
+    navigate("/register");
   };
-
-  const handleCancelRegister = () => {
-    setVisibleRegister(false);
-  };
-   
 
   return (
     <header className={styles["header"]}>
@@ -120,10 +112,13 @@ const HeaderHome = (props: Props) => {
           <a className={activeNavbar ? "" : styles["hide"]} href="#contact">
             Liên hệ
           </a>
-          <Button className={styles["loginBtn"]} onClick={showModal}>
+          <Button className={styles["loginBtn"]} onClick={() => loginShow()}>
             Đăng nhập
           </Button>
-          <Button className={styles["registerBtn"]} onClick={showModalRegister}>
+          <Button
+            className={styles["registerBtn"]}
+            onClick={() => registerShow()}
+          >
             Đăng ký
           </Button>
         </nav>
@@ -134,22 +129,6 @@ const HeaderHome = (props: Props) => {
           ref={ref}
         />
       </section>
-      <Modal
-        visible={visibleLogin}
-        title="ĐĂNG NHẬP"
-        onCancel={handleCancel}
-        footer = {null}
-      >
-        <Login />
-      </Modal>
-      <Modal
-        visible={visibleRegister}
-        title="ĐĂNG KÝ"
-        onCancel={handleCancelRegister}
-        footer = {null}
-      >
-        <Register />
-      </Modal>
     </header>
   );
 };
