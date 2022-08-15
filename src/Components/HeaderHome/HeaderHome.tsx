@@ -159,15 +159,7 @@ const HeaderHome = (props: Props) => {
         visible={visibleLogin}
         title="ĐĂNG NHẬP"
         onCancel={handleCancel}
-        footer={[
-          <Button
-            className={styles["loginBtn"]}
-            key="back"
-            onClick={handleCancel}
-          >
-            Cancel
-          </Button>,
-        ]}
+        footer = {null}
       >
         <Login />
       </Modal>
@@ -175,15 +167,7 @@ const HeaderHome = (props: Props) => {
         visible={visibleRegister}
         title="ĐĂNG KÝ"
         onCancel={handleCancelRegister}
-        footer={[
-          <Button
-            className={styles["registerBtn"]}
-            key="back"
-            onClick={handleCancelRegister}
-          >
-            Cancel
-          </Button>,
-        ]}
+        footer = {null}
       >
         <Register />
       </Modal>
