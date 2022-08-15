@@ -57,14 +57,12 @@ const HeaderHome = (props: Props) => {
     setVisibleLogin(true);
   };
 
-
   const handleCancel = () => {
     setVisibleLogin(false);
   };
   const showModalRegister = () => {
     setVisibleRegister(true);
   };
-
 
   const handleCancelRegister = () => {
     setVisibleRegister(false);
@@ -149,32 +147,6 @@ const HeaderHome = (props: Props) => {
           <Button className={styles["registerBtn"]} onClick={showModalRegister}>
             Đăng ký
           </Button>
-          <Modal
-            visible={visibleLogin}
-            title="ĐĂNG NHẬP"
-            onCancel={handleCancel}
-            footer={[
-              <Button className={styles["loginBtn"]} key="back" onClick={handleCancel}>
-                Cancel
-              </Button>,
-              
-            ]}
-          >
-            <Login />
-          </Modal>
-          <Modal
-            visible={visibleRegister}
-            title="ĐĂNG KÝ"
-            onCancel={handleCancelRegister}
-            footer={[
-              <Button className={styles["registerBtn"]} key="back" onClick={handleCancelRegister}>
-                Cancel
-              </Button>,
-              
-            ]}
-          >
-            <Register />
-          </Modal>
         </nav>
         <div
           onClick={() => ShowMenuMobile()}
@@ -183,6 +155,38 @@ const HeaderHome = (props: Props) => {
           ref={ref}
         />
       </section>
+      <Modal
+        visible={visibleLogin}
+        title="ĐĂNG NHẬP"
+        onCancel={handleCancel}
+        footer={[
+          <Button
+            className={styles["loginBtn"]}
+            key="back"
+            onClick={handleCancel}
+          >
+            Cancel
+          </Button>,
+        ]}
+      >
+        <Login />
+      </Modal>
+      <Modal
+        visible={visibleRegister}
+        title="ĐĂNG KÝ"
+        onCancel={handleCancelRegister}
+        footer={[
+          <Button
+            className={styles["registerBtn"]}
+            key="back"
+            onClick={handleCancelRegister}
+          >
+            Cancel
+          </Button>,
+        ]}
+      >
+        <Register />
+      </Modal>
     </header>
   );
 };

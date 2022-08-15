@@ -27,10 +27,12 @@ img {
   border-radius: 4px;
   font-weight: 400;
   display: inline-block;
-  width: 30%;
+  width: 100%;
   cursor: pointer;
   background: transparent;
   border: 1px solid var(--green);
+  margin: 5px 0;
+  padding: 5px 0;
 }
 .bottom-card {
   display: flex;

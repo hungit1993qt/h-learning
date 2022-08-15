@@ -82,11 +82,18 @@ const ListCours = () => {
                           />
                         </div>
                       </div>
-                      <button
-                        className={`${styles["card_btn"]} ${styles["btn"]}`}
-                      >
-                        Đăng ký
-                      </button>
+                      <div>
+                        <button
+                          className={`${styles["card_btn"]} ${styles["btn"]}`}
+                        >
+                          Chi tiết
+                        </button>
+                        <button
+                          className={`${styles["card_btn"]} ${styles["btn"]}`}
+                        >
+                          Đăng ký
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
