@@ -54,23 +54,23 @@ const Register = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input className={styles["box"]} type="text" {...register("taiKhoan")} />
+          <input className={styles["box"]} type="text" {...register("taiKhoan")} placeholder="Vui lòng nhập tài khoản!" />
           {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="password" {...register("matKhau")} />
+          <input className={styles["box"]} type="password" {...register("matKhau")} placeholder="Vui lòng nhập mật khẩu!" />
           {errors.matKhau && <span>{errors.matKhau?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="email" {...register("email")} />
+          <input className={styles["box"]} type="email" {...register("email")} placeholder="Vui lòng nhập email!" />
           {errors.email && <span>{errors.email?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="text" {...register("hoTen")} />
+          <input className={styles["box"]} type="text" {...register("hoTen")} placeholder="Vui lòng nhập họ và tên!" />
           {errors.hoTen && <span>{errors.hoTen?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="text" {...register("soDt")} />
+          <input className={styles["box"]} type="text" {...register("soDt")} placeholder="Vui lòng nhập số điện thoại!" />
           {errors.soDt && <span>{errors.soDt?.message}</span>}
         </div>
         <button style={{ display: "none" }}>Đăng ký</button>

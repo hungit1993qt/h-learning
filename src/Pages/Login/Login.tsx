@@ -37,7 +37,7 @@ const Login = () => {
           {/* <label>Tài Khoản</label> */}
           <input
             type="text"
-            placeholder="Vui lòng nhập tài khoản"
+            placeholder="Vui lòng nhập tài khoản!"
             {...register("taiKhoan", {
               // validations
               required: {
@@ -60,7 +60,7 @@ const Login = () => {
           {/* <label>Mật Khẩu</label> */}
           <input
             type="text"
-            placeholder="Vui lòng nhập mật khẩu"
+            placeholder="Vui lòng nhập mật khẩu!"
             {...register("matKhau", {
               required: {
                 value: true,
