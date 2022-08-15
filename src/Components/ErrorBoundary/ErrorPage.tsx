@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "_Playground/SCSS/Error/ErrorPage.module.scss";
+import { NavLink, useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const ErrorPage = (props: Props) => {
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(1);
+  };
   return (
     <section className={styles["error-content"]}>
       <svg
@@ -59,10 +64,15 @@ const ErrorPage = (props: Props) => {
         <p className={styles["descri"]}>Page not found</p>
         <div className={styles["buttons-con"]}>
           <div className={styles["action-link-wrap"]}>
-            <a className={styles["link-button link-back-button"]}>Go Back</a>
-            <a href="" className={styles["link-button"]}>
+            <button
+              onClick={() => goBack()}
+              className={styles["link-button link-back-button"]}
+            >
+              Go Back
+            </button>
+            <NavLink to={"/"} className={styles["link-button"]}>
               Go to Home Page
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
