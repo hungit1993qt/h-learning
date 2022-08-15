@@ -10,11 +10,15 @@
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
-.content{
-  display: block;
-  margin: auto;
+.content {
+  display: block;  
   width: 130px;
   height: 130px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
 @-webkit-keyframes spin {
