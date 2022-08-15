@@ -4,13 +4,15 @@ import { useForm, FieldErrors } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
-interface LoginValues {
-  taiKhoan: string;
-  matKhau: string;
-}
+import {LoginValue} from 'Interface/loginValue'
+import {login} from 'Slices/auth'
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "configStore";
+
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const [visibleLogin, setVisibleLogin] = useState(true);
   const showModal = () => {
     setVisibleLogin(true);
@@ -19,18 +21,18 @@ const Login = () => {
     setVisibleLogin(false);
     navigate("/");
   };
-  console.log(visibleLogin);
+  
   // useEffect(() => {
-  //   showModal()
-  //   return function cleanup() {
-  //     handleCancel()
-  //   };
+    
+  //   // return function cleanup() {
+  //   //   handleCancel()
+  //   // };
   // }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginValues>({
+  } = useForm<LoginValue>({
     // defaultValues: Khai báo giá trị mặc định cho các input trong form
     defaultValues: {
       taiKhoan: "",
@@ -39,12 +41,20 @@ const Login = () => {
     // mode: cách validation được trigger (default là submit)
     mode: "onTouched",
   });
-  const onSubmit = (values: LoginValues) => {
+  const onSubmit = (values: LoginValue) => {
+    dispatch(login(values))
     console.log(values);
   };
-  const onError = (error: FieldErrors<LoginValues>) => {
+  const onError = (error: FieldErrors<LoginValue>) => {
     console.log(error);
   };
+  const {user} = useSelector(
+    (state:RootState)=>state.auth
+  )
+  console.log(user)
+  if(user){
+    navigate(-1);
+  }
   return (
     <div>
       <Modal

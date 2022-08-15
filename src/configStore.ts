@@ -8,6 +8,7 @@ const store = configureStore({
     danhMucKhoaHoc,
     auth,
     khoaHocTheoDanhMuc,
+
   },
 });
 

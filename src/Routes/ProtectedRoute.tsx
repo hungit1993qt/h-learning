@@ -9,8 +9,8 @@ interface Props {
 const ProtectedRoute = ({ children }: Props) => {
   // Kiểm tra xem user đã đăng nhập hay chưa
   const { user } = useSelector((state: RootState) => state.auth);
-
-  if (!user) {
+  console.log(user);
+  if (user === null) {
     // Chưa đăng nhập
     return <Navigate to="/login" />;
   }
