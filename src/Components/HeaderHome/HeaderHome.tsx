@@ -13,6 +13,7 @@ import { useForm, FieldErrors } from "react-hook-form";
 
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
 import Login from "Pages/Login/Login";
+import Register from "Pages/Register/Register";
 type Props = {};
 interface LoginValues {
   taiKhoan: string;
@@ -24,7 +25,8 @@ const HeaderHome = (props: Props) => {
   const [selectCours, seSelectCours] = useState("");
   const navigate = useNavigate();
   const [activeMobile, setActiveMobile] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [visibleLogin, setVisibleLogin] = useState(false);
+  const [visibleRegister, setVisibleRegister] = useState(false);
   const ShowMenuMobile = () => {
     setActiveMobile(!activeMobile);
   };
@@ -52,15 +54,20 @@ const HeaderHome = (props: Props) => {
     navigate(`danhmuckhoahoc/${e.target.value}`);
   };
   const showModal = () => {
-    setVisible(true);
+    setVisibleLogin(true);
   };
 
-  const handleOk = () => {
-    alert("Login");
-  };
 
   const handleCancel = () => {
-    setVisible(false);
+    setVisibleLogin(false);
+  };
+  const showModalRegister = () => {
+    setVisibleRegister(true);
+  };
+
+
+  const handleCancelRegister = () => {
+    setVisibleRegister(false);
   };
   const {
     register,
@@ -139,21 +146,34 @@ const HeaderHome = (props: Props) => {
           <Button className={styles["loginBtn"]} onClick={showModal}>
             Đăng nhập
           </Button>
+          <Button className={styles["registerBtn"]} onClick={showModalRegister}>
+            Đăng ký
+          </Button>
           <Modal
-            visible={visible}
+            visible={visibleLogin}
             title="ĐĂNG NHẬP"
-            onOk={handleOk}
             onCancel={handleCancel}
             footer={[
               <Button className={styles["loginBtn"]} key="back" onClick={handleCancel}>
                 Cancel
               </Button>,
-              // <Button key="submit" type="primary" onClick={onSubmit}>
-              //   Submit
-              // </Button>,
+              
             ]}
           >
             <Login />
+          </Modal>
+          <Modal
+            visible={visibleRegister}
+            title="ĐĂNG KÝ"
+            onCancel={handleCancelRegister}
+            footer={[
+              <Button className={styles["registerBtn"]} key="back" onClick={handleCancelRegister}>
+                Cancel
+              </Button>,
+              
+            ]}
+          >
+            <Register />
           </Modal>
         </nav>
         <div

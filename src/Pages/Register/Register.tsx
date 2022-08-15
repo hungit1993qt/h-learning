@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
+import styles from "_Playground/SCSS/Register/Register.module.scss";
 
 // Register fields: taiKhoan, matKhau, email, hoTen, soDt
 
@@ -51,34 +52,28 @@ const Register = () => {
 
   return (
     <div>
-      <h1>Register</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label>Tài Khoản</label>
-          <input type="text" {...register("taiKhoan")} />
+          <input className={styles["box"]} type="text" {...register("taiKhoan")} />
           {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
         </div>
         <div>
-          <label>Mật Khẩu</label>
-          <input type="password" {...register("matKhau")} />
+          <input className={styles["box"]} type="password" {...register("matKhau")} />
           {errors.matKhau && <span>{errors.matKhau?.message}</span>}
         </div>
         <div>
-          <label>Email</label>
-          <input type="email" {...register("email")} />
+          <input className={styles["box"]} type="email" {...register("email")} />
           {errors.email && <span>{errors.email?.message}</span>}
         </div>
         <div>
-          <label>Họ Tên</label>
-          <input type="text" {...register("hoTen")} />
+          <input className={styles["box"]} type="text" {...register("hoTen")} />
           {errors.hoTen && <span>{errors.hoTen?.message}</span>}
         </div>
         <div>
-          <label>Số Điện Thoại</label>
-          <input type="text" {...register("soDt")} />
+          <input className={styles["box"]} type="text" {...register("soDt")} />
           {errors.soDt && <span>{errors.soDt?.message}</span>}
         </div>
-        <button>Đăng ký</button>
+        <button style={{ display: "none" }}>Đăng ký</button>
       </form>
     </div>
   );
