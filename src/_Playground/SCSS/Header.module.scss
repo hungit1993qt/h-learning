@@ -56,6 +56,9 @@
   padding: 1.4rem;
   text-transform: none;
 }
+.hide {
+  display: none !important;
+}
 @media (max-width: 991px) {
   #menu-btn {
     display: inline-block;
@@ -81,6 +84,23 @@
   .header .flex .navbar a {
     display: block;
     margin: 2rem;
+  }
+}
+.loginBtn {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background-color: var(--light-bg)!important;
+  cursor: pointer;
+  color: var(--white)!important;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
+
+  margin-left: 20px;
+  &:hover {
+    background-color: var(--white) !important;
+    color: var(--black) !important;
   }
 }
 

@@ -1,15 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Action } from "history";
 import { DanhMucKhoaHoc } from "../Interface/courseCatalog";
 import courseAPI from "../Services/courseAPI";
 
 interface State {
   danhMucKhoaHoc: DanhMucKhoaHoc[];
+  activeNavbar: boolean;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: State = {
   danhMucKhoaHoc: [],
+  activeNavbar: false,
   isLoading: false,
   error: null,
 };
@@ -30,7 +33,11 @@ export const getDanhMucKhoaHoc = createAsyncThunk(
 const courseSlice = createSlice({
   name: "course",
   initialState,
-  reducers: {},
+  reducers: {
+    isMenuHome: (state, action) => {
+      state.activeNavbar = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getDanhMucKhoaHoc.pending, (state) => {
       state.isLoading = true;
@@ -47,6 +54,6 @@ const courseSlice = createSlice({
 });
 
 // export actions
-
+export const { isMenuHome } = courseSlice.actions;
 // export reducer
 export default courseSlice.reducer;

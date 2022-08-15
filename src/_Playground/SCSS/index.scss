@@ -1,7 +1,6 @@
 //@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --green: #00e77f;
@@ -115,7 +114,27 @@ section {
     font-size: 2rem;
   }
 }
-
+.ant-modal-body,
+.ant-modal-header {
+  border-bottom: 1px solid var(--green);
+}
+.ant-modal-footer {
+  border-top: 1px solid var(--green);
+}
+.ant-modal-header,
+.ant-modal-footer {
+  background-color: var(--black);
+  
+}
+.ant-modal-title{
+  color: var(--green);
+  font-weight: bold;
+  text-align: center;
+  font-size: 3rem;
+}
+.ant-modal-body {
+  background-color: var(--black);
+}
 .go-top.active {
   opacity: 1;
   visibility: visible;
