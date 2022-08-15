@@ -47,7 +47,6 @@ const HeaderHome = (props: Props) => {
   const { danhMucKhoaHoc, activeNavbar, isLoading, error } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
-  console.log(activeNavbar);
   const handleChange = (e: any) => {
     seSelectCours(e.target.value);
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
@@ -67,27 +66,7 @@ const HeaderHome = (props: Props) => {
   const handleCancelRegister = () => {
     setVisibleRegister(false);
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginValues>({
-    // defaultValues: Khai báo giá trị mặc định cho các input trong form
-    defaultValues: {
-      taiKhoan: "",
-      matKhau: "",
-    },
-    // mode: cách validation được trigger (default là submit)
-    mode: "onTouched",
-  });
-
-  const onSubmit = (values: LoginValues) => {
-    console.log(values);
-  };
-
-  const onError = (error: FieldErrors<LoginValues>) => {
-    console.log(error);
-  };
+   
 
   return (
     <header className={styles["header"]}>

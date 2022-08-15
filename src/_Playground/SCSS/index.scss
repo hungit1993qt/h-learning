@@ -141,6 +141,9 @@ section {
   opacity: 1;
   visibility: visible;
 }
+.anticon {
+  color: var(--white) !important;
+}
 @media (max-width: 991px) {
   html {
     font-size: 55%;

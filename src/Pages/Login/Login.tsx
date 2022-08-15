@@ -76,7 +76,7 @@ const Login = () => {
           />
           {errors.matKhau && <span>{errors.matKhau?.message}</span>}
         </div>
-        <button style={{ display: "none" }}>Đăng Nhập</button>
+        <button className={styles["loginBtn"]}>Đăng Nhập</button>
       </form>
     </div>
   );

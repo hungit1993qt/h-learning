@@ -66,4 +66,22 @@ form .radio #male:checked ~ label[for="male"] {
 form .radio #female:checked ~ label[for="female"] {
   color: var(--green);
 }
+.registerBtn {
+  cursor: pointer;
+  display: block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background-color: var(--light-bg) !important;
+  cursor: pointer;
+  color: var(--white) !important;
+  font-size: 1.8rem;
+  padding: 1rem 4rem;
+  margin: 0 auto;
+  border-color: var(--white) !important ;
+  &:hover {
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    border-color: var(--white) !important ;
+  }
+}
 

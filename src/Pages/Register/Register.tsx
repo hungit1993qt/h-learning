@@ -54,26 +54,51 @@ const Register = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input className={styles["box"]} type="text" {...register("taiKhoan")} placeholder="Vui lòng nhập tài khoản!" />
+          <input
+            className={styles["box"]}
+            type="text"
+            {...register("taiKhoan")}
+            placeholder="Vui lòng nhập tài khoản!"
+          />
           {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="password" {...register("matKhau")} placeholder="Vui lòng nhập mật khẩu!" />
+          <input
+            className={styles["box"]}
+            type="password"
+            {...register("matKhau")}
+            placeholder="Vui lòng nhập mật khẩu!"
+          />
           {errors.matKhau && <span>{errors.matKhau?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="email" {...register("email")} placeholder="Vui lòng nhập email!" />
+          <input
+            className={styles["box"]}
+            type="email"
+            {...register("email")}
+            placeholder="Vui lòng nhập email!"
+          />
           {errors.email && <span>{errors.email?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="text" {...register("hoTen")} placeholder="Vui lòng nhập họ và tên!" />
+          <input
+            className={styles["box"]}
+            type="text"
+            {...register("hoTen")}
+            placeholder="Vui lòng nhập họ và tên!"
+          />
           {errors.hoTen && <span>{errors.hoTen?.message}</span>}
         </div>
         <div>
-          <input className={styles["box"]} type="text" {...register("soDt")} placeholder="Vui lòng nhập số điện thoại!" />
+          <input
+            className={styles["box"]}
+            type="text"
+            {...register("soDt")}
+            placeholder="Vui lòng nhập số điện thoại!"
+          />
           {errors.soDt && <span>{errors.soDt?.message}</span>}
         </div>
-        <button style={{ display: "none" }}>Đăng ký</button>
+        <button className={styles["registerBtn"]}>Đăng ký</button>
       </form>
     </div>
   );
