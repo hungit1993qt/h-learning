@@ -1,29 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginValue } from "Interface/loginValue";
+import { RegisterValue } from "Interface/registerValue";
 import authAPI from "Services/authAPI";
 
 // const message: string | null = "Hello"
 // const number = message as string
-
 interface State {
-  user: LoginValue | null;
+  register: RegisterValue | null;
   isLoading: boolean;
   error: string | null;
 }
 const initialState: State = {
-  user: JSON.parse(localStorage.getItem("user") as string) || null,
+  register: null,
   isLoading: false,
   error: null,
-}
+};
+
 // Viết actions login và register
-export const login = createAsyncThunk(
-  "auth/login",
-  async (user: LoginValue) => {
+export const registerUser = createAsyncThunk(
+  "auth/register",
+  async (register: RegisterValue) => {
     try {
       // const data = await authAPI.login(values)
-      const data = await authAPI.postUserLogin(user!);
+      const data: RegisterValue = await authAPI.postRegisterUser(register!);
       // Lưu thông tin user xuống localStorage
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("register", JSON.stringify(data));
       return data;
     } catch (error) {
       throw error;
@@ -34,17 +34,12 @@ export const login = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    logOut: (state) => {
-      localStorage.removeItem("user");
-      state.user = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(login.fulfilled, (state, { payload }) => {
-      state.user = payload;
+    builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+      state.register = payload;
     });
   },
 });
-export const { logOut } = authSlice.actions;
+
 export default authSlice.reducer;

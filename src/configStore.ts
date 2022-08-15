@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import danhMucKhoaHoc from "Slices/courseCatalog";
 import auth from "Slices/auth";
 import khoaHocTheoDanhMuc from 'Slices/listCourseByCatalog'
+import register from 'Slices/registerUser'
 
 const store = configureStore({
   reducer: {
     danhMucKhoaHoc,
     auth,
     khoaHocTheoDanhMuc,
+    register,
 
   },
 });

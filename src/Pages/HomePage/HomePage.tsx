@@ -13,13 +13,13 @@ import {isMenuHome} from 'Slices/courseCatalog'
 type Props = {};
 
 const HomePage = (props: Props) => {
-  const dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    dispatch(isMenuHome(true));
-    return function cleanup(){
-      dispatch(isMenuHome(false));
-    }
-  }, []);
+  // const dispatch = useDispatch<AppDispatch>();
+  // useEffect(() => {
+  //   dispatch(isMenuHome(true));
+  //   return function cleanup(){
+  //     dispatch(isMenuHome(false));
+  //   }
+  // }, []);
   const {activeNavbar} = useSelector(
     (state:RootState)=>state.danhMucKhoaHoc
   )

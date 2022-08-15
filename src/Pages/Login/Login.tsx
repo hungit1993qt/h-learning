@@ -5,11 +5,10 @@ import { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import { useNavigate } from "react-router-dom";
-import {LoginValue} from 'Interface/loginValue'
-import {login} from 'Slices/auth'
+import { LoginValue } from "Interface/loginValue";
+import { login } from "Slices/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,9 +21,9 @@ const Login = () => {
     setVisibleLogin(false);
     navigate("/");
   };
-  
+
   // useEffect(() => {
-    
+
   //   // return function cleanup() {
   //   //   handleCancel()
   //   // };
@@ -43,26 +42,25 @@ const Login = () => {
     mode: "onTouched",
   });
   const onSubmit = (values: LoginValue) => {
-    dispatch(login(values))
+    dispatch(login(values));
     console.log(values);
   };
   const onError = (error: FieldErrors<LoginValue>) => {
     console.log(error);
   };
-  const {user} = useSelector(
-    (state:RootState)=>state.auth
-  )
-  console.log(user)
-  if(user){
+  const { user } = useSelector((state: RootState) => state.auth);
+  console.log(user);
+  if (user) {
     navigate(-1);
   }
   return (
     <div>
       <Modal
-        visible={visibleLogin}
         title="ĐĂNG NHẬP"
+        visible={visibleLogin}
         onCancel={handleCancel}
         footer={null}
+        mask={true}
       >
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>

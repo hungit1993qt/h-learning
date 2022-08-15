@@ -4,7 +4,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
-import { Navigate,useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import "antd/dist/antd.css";
+import { registerUser } from "Slices/registerUser";
+import { RegisterValue } from "Interface/registerValue";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "configStore";
 
 // Register fields: taiKhoan, matKhau, email, hoTen, soDt
 
@@ -29,16 +34,9 @@ const schema = object({
   soDt: string().required("Số điện thoại không được để trống"),
 });
 
-interface RegisterValues {
-  taiKhoan: string;
-  matKhau: string;
-  email: string;
-  hoTen: string;
-  soDt: string;
-}
-
 const Register = () => {
-  const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const [visibleRegister, setVisibleRegister] = useState(true);
   const showModal = () => {
     setVisibleRegister(true);
@@ -46,7 +44,7 @@ const Register = () => {
 
   const handleCancel = () => {
     setVisibleRegister(false);
-    navigate("/")
+    navigate("/");
   };
   // useEffect(() => {
   //   setVisibleRegister(true);
@@ -58,14 +56,14 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterValues>({
+  } = useForm<RegisterValue>({
     mode: "onTouched",
     // cấu hình validation bằng yup schema
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (values: RegisterValues) => {
-    console.log(values);
+  const onSubmit = (values: RegisterValue) => {
+    dispatch(registerUser(values));
   };
 
   return (
@@ -117,10 +115,10 @@ const Register = () => {
             <input
               className={styles["box"]}
               type="text"
-              {...register("soDt")}
+              {...register("soDT")}
               placeholder="Vui lòng nhập số điện thoại!"
             />
-            {errors.soDt && <span>{errors.soDt?.message}</span>}
+            {errors.soDT && <span>{errors.soDT?.message}</span>}
           </div>
           <button className={styles["registerBtn"]}>Đăng ký</button>
         </form>

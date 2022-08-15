@@ -83,7 +83,7 @@ const HeaderHome = (props: Props) => {
               : styles["navbar"]
           }
         >
-          <a className={activeNavbar ? "" : styles["hide"]} href="#home">
+          {/* <a className={activeNavbar ? "" : styles["hide"]} href="#home">
             Trang chủ
           </a>
           <a className={activeNavbar ? "" : styles["hide"]} href="#about">
@@ -100,7 +100,7 @@ const HeaderHome = (props: Props) => {
           </a>
           <a className={activeNavbar ? "" : styles["hide"]} href="#contact">
             Liên hệ
-          </a>
+          </a> */}
           <Button
             className={styles["loginBtn"]}
             onClick={() => navigate("/login")}

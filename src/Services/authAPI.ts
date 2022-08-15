@@ -1,6 +1,6 @@
 import { LoginValue } from "../Interface/loginValue";
 import axiosClient from "./axiosClient";
-//import { RegisterValue } from 'Interface/register'
+import { RegisterValue } from 'Interface/registerValue'
 
 const authAPI = {
   postUserLogin: ({ taiKhoan, matKhau }: LoginValue) => {
@@ -9,9 +9,9 @@ const authAPI = {
       matKhau,
     });
   },
-  // postRegisterUser: (registerValue: RegisterValue) => {
-  //     return axiosClient.post("QuanLyNguoiDung/DangKy", registerValue);
-  // },
+  postRegisterUser: (registerValue: RegisterValue) => {
+      return axiosClient.post("QuanLyNguoiDung/DangKy", registerValue);
+  },
   // getBookedUser: () => {
   //     return axiosClient.post("QuanLyNguoiDung/ThongTinTaiKhoan");
   // },
