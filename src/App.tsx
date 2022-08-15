@@ -22,6 +22,7 @@ const Register = lazy(() => import("Pages/Register/Register"));
 const About = lazy(() => import("Pages/About/About"));
 const Checkout = lazy(() => import("Pages/Checkout/Checkout"));
 const AddMovie = lazy(() => import("Pages/AddMovie/AddMovie"));
+const ErrorPage = lazy(() => import("./Components/ErrorBoundary/ErrorPage"));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="about" element={<About />} />
+              <Route path="error" element={<ErrorPage />} />
               <Route
                 path="checkout/:maKhoaHoc"
                 element={
@@ -45,7 +47,7 @@ function App() {
               />
               <Route path="movies/add" element={<AddMovie />} />
               <Route index element={<HomePage />} />
-              <Route path="*" element={<Navigate to={""} />} />
+              <Route path="*" element={<Navigate to={"error"} />} />
             </Route>
           </Routes>
 

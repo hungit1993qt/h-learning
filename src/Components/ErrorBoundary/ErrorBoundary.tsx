@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ErrorPage from "./ErrorPage";
 
 interface State {
   hasError: boolean;
@@ -29,7 +30,7 @@ export default class ErrorBoundary extends Component<Props, State> {
   render() {
     // Hiển thị ra UI thay thế nếu ứng dụng bị lỗi
     if (this.state.hasError) {
-      return <h1>Something wrong</h1>;
+      return <ErrorPage />
     }
 
     return this.props.children;
