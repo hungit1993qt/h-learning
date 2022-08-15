@@ -15,7 +15,7 @@ const Banner = (props: Props) => {
             </a>
           </div>
           <div className={styles["image"]}>
-            <img src="images/homg-img.svg" />
+            <img className={styles["img-CoursO"]} src="images/homg-img.svg" />
           </div>
         </div>
       </section>

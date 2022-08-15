@@ -3,29 +3,29 @@ import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "configStore";
+import { useNavigate } from "react-router-dom";
 interface LoginValues {
   taiKhoan: string;
   matKhau: string;
 }
 
 const Login = () => {
-  const [visibleLogin, setVisibleLogin] = useState(false);
+  const navigate = useNavigate();
+  const [visibleLogin, setVisibleLogin] = useState(true);
   const showModal = () => {
     setVisibleLogin(true);
   };
-
   const handleCancel = () => {
     setVisibleLogin(false);
+    navigate("/");
   };
-  useEffect(() => {
-    showModal()
-    return function cleanup() {
-      handleCancel()
-    };
-  }, []);
-
+  console.log(visibleLogin);
+  // useEffect(() => {
+  //   showModal()
+  //   return function cleanup() {
+  //     handleCancel()
+  //   };
+  // }, []);
   const {
     register,
     handleSubmit,
@@ -39,15 +39,12 @@ const Login = () => {
     // mode: cách validation được trigger (default là submit)
     mode: "onTouched",
   });
-
   const onSubmit = (values: LoginValues) => {
     console.log(values);
   };
-
   const onError = (error: FieldErrors<LoginValues>) => {
     console.log(error);
   };
-
   return (
     <div>
       <Modal

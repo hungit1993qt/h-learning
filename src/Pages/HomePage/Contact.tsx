@@ -19,7 +19,7 @@ const Contact = (props: Props) => {
       </h1>
       <div className={styles["row"]}>
         <div className={styles["image"]}>
-          <img src="images/contact-img.svg" />
+          <img className={styles["img-contact"]} src="images/contact-img.svg" />
         </div>
         <form method="post">
           <span>Họ và tên</span>

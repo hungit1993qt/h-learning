@@ -8,7 +8,7 @@ const About = (props: Props) => {
     <section className={styles["about"]} id="about">
       <div className={styles["row"]}>
         <div className={styles["image"]}>
-          <img src="images/about-img.svg" />
+          <img className={styles["img-Choose"]} src="images/about-img.svg" />
         </div>
         <div className={styles["content"]}>
           <h3>Tại sao chọn chúng tôi?</h3>

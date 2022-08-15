@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
+import { Navigate,useNavigate } from "react-router-dom";
 
 // Register fields: taiKhoan, matKhau, email, hoTen, soDt
 
@@ -37,20 +38,22 @@ interface RegisterValues {
 }
 
 const Register = () => {
-  const [visibleRegister, setVisibleRegister] = useState(false);
+  const navigate = useNavigate()
+  const [visibleRegister, setVisibleRegister] = useState(true);
   const showModal = () => {
     setVisibleRegister(true);
   };
 
   const handleCancel = () => {
     setVisibleRegister(false);
+    navigate("/")
   };
-  useEffect(() => {
-    setVisibleRegister(true);
-    return function cleanup() {
-      setVisibleRegister(false);
-    };
-  }, []);
+  // useEffect(() => {
+  //   setVisibleRegister(true);
+  //   return function cleanup() {
+  //     setVisibleRegister(false);
+  //   };
+  // }, []);
   const {
     register,
     handleSubmit,

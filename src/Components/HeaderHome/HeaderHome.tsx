@@ -30,19 +30,16 @@ const HeaderHome = (props: Props) => {
   const ShowMenuMobile = () => {
     setActiveMobile(!activeMobile);
   };
-
   const ref = useRef(null);
   const handleClickOutside = () => {
     //console.log('clicked outside')
     setActiveMobile(false);
   };
-
   const handleClickInside = () => {
     // Your custom logic here
     //console.log('clicked inside')
     setActiveMobile(true);
   };
-
   useOnClickOutside(ref, handleClickOutside);
   const { danhMucKhoaHoc, activeNavbar, isLoading, error } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
@@ -52,14 +49,6 @@ const HeaderHome = (props: Props) => {
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
     navigate(`danhmuckhoahoc/${e.target.value}`);
   };
-
-  const loginShow = () => {
-    navigate("/login");
-  };
-  const registerShow = () => {
-    navigate("/register");
-  };
-
   return (
     <header className={styles["header"]}>
       <section className={styles["flex"]}>
@@ -112,12 +101,15 @@ const HeaderHome = (props: Props) => {
           <a className={activeNavbar ? "" : styles["hide"]} href="#contact">
             Liên hệ
           </a>
-          <Button className={styles["loginBtn"]} onClick={() => loginShow()}>
+          <Button
+            className={styles["loginBtn"]}
+            onClick={() => navigate("/login")}
+          >
             Đăng nhập
           </Button>
           <Button
             className={styles["registerBtn"]}
-            onClick={() => registerShow()}
+            onClick={() => navigate("/register")}
           >
             Đăng ký
           </Button>
