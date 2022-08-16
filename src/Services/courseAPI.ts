@@ -13,6 +13,13 @@ const courseAPI = {
 
       }
     })
+  },
+  getThongTinKhoaHoc:(maKhoaHoc:string)=>{
+    return axiosClient.get("QuanLyKhoaHoc/LayThongTinKhoaHoc",{
+      params:{
+        maKhoaHoc:maKhoaHoc
+      }
+    })
   }
   // getMovieDetails: (movieId: string) => {
   //   return axiosClient.get("QuanLyPhim/LayThongTinPhim", {

@@ -57,7 +57,7 @@ const Courses = (props: Props) => {
         {danhMucKhoaHoc.map((danhmuckhoahoc, index) => {
           return (
             <SwiperSlide key={danhmuckhoahoc.maDanhMuc}>
-              <NavLink className={styles["navLinkDanhMucKhoaHoc"]} to={`danhmuckhoahoc/${danhmuckhoahoc.maDanhMuc}`}>
+              <NavLink className={styles["navLinkDanhMucKhoaHoc"]} to={`danh-muc-khoa-hoc/${danhmuckhoahoc.maDanhMuc}`}>
                 <div className={styles["slide"]}>
                   <img
                     className={styles["imgCourses"]}

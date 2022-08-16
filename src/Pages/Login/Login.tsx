@@ -43,7 +43,6 @@ const Login = () => {
   });
   const onSubmit = (values: LoginValue) => {
     dispatch(login(values));
-    console.log(values);
   };
   const onError = (error: FieldErrors<LoginValue>) => {
     console.log(error);

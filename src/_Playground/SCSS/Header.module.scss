@@ -96,39 +96,59 @@
     border-color: var(--white) !important ;
   }
 }
-.titleUser{
-  color: var(--green);
-  font-weight: bold;
-}
-.btn-drop-user{
-  color: var(--green);
-  background-color: transparent;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  margin:0 auto;
-  &:hover{
-    background-color: transparent;
-  }
-}
+
 .dropdown {
+  .titleUser {
+    color: var(--green);
+    font-weight: bold;
+  }
   position: relative;
   display: inline-block;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    margin-top: 10px;
+    .btn-drop-user {
+      color: var(--green);
+      background-color: transparent;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  &:hover .dropdown-content{
+    display: block;
+  }
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  margin-top: 10px;
-}
-
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 @media (max-width: 991px) {
+  .dropdown {
+    padding: 2rem;
+    .titleUser {
+    }
+    .dropdown-content {
+      position: static;
+      display: block;
+      .btn-drop-user {
+        color: var(--green);
+        background-color: transparent;
+        display: inline-block;
+        text-align: center;
+        padding: 0 !important;
+        margin: 0 auto;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
   #menu-btn {
     display: inline-block;
   }
@@ -158,11 +178,11 @@
   .loginBtn {
     display: block !important;
   }
-  .registerBtn{
+  .registerBtn {
     margin: 20px;
     width: 102px;
   }
-  .loginBtn{
+  .loginBtn {
     margin-top: 20px;
   }
 }

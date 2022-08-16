@@ -25,9 +25,11 @@ const ListCours = () => {
     (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
   );
   const handleCheckout = (maKhoaHoc: string) => {
-    navigate(`/checkout/${maKhoaHoc}`);
+    navigate(`/dang-ky/${maKhoaHoc}`);
   };
-  
+  const handleDetail = (maKhoaHoc: string) => {
+    navigate(`/chi-tiet/${maKhoaHoc}`);
+  };
 
   // const tenDanhMucKhoaHoc = khoaHocTheoDanhMuc[0].danhMucKhoaHoc.tenDanhMucKhoaHoc;
   return (
@@ -90,6 +92,9 @@ const ListCours = () => {
                       <div>
                         <button
                           className={`${styles["card_btn"]} ${styles["btn"]}`}
+                          onClick={() =>
+                            handleDetail(khoahoctheodanhmuc.maKhoaHoc)
+                          }
                         >
                           Chi tiết
                         </button>

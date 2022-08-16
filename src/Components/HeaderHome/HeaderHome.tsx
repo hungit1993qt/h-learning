@@ -51,7 +51,7 @@ const HeaderHome = (props: Props) => {
   const handleChange = (e: any) => {
     seSelectCours(e.target.value);
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
-    navigate(`danhmuckhoahoc/${e.target.value}`);
+    navigate(`danh-muc-khoa-hoc/${e.target.value}`);
   };
   return (
     <header className={styles["header"]}>
@@ -118,21 +118,23 @@ const HeaderHome = (props: Props) => {
             Đăng ký
           </Button>
 
-          <div className={styles["dropdown"]}>
-            <span className={styles["titleUser"]}>{user ? getValueLocalstorage.hoTen : ""}</span>
+          <div className={user ? styles["dropdown"] : styles["hide"]}>
+            <span className={styles["titleUser"]}>
+              {user ? getValueLocalstorage.hoTen : ""}
+            </span>
             <div className={styles["dropdown-content"]}>
-            <p>
+              <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}
-                  onClick={() => dispatch(logOut())}
+                  
                 >
                   Khóa học
                 </Button>
               </p>
-            <p>
+              <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}
-                  onClick={() => dispatch(logOut())}
+                  
                 >
                   Tài khoản
                 </Button>
@@ -145,7 +147,6 @@ const HeaderHome = (props: Props) => {
                   Đăng xuất
                 </Button>
               </p>
-              
             </div>
           </div>
         </nav>

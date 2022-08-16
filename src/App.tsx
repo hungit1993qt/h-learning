@@ -17,7 +17,8 @@ import Loading from "Components/Loading/Loading";
 
 // Sử dụng React lazy để trì hoãn việc import component, component chỉ được import khi ta gọi tới nó
 const HomePage = lazy(() => import("Pages/HomePage/HomePage"));
-const DetailCours = lazy(() => import("Pages/Detail/ListCours"));
+const ListCours = lazy(() => import("Pages/Detail/ListCours"));
+const DetailCours = lazy(() => import("Pages/Detail/DetailCours"));
 const Login = lazy(() => import("Pages/Login/Login"));
 const Register = lazy(() => import("Pages/Register/Register"));
 const About = lazy(() => import("Pages/About/About"));
@@ -33,13 +34,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="" element={<HomeTemplate />}>
-              <Route path="danhmuckhoahoc/:maDanhMuc" element={<DetailCours />} />
+              <Route path="danh-muc-khoa-hoc/:maDanhMuc" element={<ListCours />} />
+              <Route path="chi-tiet/:maKhoaHoc" element={<DetailCours />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="about" element={<About />} />
               <Route path="error" element={<ErrorPage />} />
               <Route
-                path="checkout/:maKhoaHoc"
+                path="dang-ky/:maKhoaHoc"
                 element={
                   <ProtectedRoute>
                     <Checkout />
