@@ -96,6 +96,38 @@
     border-color: var(--white) !important ;
   }
 }
+.titleUser{
+  color: var(--green);
+  font-weight: bold;
+}
+.btn-drop-user{
+  color: var(--green);
+  background-color: transparent;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin:0 auto;
+  &:hover{
+    background-color: transparent;
+  }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 @media (max-width: 991px) {
   #menu-btn {
     display: inline-block;

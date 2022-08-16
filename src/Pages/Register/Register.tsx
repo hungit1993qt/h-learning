@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useForm } from "react-hook-form";
+import { useForm, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
@@ -31,7 +31,8 @@ const schema = object({
     .required("Email không được để trống")
     .email("Email không đúng định dạng"),
   hoTen: string().required("Họ tên không được để trống"),
-  soDt: string().required("Số điện thoại không được để trống"),
+  soDT: string().required("Số điện thoại không được để trống"),
+  maNhom: string().required("Mã nhóm không được để trống"),
 });
 
 const Register = () => {
@@ -61,8 +62,12 @@ const Register = () => {
     // cấu hình validation bằng yup schema
     resolver: yupResolver(schema),
   });
+  const onError = (error: FieldErrors<RegisterValue>) => {
+    console.log(error);
+  };
 
   const onSubmit = (values: RegisterValue) => {
+    console.log(values)
     dispatch(registerUser(values));
   };
 
@@ -70,11 +75,11 @@ const Register = () => {
     <div>
       <Modal
         visible={visibleRegister}
-        title="ĐĂNG NHẬP"
+        title="ĐĂNG KÝ"
         onCancel={handleCancel}
         footer={null}
       >
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>
             <input
               className={styles["box"]}
@@ -119,6 +124,18 @@ const Register = () => {
               placeholder="Vui lòng nhập số điện thoại!"
             />
             {errors.soDT && <span>{errors.soDT?.message}</span>}
+          </div>
+          <div>
+            <input
+              className={styles["box"]}
+              type="text"
+              {...register("maNhom")}
+              placeholder="Vui lòng nhập mã nhóm!"
+              value={"GP01"}
+              // disabled
+              // hidden
+            />
+            {errors.maNhom && <span>{errors.maNhom?.message}</span>}
           </div>
           <button className={styles["registerBtn"]}>Đăng ký</button>
         </form>

@@ -48,10 +48,12 @@ const Login = () => {
   const onError = (error: FieldErrors<LoginValue>) => {
     console.log(error);
   };
-  const { user } = useSelector((state: RootState) => state.auth);
-  console.log(user);
-  if (user) {
-    navigate(-1);
+  const {user } = useSelector((state: RootState) => state.auth);
+  const getUserLocalStorage = JSON.parse(localStorage.getItem("userLogin") as string)
+  if(user){
+    if(getUserLocalStorage){
+      navigate(-1)
+    }
   }
   return (
     <div>

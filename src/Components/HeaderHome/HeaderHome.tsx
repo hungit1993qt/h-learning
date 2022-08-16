@@ -13,7 +13,7 @@ import { Button, Modal } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
 import Login from "Pages/Login/Login";
 import Register from "Pages/Register/Register";
-import { login } from "Slices/auth";
+import { login, logOut } from "Slices/auth";
 type Props = {};
 interface LoginValues {
   taiKhoan: string;
@@ -43,6 +43,10 @@ const HeaderHome = (props: Props) => {
   useOnClickOutside(ref, handleClickOutside);
   const { danhMucKhoaHoc, activeNavbar, isLoading, error } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
+  );
+  const { user } = useSelector((state: RootState) => state.auth);
+  const getValueLocalstorage = JSON.parse(
+    localStorage.getItem("userLogin") as string
   );
   const handleChange = (e: any) => {
     seSelectCours(e.target.value);
@@ -102,17 +106,48 @@ const HeaderHome = (props: Props) => {
             Liên hệ
           </a> */}
           <Button
-            className={styles["loginBtn"]}
+            className={user ? styles["hide"] : styles["loginBtn"]}
             onClick={() => navigate("/login")}
           >
             Đăng nhập
           </Button>
           <Button
-            className={styles["registerBtn"]}
+            className={user ? styles["hide"] : styles["registerBtn"]}
             onClick={() => navigate("/register")}
           >
             Đăng ký
           </Button>
+
+          <div className={styles["dropdown"]}>
+            <span className={styles["titleUser"]}>{user ? getValueLocalstorage.hoTen : ""}</span>
+            <div className={styles["dropdown-content"]}>
+            <p>
+                <Button
+                  className={user ? styles["btn-drop-user"] : styles["hide"]}
+                  onClick={() => dispatch(logOut())}
+                >
+                  Khóa học
+                </Button>
+              </p>
+            <p>
+                <Button
+                  className={user ? styles["btn-drop-user"] : styles["hide"]}
+                  onClick={() => dispatch(logOut())}
+                >
+                  Tài khoản
+                </Button>
+              </p>
+              <p>
+                <Button
+                  className={user ? styles["btn-drop-user"] : styles["hide"]}
+                  onClick={() => dispatch(logOut())}
+                >
+                  Đăng xuất
+                </Button>
+              </p>
+              
+            </div>
+          </div>
         </nav>
         <div
           onClick={() => ShowMenuMobile()}

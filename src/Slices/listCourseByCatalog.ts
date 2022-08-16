@@ -19,7 +19,8 @@ export const getKhoaHocTheoDanhMuc = createAsyncThunk(
   "course/getKhoaHocTheoDanhMuc",
   async (maDanhMuc:string) => {
     try {
-      const data: KhoaHocTheoDanhMuc[] = await courseAPI.getKhoaHocTheoDanhMuc(maDanhMuc);
+      const reponse = await courseAPI.getKhoaHocTheoDanhMuc(maDanhMuc);
+      const data:KhoaHocTheoDanhMuc[] = reponse.data;
       return data;
     } catch (error) {
       throw error;

@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RegisterValue } from "Interface/registerValue";
 import authAPI from "Services/authAPI";
+import { number } from "yup";
+import Swal from "sweetalert2";
 
 // const message: string | null = "Hello"
 // const number = message as string
@@ -21,12 +23,30 @@ export const registerUser = createAsyncThunk(
   async (register: RegisterValue) => {
     try {
       // const data = await authAPI.login(values)
-      const data: RegisterValue = await authAPI.postRegisterUser(register!);
+      const reponse = await authAPI.postRegisterUser(register!);
+      const statusReques: number = reponse.status;
+      const data = reponse.data;
+      if (99 < statusReques && statusReques < 300) {
+        Swal.fire({
+          icon: "success",
+          title: `Chúc mừng bạn đăng ký thành công`,
+        });
+        localStorage.setItem("register", JSON.stringify(data));
+        
+      } else {
+        Swal.fire({
+          icon: "error",
+          text:"Vui lòng thay đổi thông tin",
+          title: `${data}`,
+        });
+      }
+      console.log(reponse.status, reponse, data);
+
       // Lưu thông tin user xuống localStorage
-      localStorage.setItem("register", JSON.stringify(data));
+
       return data;
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 );
