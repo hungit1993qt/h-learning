@@ -134,7 +134,7 @@ const HeaderHome = (props: Props) => {
               <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}
-                  
+                  onClick={() => navigate("/tai-khoan")}
                 >
                   Tài khoản
                 </Button>

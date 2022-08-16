@@ -19,6 +19,7 @@ import Loading from "Components/Loading/Loading";
 const HomePage = lazy(() => import("Pages/HomePage/HomePage"));
 const ListCours = lazy(() => import("Pages/Detail/ListCours"));
 const DetailCours = lazy(() => import("Pages/Detail/DetailCours"));
+const UserProfile = lazy(() => import("Pages/UserProfile/UserProfile"));
 const Login = lazy(() => import("Pages/Login/Login"));
 const Register = lazy(() => import("Pages/Register/Register"));
 const About = lazy(() => import("Pages/About/About"));
@@ -48,6 +49,15 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="tai-khoan/"
+                element={
+                  <ProtectedRoute>
+                    <UserProfile />
+                  </ProtectedRoute>
+                }
+              />
+              
               <Route path="movies/add" element={<AddMovie />} />
               <Route index element={<HomePage />} />
               <Route path="*" element={<Navigate to={"error"} />} />
