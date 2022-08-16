@@ -31,7 +31,10 @@ const ListCours = () => {
   };
 
   return (
-    <section key={chiTietKhoaHoc?.maKhoaHoc} className={styles["detailCourses"]}>
+    <section
+      key={chiTietKhoaHoc?.maKhoaHoc}
+      className={styles["detailCourses"]}
+    >
       <h1 className={styles["heading"]}>
         <span> {chiTietKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</span>
       </h1>
@@ -40,28 +43,27 @@ const ListCours = () => {
           <img src={chiTietKhoaHoc?.hinhAnh!} />
         </div>
         <div className={styles["down-content"]}>
-          <span>{chiTietKhoaHoc?.biDanh}</span>
-          <a href="post-details.html">
+          <a href="">
             <h4>{chiTietKhoaHoc?.tenKhoaHoc}</h4>
           </a>
-          <ul className={styles["post-info"]}>
-            <li>
-              <a href="#">{chiTietKhoaHoc?.nguoiTao.maLoaiNguoiDung}. {chiTietKhoaHoc?.nguoiTao.hoTen}</a>
-            </li>
-            <li>
-              <a href="#">{chiTietKhoaHoc?.ngayTao}</a>
-            </li>
-            <li>
-              <a href="#">{chiTietKhoaHoc?.luotXem} <i className="fa fa-eye"></i></a>
-            </li>
-            <li>
-              <a href="#">{chiTietKhoaHoc?.soLuongHocVien} <i className="fa fa-users"></i></a>
-            </li>
-          </ul>
-          <p className={styles["descri"]}>
-          {chiTietKhoaHoc?.moTa}
-           
-          </p>
+
+          <span>
+            <div className={styles["stars"]}>
+              <i className={`fas fa-star ${styles["iconReview"]}`} />
+              <i className={`fas fa-star ${styles["iconReview"]}`} />
+              <i className={`fas fa-star ${styles["iconReview"]}`} />
+              <i className={`fas fa-star ${styles["iconReview"]}`} />
+              <i className={`fas fa-star ${styles["iconReview"]}`} />
+            </div>
+            <button
+              onClick={() => handleCheckout(chiTietKhoaHoc?.maKhoaHoc!)}
+              className={styles["btn"]}
+            >
+              Đăng ký
+            </button>
+          </span>
+
+          <p className={styles["descri"]}>{chiTietKhoaHoc?.moTa}</p>
           <div className={styles["post-options"]}>
             <div className={styles["row"]}>
               <div className={styles["col-6"]}>
@@ -70,12 +72,13 @@ const ListCours = () => {
                     <i className="fa fa-tags" />
                   </li>
                   <li>
-                    <a href="#">{chiTietKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</a> - <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
+                    <a href="#">
+                      {chiTietKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}
+                    </a>{" "}
+                    - <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
                   </li>
-                  
                 </ul>
               </div>
-              
             </div>
           </div>
         </div>

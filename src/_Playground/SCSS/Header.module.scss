@@ -101,6 +101,7 @@
   .titleUser {
     color: var(--green);
     font-weight: bold;
+    font-size: 1.8rem;
   }
   position: relative;
   display: inline-block;
@@ -109,7 +110,9 @@
     position: absolute;
     width: 100%;
     z-index: 1;
-    margin-top: 10px;
+    padding: 10px 10px 0px 10px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
     .btn-drop-user {
       color: var(--green);
       background-color: transparent;

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
 .detailCourses {
   margin-top: 10rem;
   .heading {
@@ -23,8 +22,7 @@
     img {
       width: 100%;
       overflow: hidden;
-      object-fit:cover;
-      
+      object-fit: cover;
     }
   }
   .down-content {
@@ -40,11 +38,36 @@
     border-left: 1px solid #eee;
     border-bottom: 1px solid #eee;
     span {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 900;
-      color: #7a7a7a;
+      color: var(--bs-yellow);
+
+      .stars {
+        display: inline-block;
+        .iconReview {
+          margin-left: 5px;
+        }
+      }
+      .btn {
+        color: #ffffff;
+        font-size: 1rem;
+        text-transform: uppercase;
+        border-radius: 4px;
+        font-weight: 400;
+        display: inline-block;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid var(--green);
+        margin: 5px 10px;
+        padding: 2px 5px;
+        &:hover{
+          background-color: var(--bs-yellow);
+          color: var(--black);
+          font-weight: bold;
+        }
+      }
     }
     h4 {
       font-size: 3.5rem !important;
@@ -114,4 +137,3 @@
 .down-content ul.post-share li a:hover {
   color: #f48840;
 }
-
