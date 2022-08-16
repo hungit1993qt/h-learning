@@ -1,6 +1,7 @@
 import { LoginValue } from "../Interface/loginValue";
 import axiosClient from "./axiosClient";
 import { RegisterValue } from 'Interface/registerValue'
+import { UserUpdate } from 'Interface/userUpdate'
 
 const authAPI = {
   postUserLogin: ({ taiKhoan, matKhau }: LoginValue) => {
@@ -14,7 +15,11 @@ const authAPI = {
   },
   postThongTinNguoiDung:()=>{
     return axiosClient.post("QuanLyNguoiDung/ThongTinNguoiDung");
+  },
+  putCapNhatThongTinNguoiDung:(infoUpdate:UserUpdate)=>{
+    return axiosClient.put("QuanLyNguoiDung/CapNhatThongTinNguoiDung",infoUpdate);
   }
+
   // getBookedUser: () => {
   //     return axiosClient.post("QuanLyNguoiDung/ThongTinTaiKhoan");
   // },

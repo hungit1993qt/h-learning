@@ -5,6 +5,7 @@ import khoaHocTheoDanhMuc from 'Slices/listCourseByCatalog'
 import chiTietKhoaHoc from 'Slices/findDetailCours'
 import register from 'Slices/registerUser'
 import profileUsers from 'Slices/profileUser'
+import inforUpdate from 'Slices/updateUser'
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     register,
     chiTietKhoaHoc,
     profileUsers,
+    inforUpdate
 
   },
 });

@@ -22,6 +22,30 @@ const Login = () => {
     navigate("/");
   };
 
+  // if (auth) {
+  //   if (getLocalStorage) {
+  //     if (getLocalStorage.maLoaiNguoiDung === "QuanTri") {
+
+  //       dispatch(logOut());
+
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'CÓ LỖI XẢY RA',
+  //         text: 'Sai loại tài khoản, vui lòng đăng nhập đúng tài khoản người dùng!',
+  //         footer: '<a href="register">Bạn chưa có tài khoản? tạo ngay</a>'
+  //       })
+  //       navigate("/login")
+
+  //     } else {
+  //       navigate(-1);
+  //       localStorage.removeItem("registerUser");
+  //     }
+  //   }
+
+  // } else {
+  //   <Navigate to="/login" />
+  // }
+
   // useEffect(() => {
 
   //   // return function cleanup() {
