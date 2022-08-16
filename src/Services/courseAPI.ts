@@ -20,7 +20,8 @@ const courseAPI = {
         maKhoaHoc:maKhoaHoc
       }
     })
-  }
+  },
+  
   // getMovieDetails: (movieId: string) => {
   //   return axiosClient.get("QuanLyPhim/LayThongTinPhim", {
   //     params: {

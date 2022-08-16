@@ -12,6 +12,9 @@ const authAPI = {
   postRegisterUser: (registerValue: RegisterValue) => {
       return axiosClient.post("QuanLyNguoiDung/DangKy", registerValue);
   },
+  postThongTinNguoiDung:()=>{
+    return axiosClient.post("QuanLyNguoiDung/ThongTinNguoiDung");
+  }
   // getBookedUser: () => {
   //     return axiosClient.post("QuanLyNguoiDung/ThongTinTaiKhoan");
   // },
