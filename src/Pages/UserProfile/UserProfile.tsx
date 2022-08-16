@@ -29,28 +29,33 @@ const UserProfile = (props: Props) => {
             <figure>
               <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/55758/random-user-31.jpg" />
             </figure>
-            <header>
-              <h1>
-                {profileUsers?.hoTen}
-                <small>{profileUsers?.email}</small>
-              </h1>
-            </header>
+            <div className={styles["toggle"]}>
+            <i className="fa fa-edit"></i>
+              
+            </div>
+
             <main>
               <dl>
-                <dt>Họ Tên:</dt>
+                <dt>Họ Tên</dt>
                 <dd>{profileUsers?.hoTen}</dd>
 
                 <dt>Tài Khoản</dt>
                 <dd>{profileUsers?.taiKhoan}</dd>
                 <dt>Mật khẩu</dt>
-                <dd>{profileUsers?.matKhau.slice(0,1)}******{profileUsers?.matKhau.slice(profileUsers?.matKhau.length-2,profileUsers?.matKhau.length)}</dd>
-                <dt>Email:</dt>
+                <dd>
+                  {profileUsers?.matKhau.slice(0, 1)}******
+                  {profileUsers?.matKhau.slice(
+                    profileUsers?.matKhau.length - 2,
+                    profileUsers?.matKhau.length
+                  )}
+                </dd>
+                <dt>Email</dt>
                 <dd>{profileUsers?.email}</dd>
-                <dt>Số ĐT:</dt>
+                <dt>Số ĐT</dt>
                 <dd>{profileUsers?.soDT}</dd>
-                <dt>Loại:</dt>
+                <dt>Loại</dt>
                 <dd>{profileUsers?.maLoaiNguoiDung}</dd>
-                <dt>Mã nhóm:</dt>
+                <dt>Mã nhóm</dt>
                 <dd>{profileUsers?.maNhom}</dd>
               </dl>
             </main>
