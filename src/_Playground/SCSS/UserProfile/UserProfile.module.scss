@@ -311,7 +311,7 @@ table {
       text-align: left;
 
       &:before {
-        color: lighten($baseColor, 30%);
+        color: var(--green);
         content: "";
         display: block;
         left: 0;
@@ -354,7 +354,7 @@ table {
 
   img {
     border: 3px solid;
-    border-color: lighten($baseColor, 50%);
+    // border-color: lighten($baseColor, 50%);
     height: $imageBig;
     margin: 0.5rem 0;
     width: $imageBig;
