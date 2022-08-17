@@ -229,16 +229,16 @@ const UserProfile = (props: Props) => {
                   <th>Mô Tả</th>
                   <th>Ngày Tạo</th>
                 </tr>
-                {profileUsers?.chiTietKhoaHocGhiDanh.map((listCoursApply) => {
+                {profileUsers?.chiTietKhoaHocGhiDanh.map((listCoursApply,index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td style={{ width: "120px" ,margin:"0 auto"}}>
                         <img style={{ width: "100%"  }} src={listCoursApply.hinhAnh} />
                       </td>
                       <td style={{ width: "120px" }}>{listCoursApply.tenKhoaHoc}</td>
                       <td className={styles["mota"]}>{listCoursApply.moTa}</td>
                       <td style={{ width: "120px" }}>
-                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")} <i className="fa fa-trash-alt"></i>
+                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")} <i title="Hủy ghi danh" className="fa fa-trash-alt"></i>
                       </td>
                       
                     </tr>
