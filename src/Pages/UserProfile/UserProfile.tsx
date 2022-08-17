@@ -11,11 +11,13 @@ import { useForm, FieldErrors } from "react-hook-form";
 import { UserUpdate } from "Interface/userUpdate";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
+import Moment from "moment";
 const { TabPane } = Tabs;
 
 type Props = {};
 
 const schema = object({
+  
   taiKhoan: string()
     .required("Tài khoản không được để trống")
     .matches(
@@ -47,6 +49,7 @@ const UserProfile = (props: Props) => {
   const { profileUsers } = useSelector(
     (state: RootState) => state.profileUsers
   );
+  console.log(profileUsers);
   const handleUpdatePassword = () => {
     console.log("update");
     showModal();
@@ -78,7 +81,8 @@ const UserProfile = (props: Props) => {
   const handleCancel = () => {
     setVisibleRegister(false);
   };
-  console.log(passwordUpdate ? true : false);
+  Moment.locale("en");
+  
   return (
     <section className={styles["UserProfile"]}>
       <Tabs defaultActiveKey="1">
@@ -102,12 +106,14 @@ const UserProfile = (props: Props) => {
                 <dt>Tài Khoản</dt>
                 <dd>{profileUsers?.taiKhoan}</dd>
                 <dt>Mật khẩu</dt>
-                <dd>{passwordUpdate?`${passwordUpdate.slice(0, 1)}******
+                <dd>
+                  {passwordUpdate
+                    ? `${passwordUpdate.slice(0, 1)}******
                   ${passwordUpdate.slice(
                     passwordUpdate.length - 2,
                     passwordUpdate.length
-                  )}`:
-                  `${profileUsers?.matKhau.slice(0, 1)}******
+                  )}`
+                    : `${profileUsers?.matKhau.slice(0, 1)}******
                   ${profileUsers?.matKhau.slice(
                     profileUsers?.matKhau.length - 2,
                     profileUsers?.matKhau.length
@@ -214,7 +220,56 @@ const UserProfile = (props: Props) => {
           </Modal>
         </TabPane>
         <TabPane tab="KHÓA HỌC CỦA TÔI" key="2">
-          Content of Tab Pane 2
+          <div className={styles["wrapper"]}>
+            <div className={styles["table"]}>
+              <div
+                className={`${styles["row"]} ${styles["header"]} ${styles["green"]}`}
+              >
+                <div className={styles["cell"]}>STT</div>
+                <div className={styles["cell"]}>Hình Ảnh</div>
+                <div className={styles["cell"]}>Khóa Học</div>
+                <div className={styles["cell"]}>Mô Tả</div>
+                <div className={styles["cell"]}>Ngày tạo</div>
+                <div className={styles["cell"]}></div>
+              </div>
+              {profileUsers?.chiTietKhoaHocGhiDanh.map(
+                (listCoursApply, index) => {
+                  return (
+                    <div
+                      key={listCoursApply.maKhoaHoc}
+                      className={styles["row"]}
+                    >
+                      <div className={styles["cell"]} data-title="Product">
+                        {index + 1}
+                      </div>
+                      <div className={styles["cell"]} data-title="Product">
+                        <img
+                          style={{ width: "100%"}}
+                          src={listCoursApply.hinhAnh}
+                          alt=""
+                        />
+                      </div>
+                      <div className={styles["cell"]} data-title="Unit Price">
+                        {listCoursApply.tenKhoaHoc}
+                      </div>
+                      <div className={styles["cell"]} data-title="Quantity">
+                        {listCoursApply.moTa.slice(0,192)}...
+                        {console.log(listCoursApply.moTa.length)}
+
+                      </div>
+                      <div className={styles["cell"]} data-title="Date Sold">
+                        
+                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}
+                      </div>
+                      <div className={styles["cell"]} data-title="Status">
+                        <i className="fa fa-trash"></i>
+                      </div>
+                    </div>
+                  );
+                }
+              )}
+            </div>
+          </div>
         </TabPane>
       </Tabs>
     </section>
