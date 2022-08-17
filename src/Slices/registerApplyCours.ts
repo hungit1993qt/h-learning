@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ActionCours } from "Interface/ActionCours";
 import courseAPI from "Services/courseAPI";
 import Swal from "sweetalert2";
+import { postThongTinNguoiDung } from "./profileUser";
 
 // const message: string | null = "Hello"
 // const number = message as string
@@ -33,6 +34,7 @@ export const postDangKyKhoaHoc = createAsyncThunk(
           icon: "success",
           title: `Đăng ký thành công`,
         });
+        dispatch(postThongTinNguoiDung());
       } else {
         Swal.fire({
           icon: "error",

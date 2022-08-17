@@ -341,6 +341,15 @@ $padding: 10px;
   }
 }
 
+
+.img {
+  // border: 3px solid;
+  // border-color: lighten($baseColor, 50%);
+  height: $imageBig;
+  margin: 0.5rem 0;
+  width: $imageBig;
+}
+
 @media screen and (max-width: 500px) {
   .header {
     background-color: transparent;

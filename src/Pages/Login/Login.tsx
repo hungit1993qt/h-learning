@@ -48,13 +48,14 @@ const Login = () => {
     }
   }
   return (
-    <div>
+    <div style={{height:"1000px",width:"1000px"}}>
       <Modal
         title="ĐĂNG NHẬP"
         visible={visibleLogin}
         onCancel={handleCancel}
         footer={null}
         mask={true}
+        width={1000}
       >
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>

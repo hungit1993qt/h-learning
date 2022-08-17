@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ActionCours } from "Interface/ActionCours";
 import courseAPI from "Services/courseAPI";
 import Swal from "sweetalert2";
+import { postThongTinNguoiDung } from "./profileUser";
 
 // const message: string | null = "Hello"
 // const number = message as string
@@ -19,7 +20,7 @@ const initialState: State = {
 // Viết actions login và register
 export const postHuyGhiDanh = createAsyncThunk(
   "auth/postHuyGhiDanh",
-  async ({ maKhoaHoc, taiKhoan }: ActionCours) => {
+  async ({ maKhoaHoc, taiKhoan }: ActionCours, {dispatch}) => {
     try {
       // const data = await authAPI.login(values)
       const reponse = await courseAPI.postHuyGhiDanh({ maKhoaHoc, taiKhoan });
@@ -30,6 +31,8 @@ export const postHuyGhiDanh = createAsyncThunk(
           icon: "success",
           title: `Xóa thành công`,
         });
+        
+        // call lại api đi
       } else {
         Swal.fire({
           icon: "error",
@@ -37,6 +40,15 @@ export const postHuyGhiDanh = createAsyncThunk(
           title: `${data}`,
         });
       }
+      
+      dispatch(postThongTinNguoiDung());
+      // chỗ này
+      // cái swal nó chặn lại rồi
+      // ko xuống được dưới này nên nó ko call lại
+      // mở cái chỗ rendẻ ảnh đi
+      
+      console.log(1)
+      
       return data;
     } catch (error) {
       console.log(error);
