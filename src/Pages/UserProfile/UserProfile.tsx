@@ -39,6 +39,7 @@ const UserProfile = (props: Props) => {
   const getValueLocalstorage: LocalStorageUser = JSON.parse(
     localStorage.getItem("userLogin") as string
   );
+  const [passwordUpdate, setPasswordUpdate] = useState("");
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(postThongTinNguoiDung());
@@ -62,12 +63,12 @@ const UserProfile = (props: Props) => {
   const onError = (error: FieldErrors<UserUpdate>) => {
     console.log(error);
   };
-  const [passwordUpdate,setPasswordUpdate] = useState(profileUsers?.matKhau)
+
   const onSubmit = (values: UserUpdate) => {
     console.log(values);
-    dispatch(putCapNhatThongTinNguoiDung(values))
-    setPasswordUpdate(values.matKhau)
-    handleCancel()
+    dispatch(putCapNhatThongTinNguoiDung(values));
+    setPasswordUpdate(values.matKhau);
+    handleCancel();
   };
   const [visibleRegister, setVisibleRegister] = useState(false);
   const showModal = () => {
@@ -77,7 +78,7 @@ const UserProfile = (props: Props) => {
   const handleCancel = () => {
     setVisibleRegister(false);
   };
-  
+  console.log(passwordUpdate ? true : false);
   return (
     <section className={styles["UserProfile"]}>
       <Tabs defaultActiveKey="1">
@@ -101,12 +102,16 @@ const UserProfile = (props: Props) => {
                 <dt>Tài Khoản</dt>
                 <dd>{profileUsers?.taiKhoan}</dd>
                 <dt>Mật khẩu</dt>
-                <dd>
-                  {passwordUpdate?.slice(0, 1)}******
-                  {passwordUpdate?.slice(
-                    passwordUpdate?.length - 2,
-                    passwordUpdate?.length
-                  )}
+                <dd>{passwordUpdate?`${passwordUpdate.slice(0, 1)}******
+                  ${passwordUpdate.slice(
+                    passwordUpdate.length - 2,
+                    passwordUpdate.length
+                  )}`:
+                  `${profileUsers?.matKhau.slice(0, 1)}******
+                  ${profileUsers?.matKhau.slice(
+                    profileUsers?.matKhau.length - 2,
+                    profileUsers?.matKhau.length
+                  )}`}
                 </dd>
                 <dt>Email</dt>
                 <dd>{profileUsers?.email}</dd>
@@ -140,7 +145,6 @@ const UserProfile = (props: Props) => {
               <div>
                 <input
                   className={styles["box"]}
-                  
                   type="password"
                   {...register("matKhau")}
                   placeholder="Vui lòng nhập mật khẩu!"
@@ -200,9 +204,11 @@ const UserProfile = (props: Props) => {
                   value={profileUsers?.maLoaiNguoiDung}
                   hidden
                 />
-                {errors.maLoaiNguoiDung && <span>{errors.maLoaiNguoiDung?.message}</span>}
+                {errors.maLoaiNguoiDung && (
+                  <span>{errors.maLoaiNguoiDung?.message}</span>
+                )}
               </div>
-              
+
               <button className={styles["registerBtn"]}>Đăng ký</button>
             </form>
           </Modal>
