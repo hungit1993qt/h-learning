@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import styles from "_Playground/SCSS/Footer.module.scss";
 
-type Props = {};
 
-const FooterHome = (props: Props) => {
+
+const FooterHome = () => {
   const [backTop, setBackTop] = useState(false);
   useEffect(() => {
     const onscrollBackTop = () => {

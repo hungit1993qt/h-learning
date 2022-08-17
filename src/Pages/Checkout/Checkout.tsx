@@ -1,26 +1,23 @@
-import React from "react";
 import Swal from "sweetalert2";
-import styles from '_Playground/SCSS/CheckOut/CheckOut.module.scss'
-import { ActionCours } from "Interface/ActionCours";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "configStore";
+import styles from "_Playground/SCSS/CheckOut/CheckOut.module.scss";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "configStore";
 import { postDangKyKhoaHoc } from "Slices/registerApplyCours";
-import { NavLink, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getThongTinKhoaHoc } from "Slices/findDetailCours";
 import { LocalStorageUser } from "Interface/LocalStorageUser";
 const Checkout = () => {
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
- 
+
   useEffect(() => {
     dispatch(getThongTinKhoaHoc(params.maKhoaHoc!));
-    
   }, []);
-  const { chiTietKhoaHoc } = useSelector(
-    (state: RootState) => state.chiTietKhoaHoc
-  );
+  // const { chiTietKhoaHoc } = useSelector(
+  //   (state: RootState) => state.chiTietKhoaHoc
+  // );
   const getValueLocalstorage: LocalStorageUser = JSON.parse(
     localStorage.getItem("userLogin") as string
   );
@@ -41,17 +38,18 @@ const Checkout = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(postDangKyKhoaHoc({ maKhoaHoc, taiKhoan }));
-      
+
         navigate("/tai-khoan");
       } else if (result.isDenied) {
         Swal.fire("Vui lòng lựa lại khóa học", "", "info");
       }
     });
-   
   };
   return (
     <div className={styles["checkOut"]}>
-      <button onClick={() => handleApplyCours(maKhoaHoc, taiKhoan)}>apply</button>
+      <button onClick={() => handleApplyCours(maKhoaHoc, taiKhoan)}>
+        apply
+      </button>
     </div>
   );
 };

@@ -1,17 +1,12 @@
-import React from "react";
 import styles from "_Playground/SCSS/HomePage/Contact.module.scss";
-import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "configStore";
-import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "configStore";
 
-type Props = {};
-
-const Contact = (props: Props) => {
-  const { danhMucKhoaHoc, isLoading, error } = useSelector(
+const Contact = () => {
+  const { danhMucKhoaHoc } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
- 
+
   return (
     <section className={styles["contact"]} id="contact">
       <h1 className="heading">
@@ -19,7 +14,7 @@ const Contact = (props: Props) => {
       </h1>
       <div className={styles["row"]}>
         <div className={styles["image"]}>
-          <img className={styles["img-contact"]} src="images/contact-img.svg" />
+          <img className={styles["img-contact"]} src="images/contact-img.svg" alt=""/>
         </div>
         <form method="post">
           <span>Họ và tên</span>

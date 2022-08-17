@@ -1,4 +1,4 @@
-import { DanhMucKhoaHoc } from "../Interface/courseCatalog";
+
 import axiosClient from "./axiosClient";
 import { ActionCours } from "Interface/ActionCours";
 

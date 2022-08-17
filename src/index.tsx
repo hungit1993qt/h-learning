@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //setup redux
 import store from "./configStore";

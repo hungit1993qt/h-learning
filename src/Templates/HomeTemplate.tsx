@@ -5,9 +5,9 @@ import  '_Playground/SCSS/index.scss'
 import FooterHome from 'Components/FooterHome/FooterHome';
 
 
-type Props = {}
 
-function HomeTemplate({}: Props) {
+
+function HomeTemplate() {
   return (
     <div>
         <HeaderHome />

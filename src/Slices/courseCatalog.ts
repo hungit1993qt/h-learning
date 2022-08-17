@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Action } from "history";
+
 import { DanhMucKhoaHoc } from "../Interface/courseCatalog";
 import courseAPI from "../Services/courseAPI";
 
@@ -23,7 +23,7 @@ export const getDanhMucKhoaHoc = createAsyncThunk(
   async () => {
     try {
       const reponse = await courseAPI.getDanhMucKhoaHoc();
-      const data:DanhMucKhoaHoc[] = reponse.data;
+      const data: DanhMucKhoaHoc[] = reponse.data;
       return data;
     } catch (error) {
       throw error;

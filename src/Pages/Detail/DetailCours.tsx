@@ -1,30 +1,30 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import styles from "_Playground/SCSS/Detail/DetailCours.module.scss";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { getThongTinKhoaHoc } from "Slices/findDetailCours";
-import { NavLink, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ListCours = () => {
   const params = useParams();
 
   const navigate = useNavigate();
-  const { maDanhMuc } = useParams();
+  // const { maDanhMuc } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
     dispatch(getThongTinKhoaHoc(params.maKhoaHoc!));
   }, []);
-  const { chiTietKhoaHoc, isLoading, error } = useSelector(
+  const { chiTietKhoaHoc } = useSelector(
     (state: RootState) => state.chiTietKhoaHoc
   );
-  const { danhMucKhoaHoc } = useSelector(
-    (state: RootState) => state.danhMucKhoaHoc
-  );
-  const madm = danhMucKhoaHoc.find(
-    (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
-  );
+  // const { danhMucKhoaHoc } = useSelector(
+  //   (state: RootState) => state.danhMucKhoaHoc
+  // );
+  // const madm = danhMucKhoaHoc.find(
+  //   (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
+  // );
   const handleCheckout = (maKhoaHoc: string) => {
     navigate(`/dang-ky/${maKhoaHoc}`);
   };
@@ -39,7 +39,7 @@ const ListCours = () => {
       </h1>
       <div className={styles["blog-post"]}>
         <div className={styles["blog-thumb"]}>
-          <img src={chiTietKhoaHoc?.hinhAnh!} />
+          <img src={chiTietKhoaHoc?.hinhAnh!} alt="" />
         </div>
         <div className={styles["down-content"]}>
           <a href="">

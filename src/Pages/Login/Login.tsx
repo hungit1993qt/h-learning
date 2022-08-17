@@ -1,8 +1,8 @@
 // Một số thư viện làm việc với form trong React: formik, react-final-form, react-hook-form
 import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
-import { useState, useRef, useEffect } from "react";
-import { Button, Modal } from "antd";
+import { useState } from "react";
+import { Modal } from "antd";
 import "antd/dist/antd.css";
 import { useNavigate } from "react-router-dom";
 import { LoginValue } from "Interface/loginValue";
@@ -14,55 +14,22 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const [visibleLogin, setVisibleLogin] = useState(true);
-  const showModal = () => {
-    setVisibleLogin(true);
-  };
+  // const showModal = () => {
+  //   setVisibleLogin(true);
+  // };
   const handleCancel = () => {
     setVisibleLogin(false);
     navigate("/");
   };
-
-  // if (auth) {
-  //   if (getLocalStorage) {
-  //     if (getLocalStorage.maLoaiNguoiDung === "QuanTri") {
-
-  //       dispatch(logOut());
-
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'CÓ LỖI XẢY RA',
-  //         text: 'Sai loại tài khoản, vui lòng đăng nhập đúng tài khoản người dùng!',
-  //         footer: '<a href="register">Bạn chưa có tài khoản? tạo ngay</a>'
-  //       })
-  //       navigate("/login")
-
-  //     } else {
-  //       navigate(-1);
-  //       localStorage.removeItem("registerUser");
-  //     }
-  //   }
-
-  // } else {
-  //   <Navigate to="/login" />
-  // }
-
-  // useEffect(() => {
-
-  //   // return function cleanup() {
-  //   //   handleCancel()
-  //   // };
-  // }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginValue>({
-    // defaultValues: Khai báo giá trị mặc định cho các input trong form
     defaultValues: {
       taiKhoan: "",
       matKhau: "",
     },
-    // mode: cách validation được trigger (default là submit)
     mode: "onTouched",
   });
   const onSubmit = (values: LoginValue) => {
@@ -71,11 +38,13 @@ const Login = () => {
   const onError = (error: FieldErrors<LoginValue>) => {
     console.log(error);
   };
-  const {user } = useSelector((state: RootState) => state.auth);
-  const getUserLocalStorage = JSON.parse(localStorage.getItem("userLogin") as string)
-  if(user){
-    if(getUserLocalStorage){
-      navigate(-1)
+  const { user } = useSelector((state: RootState) => state.auth);
+  const getUserLocalStorage = JSON.parse(
+    localStorage.getItem("userLogin") as string
+  );
+  if (user) {
+    if (getUserLocalStorage) {
+      navigate(-1);
     }
   }
   return (
@@ -94,7 +63,6 @@ const Login = () => {
               type="text"
               placeholder="Vui lòng nhập tài khoản!"
               {...register("taiKhoan", {
-                // validations
                 required: {
                   value: true,
                   message: "Tài khoản không được để trống",
@@ -107,12 +75,10 @@ const Login = () => {
               })}
               className={styles["box"]}
             />
-            {/* {errors.taiKhoan?.type === 'required' && <span>Tài khoản không được để trống</span>}
-          {errors.taiKhoan?.type === 'pattern' && <span>Tài khoản gồm các kí tự hoa thường, số và ít nhất 5 kí tự</span>} */}
+
             {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
           </div>
           <div>
-            {/* <label>Mật Khẩu</label> */}
             <input
               type="text"
               placeholder="Vui lòng nhập mật khẩu!"

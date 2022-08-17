@@ -19,10 +19,13 @@ const initialState: State = {
 // Viết actions login và register
 export const postDangKyKhoaHoc = createAsyncThunk(
   "auth/postDangKyKhoaHoc",
-  async ({ maKhoaHoc, taiKhoan }: ActionCours,{dispatch}) => {
+  async ({ maKhoaHoc, taiKhoan }: ActionCours, { dispatch }) => {
     try {
       // const data = await authAPI.login(values)
-      const reponse = await courseAPI.postDangKyKhoaHoc({ maKhoaHoc, taiKhoan });
+      const reponse = await courseAPI.postDangKyKhoaHoc({
+        maKhoaHoc,
+        taiKhoan,
+      });
       const data = reponse.data;
       const statusReques: number = reponse.status;
       if (99 < statusReques && statusReques < 300) {

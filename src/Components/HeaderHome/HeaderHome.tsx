@@ -1,32 +1,23 @@
 //tsrafce
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 import styles from "_Playground/SCSS/Header.module.scss";
-import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
-import { Button, Modal } from "antd";
-
+import { Button } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
-import Login from "Pages/Login/Login";
-import Register from "Pages/Register/Register";
-import { login, logOut } from "Slices/auth";
-type Props = {};
-interface LoginValues {
-  taiKhoan: string;
-  matKhau: string;
-}
+import { logOut } from "Slices/auth";
 
-const HeaderHome = (props: Props) => {
+const HeaderHome = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [selectCours, seSelectCours] = useState("");
+  // const [selectCours, seSelectCours] = useState("");
   const navigate = useNavigate();
   const [activeMobile, setActiveMobile] = useState(false);
-  const [visibleLogin, setVisibleLogin] = useState(false);
-  const [visibleRegister, setVisibleRegister] = useState(false);
+  // const [visibleLogin, setVisibleLogin] = useState(false);
+  // const [visibleRegister, setVisibleRegister] = useState(false);
   const ShowMenuMobile = () => {
     setActiveMobile(!activeMobile);
   };
@@ -35,13 +26,13 @@ const HeaderHome = (props: Props) => {
     //console.log('clicked outside')
     setActiveMobile(false);
   };
-  const handleClickInside = () => {
-    // Your custom logic here
-    //console.log('clicked inside')
-    setActiveMobile(true);
-  };
+  // const handleClickInside = () => {
+  //   // Your custom logic here
+  //   //console.log('clicked inside')
+  //   setActiveMobile(true);
+  // };
   useOnClickOutside(ref, handleClickOutside);
-  const { danhMucKhoaHoc, activeNavbar, isLoading, error } = useSelector(
+  const { danhMucKhoaHoc } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
   const { user } = useSelector((state: RootState) => state.auth);
@@ -49,7 +40,7 @@ const HeaderHome = (props: Props) => {
     localStorage.getItem("userLogin") as string
   );
   const handleChange = (e: any) => {
-    seSelectCours(e.target.value);
+    // seSelectCours(e.target.value);
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
     navigate(`danh-muc-khoa-hoc/${e.target.value}`);
   };
@@ -123,7 +114,6 @@ const HeaderHome = (props: Props) => {
               {user ? getValueLocalstorage.hoTen : ""}
             </span>
             <div className={styles["dropdown-content"]}>
-              
               <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}

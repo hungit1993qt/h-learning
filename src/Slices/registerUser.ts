@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RegisterValue } from "Interface/registerValue";
 import authAPI from "Services/authAPI";
-import { number } from "yup";
 import Swal from "sweetalert2";
 
 // const message: string | null = "Hello"
@@ -32,11 +31,10 @@ export const registerUser = createAsyncThunk(
           title: `Chúc mừng bạn đăng ký thành công`,
         });
         localStorage.setItem("register", JSON.stringify(data));
-        
       } else {
         Swal.fire({
           icon: "error",
-          text:"Vui lòng thay đổi thông tin",
+          text: "Vui lòng thay đổi thông tin",
           title: `${data}`,
         });
       }

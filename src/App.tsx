@@ -24,7 +24,7 @@ const Login = lazy(() => import("Pages/Login/Login"));
 const Register = lazy(() => import("Pages/Register/Register"));
 const About = lazy(() => import("Pages/About/About"));
 const Checkout = lazy(() => import("Pages/Checkout/Checkout"));
-const AddMovie = lazy(() => import("Pages/AddMovie/AddMovie"));
+// const AddMovie = lazy(() => import("Pages/AddMovie/AddMovie"));
 const ErrorPage = lazy(() => import("./Components/ErrorBoundary/ErrorPage"));
 
 function App() {
@@ -35,7 +35,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="" element={<HomeTemplate />}>
-              <Route path="danh-muc-khoa-hoc/:maDanhMuc" element={<ListCours />} />
+              <Route
+                path="danh-muc-khoa-hoc/:maDanhMuc"
+                element={<ListCours />}
+              />
               <Route path="chi-tiet/:maKhoaHoc" element={<DetailCours />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
@@ -57,8 +60,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              
-              <Route path="movies/add" element={<AddMovie />} />
+
+              {/* <Route path="movies/add" element={<AddMovie />} /> */}
               <Route index element={<HomePage />} />
               <Route path="*" element={<Navigate to={"error"} />} />
             </Route>

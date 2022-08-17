@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { LoginValue } from "Interface/loginValue";
 import authAPI from "Services/authAPI";
 import Swal from "sweetalert2";
-import { Navigate } from "react-router-dom";
 
 // const message: string | null = "Hello"
 // const number = message as string
@@ -42,7 +41,6 @@ export const login = createAsyncThunk(
           title: `${data}`,
           footer: '<a href="register">Bạn chưa có tài khoản? tạo ngay</a>',
         });
-        
       }
 
       return data;

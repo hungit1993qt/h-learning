@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import styles from "_Playground/SCSS/Detail/DetailListCours.module.scss";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
-import { NavLink, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ListCours = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const ListCours = () => {
     dispatch(getDanhMucKhoaHoc());
     dispatch(getKhoaHocTheoDanhMuc(maDanhMuc!));
   }, []);
-  const { khoaHocTheoDanhMuc, isLoading, error } = useSelector(
+  const { khoaHocTheoDanhMuc } = useSelector(
     (state: RootState) => state.khoaHocTheoDanhMuc
   );
   const { danhMucKhoaHoc } = useSelector(
@@ -31,7 +31,6 @@ const ListCours = () => {
     navigate(`/chi-tiet/${maKhoaHoc}`);
   };
 
-  // const tenDanhMucKhoaHoc = khoaHocTheoDanhMuc[0].danhMucKhoaHoc.tenDanhMucKhoaHoc;
   return (
     <section className={styles["detailListCourses"]}>
       <h1 className={styles["heading"]}>
@@ -48,7 +47,7 @@ const ListCours = () => {
               >
                 <div className={styles["card"]}>
                   <div className={styles["card_image"]}>
-                    <img src={khoahoctheodanhmuc.hinhAnh} />
+                    <img src={khoahoctheodanhmuc.hinhAnh} alt=""/>
                   </div>
                   <div className={styles["card_content"]}>
                     <h2 className={styles["card_title"]}>

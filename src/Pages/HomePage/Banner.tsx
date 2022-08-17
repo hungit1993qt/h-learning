@@ -1,21 +1,20 @@
 import styles from "_Playground/SCSS/HomePage/Banner.module.scss";
-type Props = {};
 
-const Banner = (props: Props) => {
+const Banner = () => {
   return (
     <>
       <section className={styles["home"]} id="home">
         <div className={styles["row"]}>
           <div className={styles["content"]}>
             <h3>
-            Khóa học <span>Trực tuyến</span>
+              Khóa học <span>Trực tuyến</span>
             </h3>
             <a href="#contact" className="btn">
               Gọi ngay !
             </a>
           </div>
           <div className={styles["image"]}>
-            <img className={styles["img-CoursO"]} src="images/homg-img.svg" />
+            <img className={styles["img-CoursO"]} src="images/homg-img.svg" alt=""/>
           </div>
         </div>
       </section>

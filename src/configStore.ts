@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import danhMucKhoaHoc from "Slices/courseCatalog";
 import auth from "Slices/auth";
-import khoaHocTheoDanhMuc from 'Slices/listCourseByCatalog'
-import chiTietKhoaHoc from 'Slices/findDetailCours'
-import register from 'Slices/registerUser'
-import profileUsers from 'Slices/profileUser'
-import inforUpdate from 'Slices/updateUser'
-import inforActionCours from 'Slices/deleteApplyCours'
+import khoaHocTheoDanhMuc from "Slices/listCourseByCatalog";
+import chiTietKhoaHoc from "Slices/findDetailCours";
+import register from "Slices/registerUser";
+import profileUsers from "Slices/profileUser";
+import inforUpdate from "Slices/updateUser";
+import inforActionCours from "Slices/deleteApplyCours";
 
 const store = configureStore({
   reducer: {
@@ -18,7 +18,6 @@ const store = configureStore({
     profileUsers,
     inforUpdate,
     inforActionCours,
-
   },
 });
 

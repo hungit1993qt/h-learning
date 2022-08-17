@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from "react";
-import { Button, Modal } from "antd";
+import { useState } from "react";
+import { Modal } from "antd";
 import { useForm, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "antd/dist/antd.css";
 import { registerUser } from "Slices/registerUser";
 import { RegisterValue } from "Interface/registerValue";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "configStore";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "configStore";
 
 // Register fields: taiKhoan, matKhau, email, hoTen, soDt
 
@@ -39,9 +39,9 @@ const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const [visibleRegister, setVisibleRegister] = useState(true);
-  const showModal = () => {
-    setVisibleRegister(true);
-  };
+  // const showModal = () => {
+  //   setVisibleRegister(true);
+  // };
 
   const handleCancel = () => {
     setVisibleRegister(false);
@@ -67,7 +67,7 @@ const Register = () => {
   };
 
   const onSubmit = (values: RegisterValue) => {
-    console.log(values)
+    console.log(values);
     dispatch(registerUser(values));
   };
 

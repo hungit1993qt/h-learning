@@ -2,7 +2,7 @@ import styles from "_Playground/SCSS/HomePage/Courses.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import stylesSwiper from "_Playground/SCSS/HomePage/Swiper.module.scss";
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect} from "react";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
@@ -19,7 +19,7 @@ const Courses = (props: Props) => {
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
   }, []);
-  const { danhMucKhoaHoc, isLoading, error } = useSelector(
+  const { danhMucKhoaHoc} = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
   return (
@@ -61,7 +61,7 @@ const Courses = (props: Props) => {
                 <div className={styles["slide"]}>
                   <img
                     className={styles["imgCourses"]}
-                    src={`images/course-${index + 1}.svg`}
+                    src={`images/course-${index + 1}.svg`} alt=""
                   />
 
                   <h3 className={styles["title"]}>

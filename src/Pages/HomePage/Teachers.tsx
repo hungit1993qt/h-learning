@@ -1,6 +1,5 @@
 import styles from "_Playground/SCSS/HomePage/Teachers.module.scss";
 import stylesSwiper from "_Playground/SCSS/HomePage/Swiper.module.scss";
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -9,13 +8,11 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-type Props = {};
-
-const Teachers = (props: Props) => {
+const Teachers = () => {
   return (
     <section className={styles["teachers"]} id="teachers">
       <h1 className="heading">
-      Giảng <span>Viên</span>
+        Giảng <span>Viên</span>
       </h1>
       <Swiper
         slidesPerView={1}
@@ -42,7 +39,11 @@ const Teachers = (props: Props) => {
       >
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-1.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-1.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />
@@ -55,7 +56,11 @@ const Teachers = (props: Props) => {
 
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-2.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-2.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />
@@ -68,7 +73,11 @@ const Teachers = (props: Props) => {
 
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-3.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-3.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />
@@ -81,7 +90,11 @@ const Teachers = (props: Props) => {
 
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-4.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-4.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />
@@ -94,7 +107,11 @@ const Teachers = (props: Props) => {
 
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-5.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-5.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />
@@ -106,7 +123,11 @@ const Teachers = (props: Props) => {
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles["slide"]}>
-            <img className={styles["imgTeacher"]} src="images/tutor-6.png" />
+            <img
+              className={styles["imgTeacher"]}
+              src="images/tutor-6.png"
+              alt=""
+            />
             <div className={styles["share"]}>
               <a href="#" className="fab fa-facebook-f" />
               <a href="#" className="fab fa-twitter" />

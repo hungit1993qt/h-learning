@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "_Playground/SCSS/UserProfile/UserProfile.module.scss";
-import { Tabs, Button, Modal } from "antd";
+import { Tabs, Modal } from "antd";
 import "antd/dist/antd.css";
-import { LocalStorageUser } from "Interface/LocalStorageUser";
-import { ActionCours } from "Interface/ActionCours";
+// import { LocalStorageUser } from "Interface/LocalStorageUser";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { postThongTinNguoiDung } from "Slices/profileUser";
@@ -15,8 +14,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import Moment from "moment";
 const { TabPane } = Tabs;
-
-type Props = {};
 
 const schema = object({
   taiKhoan: string()
@@ -38,10 +35,10 @@ const schema = object({
   soDT: string().required("Số điện thoại không được để trống"),
   maNhom: string().required("Mã nhóm không được để trống"),
 });
-const UserProfile = (props: Props) => {
-  const getValueLocalstorage: LocalStorageUser = JSON.parse(
-    localStorage.getItem("userLogin") as string
-  );
+const UserProfile = () => {
+  // const getValueLocalstorage: LocalStorageUser = JSON.parse(
+  //   localStorage.getItem("userLogin") as string
+  // );
   const [passwordUpdate, setPasswordUpdate] = useState("");
   const dispatch = useDispatch<AppDispatch>();
   const { profileUsers } = useSelector(
@@ -92,7 +89,10 @@ const UserProfile = (props: Props) => {
         <TabPane tab="THÔNG TIN CÁ NHÂN" key="1">
           <div className={styles["profile"]}>
             <figure>
-              <img src="https://dalieuthammygsv.com/wp-content/uploads/2021/05/HOC-VAN.png" />
+              <img
+                src="https://dalieuthammygsv.com/wp-content/uploads/2021/05/HOC-VAN.png"
+                alt=""
+              />
             </figure>
             <div
               onClick={() => handleUpdatePassword()}
@@ -244,6 +244,7 @@ const UserProfile = (props: Props) => {
                             className={styles["img"]}
                             style={{ width: "100%" }}
                             src={listCoursApply.hinhAnh}
+                            alt=""
                           />
                         </td>
                         <td className={styles["td"]} style={{ width: "120px" }}>

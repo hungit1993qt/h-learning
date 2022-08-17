@@ -30,7 +30,6 @@ export const putCapNhatThongTinNguoiDung = createAsyncThunk(
           icon: "success",
           title: `Đổi mật khẩu thành công`,
         });
-        
       } else {
         Swal.fire({
           icon: "error",
@@ -50,9 +49,12 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(putCapNhatThongTinNguoiDung.fulfilled, (state, { payload }) => {
-      state.inforUpdate = payload;
-    });
+    builder.addCase(
+      putCapNhatThongTinNguoiDung.fulfilled,
+      (state, { payload }) => {
+        state.inforUpdate = payload;
+      }
+    );
   },
 });
 export default authSlice.reducer;
