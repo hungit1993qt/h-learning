@@ -228,7 +228,6 @@ const UserProfile = (props: Props) => {
                   <th>Khóa Học</th>
                   <th>Mô Tả</th>
                   <th>Ngày Tạo</th>
-                  <th></th>
                 </tr>
                 {profileUsers?.chiTietKhoaHocGhiDanh.map((listCoursApply) => {
                   return (
@@ -239,11 +238,9 @@ const UserProfile = (props: Props) => {
                       <td style={{ width: "120px" }}>{listCoursApply.tenKhoaHoc}</td>
                       <td className={styles["mota"]}>{listCoursApply.moTa}</td>
                       <td style={{ width: "120px" }}>
-                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}
+                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")} <i className="fa fa-trash-alt"></i>
                       </td>
-                      <td>
-                        <i className="fa fa-trash-alt"></i>
-                      </td>
+                      
                     </tr>
                   );
                 })}
