@@ -220,7 +220,7 @@ const UserProfile = (props: Props) => {
         </TabPane>
         <TabPane tab="KHÓA HỌC CỦA TÔI" key="2">
           <div className="table-users">
-            <div className="header">Users</div>
+            
             <table cellSpacing={0}>
               <tbody>
                 <tr>

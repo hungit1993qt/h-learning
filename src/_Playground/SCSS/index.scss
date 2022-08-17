@@ -166,4 +166,12 @@ section {
   }
 }
 
-
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--green) !important;
+}
+.ant-tabs-tab-btn {
+  color: var(--white) !important;
+}
+.ant-tabs-ink-bar {
+  background: var(--green) !important;
+}

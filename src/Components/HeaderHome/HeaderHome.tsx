@@ -123,14 +123,7 @@ const HeaderHome = (props: Props) => {
               {user ? getValueLocalstorage.hoTen : ""}
             </span>
             <div className={styles["dropdown-content"]}>
-              <p>
-                <Button
-                  className={user ? styles["btn-drop-user"] : styles["hide"]}
-                  
-                >
-                  Khóa học
-                </Button>
-              </p>
+              
               <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}
