@@ -3,10 +3,12 @@ import styles from "_Playground/SCSS/UserProfile/UserProfile.module.scss";
 import { Tabs, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import { LocalStorageUser } from "Interface/LocalStorageUser";
+import {ActionCours} from 'Interface/ActionCours'
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { postThongTinNguoiDung } from "Slices/profileUser";
 import { putCapNhatThongTinNguoiDung } from "Slices/updateUser";
+import { postHuyGhiDanh } from "Slices/deleteApplyCours";
 import { useForm, FieldErrors } from "react-hook-form";
 import { UserUpdate } from "Interface/userUpdate";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,15 +44,17 @@ const UserProfile = (props: Props) => {
   );
   const [passwordUpdate, setPasswordUpdate] = useState("");
   const dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    dispatch(postThongTinNguoiDung());
-  }, []);
   const { profileUsers } = useSelector(
     (state: RootState) => state.profileUsers
   );
-  console.log(profileUsers);
+  const [render,setRender] = useState(false)
+  useEffect(() => {
+    dispatch(postThongTinNguoiDung());
+  }, [render]);
+  
+  
   const handleUpdatePassword = () => {
-    console.log("update");
+    
     showModal();
   };
   const {
@@ -67,7 +71,7 @@ const UserProfile = (props: Props) => {
   };
 
   const onSubmit = (values: UserUpdate) => {
-    console.log(values);
+    
     dispatch(putCapNhatThongTinNguoiDung(values));
     setPasswordUpdate(values.matKhau);
     handleCancel();
@@ -81,6 +85,10 @@ const UserProfile = (props: Props) => {
     setVisibleRegister(false);
   };
   Moment.locale("en");
+  const handleDeleteApply = (maKhoaHoc:string,taiKhoan:string) => {
+    dispatch(postHuyGhiDanh({maKhoaHoc,taiKhoan}))
+    setRender(!render);
+  };
 
   return (
     <section className={styles["UserProfile"]}>
@@ -220,30 +228,53 @@ const UserProfile = (props: Props) => {
         </TabPane>
         <TabPane tab="KHÓA HỌC CỦA TÔI" key="2">
           <div className="table-users">
-            
             <table cellSpacing={0}>
               <tbody>
                 <tr>
-                  <th >Hình Ảnh</th>
+                  <th>Hình Ảnh</th>
                   <th>Khóa Học</th>
                   <th>Mô Tả</th>
                   <th>Ngày Tạo</th>
                 </tr>
-                {profileUsers?.chiTietKhoaHocGhiDanh.map((listCoursApply,index) => {
-                  return (
-                    <tr key={index}>
-                      <td style={{ width: "120px" ,margin:"0 auto"}}>
-                        <img style={{ width: "100%"  }} src={listCoursApply.hinhAnh} />
-                      </td>
-                      <td style={{ width: "120px" }}>{listCoursApply.tenKhoaHoc}</td>
-                      <td className={styles["mota"]}>{listCoursApply.moTa}</td>
-                      <td style={{ width: "120px" }}>
-                        {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")} <i title="Hủy ghi danh" className="fa fa-trash-alt"></i>
-                      </td>
-                      
-                    </tr>
-                  );
-                })}
+                {profileUsers?.chiTietKhoaHocGhiDanh.map(
+                  (listCoursApply, index) => {
+                    return (
+                      <tr key={index}>
+                        <td style={{ width: "120px", margin: "0 auto" }}>
+                          <img
+                            style={{ width: "100%" }}
+                            src={listCoursApply.hinhAnh}
+                          />
+                        </td>
+                        <td style={{ width: "120px" }}>
+                          {listCoursApply.tenKhoaHoc}
+                        </td>
+                        <td className={styles["mota"]}>
+                          {listCoursApply.moTa}
+                        </td>
+                        <td style={{ width: "120px" }}>
+                          {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}{" "}
+                          <i
+                            onClick={() =>
+                              handleDeleteApply(
+                                listCoursApply.maKhoaHoc,
+                                profileUsers?.taiKhoan
+                              )
+                            }
+                            style={{
+                              fontSize: "2rem",
+                              marginLeft: "10px",
+                              cursor: "pointer",
+                              color: "red",
+                            }}
+                            title="Hủy ghi danh"
+                            className="fa fa-trash-alt"
+                          ></i>
+                        </td>
+                      </tr>
+                    );
+                  }
+                )}
               </tbody>
             </table>
           </div>

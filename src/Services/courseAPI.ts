@@ -1,27 +1,30 @@
 import { DanhMucKhoaHoc } from "../Interface/courseCatalog";
 import axiosClient from "./axiosClient";
+import { ActionCours } from "Interface/ActionCours";
 
 const courseAPI = {
   getDanhMucKhoaHoc: () => {
     return axiosClient.get("QuanLyKhoaHoc/LayDanhMucKhoaHoc");
   },
-  getKhoaHocTheoDanhMuc:(maDanhMuc:string)=>{
-    return axiosClient.get("QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc",{
-      params:{
-        maDanhMuc:maDanhMuc,
-        MaNhom:"GP01",
+  getKhoaHocTheoDanhMuc: (maDanhMuc: string) => {
+    return axiosClient.get("QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc", {
+      params: {
+        maDanhMuc: maDanhMuc,
+        MaNhom: "GP01",
+      },
+    });
+  },
+  getThongTinKhoaHoc: (maKhoaHoc: string) => {
+    return axiosClient.get("QuanLyKhoaHoc/LayThongTinKhoaHoc", {
+      params: {
+        maKhoaHoc: maKhoaHoc,
+      },
+    });
+  },
+  postHuyGhiDanh: ({ maKhoaHoc, taiKhoan }: ActionCours) => {
+    return axiosClient.post("QuanLyKhoaHoc/HuyGhiDanh",{ maKhoaHoc, taiKhoan } );
+  },
 
-      }
-    })
-  },
-  getThongTinKhoaHoc:(maKhoaHoc:string)=>{
-    return axiosClient.get("QuanLyKhoaHoc/LayThongTinKhoaHoc",{
-      params:{
-        maKhoaHoc:maKhoaHoc
-      }
-    })
-  },
-  
   // getMovieDetails: (movieId: string) => {
   //   return axiosClient.get("QuanLyPhim/LayThongTinPhim", {
   //     params: {
