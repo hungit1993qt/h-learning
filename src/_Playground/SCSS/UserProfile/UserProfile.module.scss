@@ -374,7 +374,7 @@ table {
     &:not(:first-child) {
       margin: 0;
       padding: 5px 1em;
-      width: 100%;
+      width: 100% !important;
 
       &:before {
         font-size: 0.8em;
@@ -393,7 +393,7 @@ table {
     border: 1px solid lighten($baseColor, 20%);
     border-radius: $borderRadius;
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-    margin: 0.5rem 0;
+    margin: 1.5rem 0;
     padding: 0;
   }
 
