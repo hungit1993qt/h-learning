@@ -17,7 +17,6 @@ const { TabPane } = Tabs;
 type Props = {};
 
 const schema = object({
-  
   taiKhoan: string()
     .required("Tài khoản không được để trống")
     .matches(
@@ -82,7 +81,7 @@ const UserProfile = (props: Props) => {
     setVisibleRegister(false);
   };
   Moment.locale("en");
-  
+
   return (
     <section className={styles["UserProfile"]}>
       <Tabs defaultActiveKey="1">
@@ -220,55 +219,36 @@ const UserProfile = (props: Props) => {
           </Modal>
         </TabPane>
         <TabPane tab="KHÓA HỌC CỦA TÔI" key="2">
-          <div className={styles["wrapper"]}>
-            <div className={styles["table"]}>
-              <div
-                className={`${styles["row"]} ${styles["header"]} ${styles["green"]}`}
-              >
-                <div className={styles["cell"]}>STT</div>
-                <div className={styles["cell"]}>Hình Ảnh</div>
-                <div className={styles["cell"]}>Khóa Học</div>
-                <div className={styles["cell"]}>Mô Tả</div>
-                <div className={styles["cell"]}>Ngày tạo</div>
-                <div className={styles["cell"]}></div>
-              </div>
-              {profileUsers?.chiTietKhoaHocGhiDanh.map(
-                (listCoursApply, index) => {
+          <div className="table-users">
+            <div className="header">Users</div>
+            <table cellSpacing={0}>
+              <tbody>
+                <tr>
+                  <th >Hình Ảnh</th>
+                  <th>Khóa Học</th>
+                  <th>Mô Tả</th>
+                  <th>Ngày Tạo</th>
+                  <th></th>
+                </tr>
+                {profileUsers?.chiTietKhoaHocGhiDanh.map((listCoursApply) => {
                   return (
-                    <div
-                      key={listCoursApply.maKhoaHoc}
-                      className={styles["row"]}
-                    >
-                      <div className={styles["cell"]} data-title="Product">
-                        {index + 1}
-                      </div>
-                      <div className={styles["cell"]} data-title="Product">
-                        <img
-                          style={{ width: "100%"}}
-                          src={listCoursApply.hinhAnh}
-                          alt=""
-                        />
-                      </div>
-                      <div className={styles["cell"]} data-title="Unit Price">
-                        {listCoursApply.tenKhoaHoc}
-                      </div>
-                      <div className={styles["cell"]} data-title="Quantity">
-                        {listCoursApply.moTa.slice(0,192)}...
-                        {console.log(listCoursApply.moTa.length)}
-
-                      </div>
-                      <div className={styles["cell"]} data-title="Date Sold">
-                        
+                    <tr>
+                      <td style={{ width: "120px" ,margin:"0 auto"}}>
+                        <img style={{ width: "100%"  }} src={listCoursApply.hinhAnh} />
+                      </td>
+                      <td style={{ width: "120px" }}>{listCoursApply.tenKhoaHoc}</td>
+                      <td className={styles["mota"]}>{listCoursApply.moTa}</td>
+                      <td style={{ width: "120px" }}>
                         {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}
-                      </div>
-                      <div className={styles["cell"]} data-title="Status">
-                        <i className="fa fa-trash"></i>
-                      </div>
-                    </div>
+                      </td>
+                      <td>
+                        <i className="fa fa-trash-alt"></i>
+                      </td>
+                    </tr>
                   );
-                }
-              )}
-            </div>
+                })}
+              </tbody>
+            </table>
           </div>
         </TabPane>
       </Tabs>
