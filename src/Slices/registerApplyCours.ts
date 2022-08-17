@@ -17,18 +17,18 @@ const initialState: State = {
   error: null,
 };
 // Viết actions login và register
-export const postHuyGhiDanh = createAsyncThunk(
-  "auth/postHuyGhiDanh",
+export const postDangKyKhoaHoc = createAsyncThunk(
+  "auth/postDangKyKhoaHoc",
   async ({ maKhoaHoc, taiKhoan }: ActionCours) => {
     try {
       // const data = await authAPI.login(values)
-      const reponse = await courseAPI.postHuyGhiDanh({ maKhoaHoc, taiKhoan });
+      const reponse = await courseAPI.postDangKyKhoaHoc({ maKhoaHoc, taiKhoan });
       const data = reponse.data;
       const statusReques: number = reponse.status;
       if (99 < statusReques && statusReques < 300) {
         Swal.fire({
           icon: "success",
-          title: `Xóa thành công`,
+          title: `Đăng ký thành công`,
         });
       } else {
         Swal.fire({
@@ -49,7 +49,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(postHuyGhiDanh.fulfilled, (state, { payload }) => {
+    builder.addCase(postDangKyKhoaHoc.fulfilled, (state, { payload }) => {
       state.inforActionCours = payload;
     });
   },

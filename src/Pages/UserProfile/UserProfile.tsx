@@ -3,7 +3,7 @@ import styles from "_Playground/SCSS/UserProfile/UserProfile.module.scss";
 import { Tabs, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import { LocalStorageUser } from "Interface/LocalStorageUser";
-import {ActionCours} from 'Interface/ActionCours'
+import { ActionCours } from "Interface/ActionCours";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { postThongTinNguoiDung } from "Slices/profileUser";
@@ -47,14 +47,12 @@ const UserProfile = (props: Props) => {
   const { profileUsers } = useSelector(
     (state: RootState) => state.profileUsers
   );
-  const [render,setRender] = useState(false)
+
   useEffect(() => {
     dispatch(postThongTinNguoiDung());
-  }, [render]);
-  
-  
+  }, []);
+
   const handleUpdatePassword = () => {
-    
     showModal();
   };
   const {
@@ -71,7 +69,6 @@ const UserProfile = (props: Props) => {
   };
 
   const onSubmit = (values: UserUpdate) => {
-    
     dispatch(putCapNhatThongTinNguoiDung(values));
     setPasswordUpdate(values.matKhau);
     handleCancel();
@@ -85,9 +82,8 @@ const UserProfile = (props: Props) => {
     setVisibleRegister(false);
   };
   Moment.locale("en");
-  const handleDeleteApply = (maKhoaHoc:string,taiKhoan:string) => {
-    dispatch(postHuyGhiDanh({maKhoaHoc,taiKhoan}))
-    setRender(!render);
+  const handleDeleteApply = (maKhoaHoc: string, taiKhoan: string) => {
+    dispatch(postHuyGhiDanh({ maKhoaHoc, taiKhoan }));
   };
 
   return (
@@ -227,32 +223,36 @@ const UserProfile = (props: Props) => {
           </Modal>
         </TabPane>
         <TabPane tab="KHÓA HỌC CỦA TÔI" key="2">
-          <div className="table-users">
-            <table cellSpacing={0}>
+          <div className={styles["table-users"]}>
+            <table className={styles["table"]} cellSpacing={0}>
               <tbody>
-                <tr>
-                  <th>Hình Ảnh</th>
-                  <th>Khóa Học</th>
-                  <th>Mô Tả</th>
-                  <th>Ngày Tạo</th>
+                <tr className={styles["tr"]}>
+                  <th className={styles["th"]}>Hình Ảnh</th>
+                  <th className={styles["th"]}>Khóa Học</th>
+                  <th className={styles["th"]}>Mô Tả</th>
+                  <th className={styles["th"]}>Ngày Tạo</th>
                 </tr>
                 {profileUsers?.chiTietKhoaHocGhiDanh.map(
                   (listCoursApply, index) => {
                     return (
-                      <tr key={index}>
-                        <td style={{ width: "120px", margin: "0 auto" }}>
+                      <tr className={styles["tr"]} key={index}>
+                        <td
+                          className={styles["td"]}
+                          style={{ width: "120px", margin: "0 auto" }}
+                        >
                           <img
+                            className={styles["img"]}
                             style={{ width: "100%" }}
                             src={listCoursApply.hinhAnh}
                           />
                         </td>
-                        <td style={{ width: "120px" }}>
+                        <td className={styles["td"]} style={{ width: "120px" }}>
                           {listCoursApply.tenKhoaHoc}
                         </td>
                         <td className={styles["mota"]}>
                           {listCoursApply.moTa}
                         </td>
-                        <td style={{ width: "120px" }}>
+                        <td className={styles["td"]} style={{ width: "120px" }}>
                           {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}{" "}
                           <i
                             onClick={() =>

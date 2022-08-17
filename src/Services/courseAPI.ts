@@ -22,7 +22,16 @@ const courseAPI = {
     });
   },
   postHuyGhiDanh: ({ maKhoaHoc, taiKhoan }: ActionCours) => {
-    return axiosClient.post("QuanLyKhoaHoc/HuyGhiDanh",{ maKhoaHoc, taiKhoan } );
+    return axiosClient.post("QuanLyKhoaHoc/HuyGhiDanh", {
+      maKhoaHoc,
+      taiKhoan,
+    });
+  },
+  postDangKyKhoaHoc: ({ maKhoaHoc, taiKhoan }: ActionCours) => {
+    return axiosClient.post("QuanLyKhoaHoc/DangKyKhoaHoc", {
+      maKhoaHoc,
+      taiKhoan,
+    });
   },
 
   // getMovieDetails: (movieId: string) => {
