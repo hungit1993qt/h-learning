@@ -50,7 +50,8 @@ html {
 
 body {
   background-color: var(--black);
-  overflow: visible;
+ min-width: 100%;
+ padding: 0 !important;
 }
 
 section {
@@ -122,9 +123,7 @@ section {
 .ant-modal-header {
   border-bottom: 1px solid var(--green);
 }
-.ant-modal-footer {
-  // border-top: 1px solid var(--green);
-}
+
 .ant-modal-header,
 .ant-modal-footer {
   background-color: var(--black);

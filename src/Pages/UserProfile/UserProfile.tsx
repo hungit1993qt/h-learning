@@ -13,6 +13,8 @@ import { UserUpdate } from "Interface/userUpdate";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import Moment from "moment";
+import { ProfileUser } from "Interface/ProfileUser";
+import { ChiTietKhoaHocGhiDanh } from "Interface/DetailCoursApply";
 const { TabPane } = Tabs;
 
 const schema = object({
@@ -44,7 +46,6 @@ const UserProfile = () => {
   const { profileUsers } = useSelector(
     (state: RootState) => state.profileUsers
   );
-
   useEffect(() => {
     dispatch(postThongTinNguoiDung());
   }, []);
@@ -82,7 +83,7 @@ const UserProfile = () => {
   const handleDeleteApply = (maKhoaHoc: string, taiKhoan: string) => {
     dispatch(postHuyGhiDanh({ maKhoaHoc, taiKhoan }));
   };
-
+ 
   return (
     <section className={styles["UserProfile"]}>
       <Tabs defaultActiveKey="1">
@@ -239,9 +240,13 @@ const UserProfile = () => {
                         <td>
                           <img src={listCoursApply.hinhAnh} alt="" />
                         </td>
-                        <td className={styles["nameCours"]}>{listCoursApply.tenKhoaHoc}</td>
-                        <td className={styles["mota"]}>{listCoursApply.moTa}</td>
-                        <td >
+                        <td className={styles["nameCours"]}>
+                          {listCoursApply.tenKhoaHoc}
+                        </td>
+                        <td className={styles["mota"]}>
+                          {listCoursApply.moTa}
+                        </td>
+                        <td>
                           {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}{" "}
                           <i
                             onClick={() =>
@@ -268,6 +273,7 @@ const UserProfile = () => {
             </table>
           </div>
         </TabPane>
+        <TabPane tab="KHÓA HỌC CỦA TÔI phân trang" key="3"></TabPane>
       </Tabs>
     </section>
   );
