@@ -1,87 +1,144 @@
-form {
-  flex: 1 1 40rem;
-}
+.loginPage {
+  width: 500px;
+  padding: 8% 0 0;
+  margin: auto;
+  .content {
+    margin: auto;
+    width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.267);
+    padding: 3rem;
+    .heading {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      font-size: 4rem;
+      color: var(--white);
+      text-transform: uppercase;
+      span {
+        color: var(--green);
+        text-transform: uppercase;
+      }
+    }
+    form {
+      flex: 1 1 40rem;
+      .box {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        background-color: var(--light-bg);
+        font-size: 1.8rem;
+        color: var(--white);
+        height: 5rem;
+        text-transform: none;
+        padding: 10px;
+      }
+      span {
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+    }
+    .loginBtn {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      margin-top: 1rem;
+      /* border-radius: 5rem; */
+      background-color: var(--light-bg) !important;
+      cursor: pointer;
+      color: var(--white) !important;
+      font-size: 1.8rem;
+      padding: 1rem 4rem;
+      margin: 0 auto;
+      border-color: var(--white) !important;
+      overflow: hidden;
+      &:hover {
+        background-color: var(--white) !important;
+        color: var(--black) !important;
+        border-color: var(--white) !important ;
+      }
+      span {
+        position: absolute;
+        display: block;
+      }
 
-form .box {
-  width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--light-bg);
-  font-size: 1.8rem;
-  color: var(--white);
-  padding: 2rem;
-  text-transform: none;
-}
-.box {
-  width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--light-bg);
-  font-size: 1.8rem;
-  color: var(--white);
-  height: 5rem;
-  text-transform: none;
-}
+      span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--green));
+        animation: btn-anim1 1s linear infinite;
+      }
 
-form span {
-  font-size: 1.6rem;
-  color: var(--light-white);
-}
+      @keyframes btn-anim1 {
+        0% {
+          left: -100%;
+        }
+        50%,
+        100% {
+          left: 100%;
+        }
+      }
 
-form .radio {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
+      span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, var(--green));
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
 
-form .radio label {
-  font-size: 1.6rem;
-  color: var(--light-white);
-  margin-left: 0.5rem;
-  cursor: pointer;
-}
+      @keyframes btn-anim2 {
+        0% {
+          top: -100%;
+        }
+        50%,
+        100% {
+          top: 100%;
+        }
+      }
 
-form .radio #female {
-  margin-left: 2rem;
-}
+      span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--green));
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
 
-form .radio input {
-  appearance: none;
-  height: 2rem;
-  width: 2rem;
-  background-color: var(--light-white);
-  cursor: pointer;
-}
+      @keyframes btn-anim3 {
+        0% {
+          right: -100%;
+        }
+        50%,
+        100% {
+          right: 100%;
+        }
+      }
 
-form .radio input:checked {
-  background-color: var(--green);
-  border-radius: 5rem;
-}
+      span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, var(--green));
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
 
-form .radio #male:checked ~ label[for="male"] {
-  color: var(--green);
-}
-
-form .radio #female:checked ~ label[for="female"] {
-  color: var(--green);
-}
-
-.loginBtn {
-  cursor: pointer;
-  display: block;
-  margin-top: 1rem;
-  border-radius: 5rem;
-  background-color: var(--light-bg) !important;
-  cursor: pointer;
-  color: var(--white) !important;
-  font-size: 1.8rem;
-  padding: 1rem 4rem;
-  margin: 0 auto;
-  border-color: var(--white) !important ;
-  &:hover {
-    background-color: var(--white) !important;
-    color: var(--black) !important;
-    border-color: var(--white) !important ;
+      @keyframes btn-anim4 {
+        0% {
+          bottom: -100%;
+        }
+        50%,
+        100% {
+          bottom: 100%;
+        }
+      }
+    }
   }
 }

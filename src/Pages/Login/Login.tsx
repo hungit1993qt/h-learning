@@ -2,8 +2,6 @@
 import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
 import { useState } from "react";
-import { Modal } from "antd";
-import "antd/dist/antd.css";
 import { useNavigate } from "react-router-dom";
 import { LoginValue } from "Interface/loginValue";
 import { login } from "Slices/auth";
@@ -13,14 +11,7 @@ import { AppDispatch, RootState } from "configStore";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const [visibleLogin, setVisibleLogin] = useState(true);
-  // const showModal = () => {
-  //   setVisibleLogin(true);
-  // };
-  const handleCancel = () => {
-    setVisibleLogin(false);
-    navigate("/");
-  };
+
   const {
     register,
     handleSubmit,
@@ -48,18 +39,13 @@ const Login = () => {
     }
   }
   return (
-    <div style={{height:"1000px",width:"1000px"}}>
-      <Modal
-        title="ĐĂNG NHẬP"
-        visible={visibleLogin}
-        onCancel={handleCancel}
-        footer={null}
-        mask={true}
-        width={1000}
-      >
+    <section className={styles["loginPage"]}>
+      <div className={styles["content"]}>
+        <h1 className={styles["heading"]}>
+          ĐĂNG <span> NHẬP</span>
+        </h1>
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>
-            {/* <label>Tài Khoản</label> */}
             <input
               type="text"
               placeholder="Vui lòng nhập tài khoản!"
@@ -98,10 +84,16 @@ const Login = () => {
             />
             {errors.matKhau && <span>{errors.matKhau?.message}</span>}
           </div>
-          <button className={styles["loginBtn"]}>Đăng Nhập</button>
+          <button className={styles["loginBtn"]}>Đăng Nhập
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          </button>
+          
         </form>
-      </Modal>
-    </div>
+      </div>
+    </section>
   );
 };
 

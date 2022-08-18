@@ -13,7 +13,7 @@ const ListCours = () => {
   // const { maDanhMuc } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(getDanhMucKhoaHoc());
+   
     dispatch(getThongTinKhoaHoc(params.maKhoaHoc!));
   }, []);
   const { chiTietKhoaHoc } = useSelector(

@@ -1,19 +1,13 @@
-import { useState } from "react";
-import { Modal } from "antd";
 import { useForm, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
 import { useNavigate } from "react-router-dom";
-import "antd/dist/antd.css";
 import { registerUser } from "Slices/registerUser";
 import { RegisterValue } from "Interface/registerValue";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "configStore";
 
-// Register fields: taiKhoan, matKhau, email, hoTen, soDt
-
-// validation schema
 const schema = object({
   taiKhoan: string()
     .required("Tài khoản không được để trống")
@@ -37,22 +31,7 @@ const schema = object({
 
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
-  const [visibleRegister, setVisibleRegister] = useState(true);
-  // const showModal = () => {
-  //   setVisibleRegister(true);
-  // };
-
-  const handleCancel = () => {
-    setVisibleRegister(false);
-    navigate("/");
-  };
-  // useEffect(() => {
-  //   setVisibleRegister(true);
-  //   return function cleanup() {
-  //     setVisibleRegister(false);
-  //   };
-  // }, []);
+  // const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -72,13 +51,11 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <Modal
-        visible={visibleRegister}
-        title="ĐĂNG KÝ"
-        onCancel={handleCancel}
-        footer={null}
-      >
+    <section className={styles["registerPage"]}>
+      <div className={styles["content"]}>
+        <h1 className={styles["heading"]}>
+          ĐĂNG <span> Ký</span>
+        </h1>
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>
             <input
@@ -132,15 +109,15 @@ const Register = () => {
               {...register("maNhom")}
               placeholder="Vui lòng nhập mã nhóm!"
               value={"GP01"}
-              // disabled
-              // hidden
+              
+              hidden
             />
             {errors.maNhom && <span>{errors.maNhom?.message}</span>}
           </div>
           <button className={styles["registerBtn"]}>Đăng ký</button>
         </form>
-      </Modal>
-    </div>
+      </div>
+    </section>
   );
 };
 

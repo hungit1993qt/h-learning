@@ -234,16 +234,12 @@ const UserProfile = () => {
                 </tr>
                 {profileUsers?.chiTietKhoaHocGhiDanh.map(
                   (listCoursApply, index) => {
-                    console.log(listCoursApply.hinhAnh);
+                   
                     return (
                       <tr className={styles["tr"]} key={index}>
-                        <td
-                          className={styles["td"]}
-                          style={{ width: "120px", margin: "0 auto"  }}
-                        >
+                        <td className={styles["td"]}>
                           <img
-                            className={styles['img']}
-                            style={{ width: "100%" }}
+                            className={styles["imgTd"]}
                             src={listCoursApply.hinhAnh}
                             alt=""
                           />

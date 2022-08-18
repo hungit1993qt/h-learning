@@ -34,14 +34,15 @@ function App() {
       <Suspense fallback={<Loading />}>
         <BrowserRouter>
           <Routes>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route path="" element={<HomeTemplate />}>
               <Route
                 path="danh-muc-khoa-hoc/:maDanhMuc"
                 element={<ListCours />}
               />
               <Route path="chi-tiet/:maKhoaHoc" element={<DetailCours />} />
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
+
               <Route path="about" element={<About />} />
               <Route path="error" element={<ErrorPage />} />
               <Route

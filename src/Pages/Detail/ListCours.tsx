@@ -70,21 +70,21 @@ const ListCours = () => {
                           {" "}
                           <span>{khoahoctheodanhmuc.ngayTao}</span>
                         </i>
-                        <div className="stars">
+                        <div className={styles["stars"]}>
                           <i
-                            className={`fas fa-star ${styles["iconReview"]}`}
+                            className={`fas fa-star`}
                           />
                           <i
-                            className={`fas fa-star ${styles["iconReview"]}`}
+                            className={`fas fa-star`}
                           />
                           <i
-                            className={`fas fa-star ${styles["iconReview"]}`}
+                            className={`fas fa-star`}
                           />
                           <i
-                            className={`fas fa-star ${styles["iconReview"]}`}
+                            className={`fas fa-star`}
                           />
                           <i
-                            className={`fas fa-star ${styles["iconReview"]}`}
+                            className={`fas fa-star`}
                           />
                         </div>
                       </div>

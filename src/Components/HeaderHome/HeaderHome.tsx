@@ -1,5 +1,5 @@
 //tsrafce
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 import styles from "_Playground/SCSS/Header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,12 +10,16 @@ import "antd/dist/antd.css";
 import { Button } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
 import { logOut } from "Slices/auth";
+import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 
 const HeaderHome = () => {
   const dispatch = useDispatch<AppDispatch>();
   // const [selectCours, seSelectCours] = useState("");
   const navigate = useNavigate();
   const [activeMobile, setActiveMobile] = useState(false);
+  useEffect(()=>{
+    dispatch(getDanhMucKhoaHoc());
+  },[])
   // const [visibleLogin, setVisibleLogin] = useState(false);
   // const [visibleRegister, setVisibleRegister] = useState(false);
   const ShowMenuMobile = () => {

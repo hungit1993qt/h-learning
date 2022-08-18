@@ -249,7 +249,7 @@ $padding: 10px;
   td.mota {
     display: block;
     display: -webkit-box;
-    line-height: 1.5;
+    line-height: 2;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -258,13 +258,22 @@ $padding: 10px;
   .td,
   .th {
     color: var(--black);
-    padding: $padding;
+    padding: 5px;
     text-align: center;
+    
   }
 
   .td {
     text-align: center;
     vertical-align: middle;
+
+    img.imgTd {
+      // border: 3px solid;
+      // border-color: lighten($baseColor, 50%);
+
+      margin: 0.5rem 0;
+      width: 100px !important;
+    }
 
     &:last-child {
       font-size: 0.95em;
@@ -339,15 +348,6 @@ $padding: 10px;
       display: none;
     }
   }
-}
-
-
-.img {
-  // border: 3px solid;
-  // border-color: lighten($baseColor, 50%);
-  height: $imageBig;
-  margin: 0.5rem 0;
-  width: $imageBig;
 }
 
 @media screen and (max-width: 500px) {
