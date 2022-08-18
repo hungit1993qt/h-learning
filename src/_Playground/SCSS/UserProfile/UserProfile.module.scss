@@ -237,7 +237,7 @@ form .radio #female:checked ~ label[for="female"] {
     font-size: 12px;
   }
 }
-$baseColor: #398b93;
+$baseColor: #39933f;
 $borderRadius: 10px;
 $imageBig: 100px;
 $imageSmall: 60px;
@@ -292,8 +292,9 @@ table {
   }
 
   th {
-    background-color: lighten($baseColor, 50%);
+    background-color: var(--green);
     font-weight: 300;
+    font-weight: bold;
   }
 
   tr {
@@ -301,7 +302,7 @@ table {
       background-color: white;
     }
     &:nth-child(2n + 1) {
-      background-color: lighten($baseColor, 55%);
+      background-color: var(--green);
     }
   }
 }
@@ -385,7 +386,7 @@ table {
 
   td {
     &:first-child {
-      background-color: lighten($baseColor, 45%);
+      background-color: var(--green);
       border-bottom: 1px solid lighten($baseColor, 30%);
       border-radius: $borderRadius $borderRadius 0 0;
       position: relative;
