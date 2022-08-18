@@ -48,6 +48,10 @@ const HeaderHome = () => {
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
     navigate(`danh-muc-khoa-hoc/${e.target.value}`);
   };
+  const handleLogOut = ()=>{
+    dispatch(logOut());
+    navigate("/")
+  }
   return (
     <header className={styles["header"]}>
       <section className={styles["flex"]}>
@@ -129,7 +133,7 @@ const HeaderHome = () => {
               <p>
                 <Button
                   className={user ? styles["btn-drop-user"] : styles["hide"]}
-                  onClick={() => dispatch(logOut())}
+                  onClick={() => handleLogOut()}
                 >
                   Đăng xuất
                 </Button>

@@ -14,10 +14,9 @@ const Checkout = () => {
 
   useEffect(() => {
     dispatch(getThongTinKhoaHoc(params.maKhoaHoc!));
+    handleApplyCours(maKhoaHoc, taiKhoan);
   }, []);
-  // const { chiTietKhoaHoc } = useSelector(
-  //   (state: RootState) => state.chiTietKhoaHoc
-  // );
+  
   const getValueLocalstorage: LocalStorageUser = JSON.parse(
     localStorage.getItem("userLogin") as string
   );
@@ -42,16 +41,12 @@ const Checkout = () => {
         navigate("/tai-khoan");
       } else if (result.isDenied) {
         Swal.fire("Vui lòng lựa lại khóa học", "", "info");
+        navigate("/")
       }
     });
   };
-  return (
-    <div className={styles["checkOut"]}>
-      <button onClick={() => handleApplyCours(maKhoaHoc, taiKhoan)}>
-        apply
-      </button>
-    </div>
-  );
+  
+  return <div className={styles["checkOut"]}></div>;
 };
 
 export default Checkout;
