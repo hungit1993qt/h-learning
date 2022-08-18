@@ -114,7 +114,12 @@ const Register = () => {
             />
             {errors.maNhom && <span>{errors.maNhom?.message}</span>}
           </div>
-          <button className={styles["registerBtn"]}>Đăng ký</button>
+          <button className={styles["registerBtn"]}>Đăng ký
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          </button>
         </form>
       </div>
     </section>

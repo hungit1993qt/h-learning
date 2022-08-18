@@ -1,10 +1,10 @@
 .loginPage {
-  width: 500px;
-  padding: 8% 0 0;
-  margin: auto;
+  max-width: 450;
+  padding: 10% 2% 2%;
+  margin:auto auto;
   .content {
-    margin: auto;
-    width: 450px;
+    margin:auto auto;
+    max-width: 400px;
     border: 1px solid rgba(255, 255, 255, 0.267);
     padding: 3rem;
     .heading {
