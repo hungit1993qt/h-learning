@@ -256,9 +256,13 @@ $padding: 10px;
 table {
   width: 100%;
 
-  td,
+  td
+   {
+    color: var(--black);
+    padding: $padding;
+  }
   th {
-    color: darken($baseColor, 10%);
+    color: var(--white);
     padding: $padding;
   }
   .mota {
@@ -266,11 +270,12 @@ table {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    line-height: 24px; /* fallback */
+    line-height: 37px; /* fallback */
     max-height: 130px; /* fallback */
-    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-line-clamp: 3; /* number of lines to show */
     -webkit-box-orient: vertical;
     max-width: 700px;
+    text-align: left;
   }
   .nameCours{
     width: 150px;
@@ -281,8 +286,8 @@ table {
     vertical-align: middle;
 
     img {
-      width: 150px;
-      height: 120px;
+      width: 120px;
+      height: 110px;
     }
     &:last-child {
       font-size: 1em;
@@ -377,12 +382,11 @@ table {
   }
 
   img {
-    border: 3px solid;
-    border-color: lighten($baseColor, 50%);
-    height: $imageBig;
+    height: 170px !important;
     margin: 0.5rem 0;
-    width: $imageBig;
+    width: 100% !important;
   }
+  
 
   td {
     &:first-child {
@@ -411,7 +415,10 @@ table {
       padding-bottom: 1rem !important;
     }
   }
-
+  .mota{
+    line-height: 24px !important;
+    -webkit-line-clamp: 5 !important; 
+  }
   tr {
     background-color: white !important;
     border: 1px solid lighten($baseColor, 20%);
