@@ -2,7 +2,7 @@ import { useForm, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import styles from "_Playground/SCSS/Register/Register.module.scss";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { registerUser } from "Slices/registerUser";
 import { RegisterValue } from "Interface/registerValue";
 import { useDispatch } from "react-redux";
@@ -121,6 +121,9 @@ const Register = () => {
           <span></span>
           </button>
         </form>
+        <span className={styles["footer-form"]}>
+          Nhấn vào <NavLink to={"/login"}> đây</NavLink> nếu bạn muốn quay lại trang đăng nhập <br/> Nhấn vào <NavLink to={"/"}>đây</NavLink> để về trang chủ
+        </span>
       </div>
     </section>
   );

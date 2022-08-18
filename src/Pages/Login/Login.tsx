@@ -2,7 +2,7 @@
 import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LoginValue } from "Interface/loginValue";
 import { login } from "Slices/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,6 +46,7 @@ const Login = () => {
         </h1>
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div>
+            <label htmlFor="username">Tài Khoản</label>
             <input
               type="text"
               placeholder="Vui lòng nhập tài khoản!"
@@ -62,10 +63,9 @@ const Login = () => {
               })}
               className={styles["box"]}
             />
-
-            {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
           </div>
           <div>
+            <label htmlFor="password">Mật Khẩu</label>
             <input
               type="text"
               placeholder="Vui lòng nhập mật khẩu!"
@@ -82,16 +82,22 @@ const Login = () => {
               })}
               className={styles["box"]}
             />
+            {errors.taiKhoan && <span>{errors.taiKhoan?.message}</span>}
+            <br />
             {errors.matKhau && <span>{errors.matKhau?.message}</span>}
           </div>
-          <button className={styles["loginBtn"]}>Đăng Nhập
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <button className={styles["loginBtn"]}>
+            Đăng Nhập
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          
         </form>
+        <span className={styles["footer-form"]}>
+          Nhấn vào <NavLink to={"/register"}> đây</NavLink> nếu bạn chưa có tài
+          khoản <br/> Nhấn vào <NavLink to={"/"}>đây</NavLink> để về trang chủ
+        </span>
       </div>
     </section>
   );

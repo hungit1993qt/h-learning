@@ -237,74 +237,83 @@ form .radio #female:checked ~ label[for="female"] {
     font-size: 12px;
   }
 }
-
 $baseColor: #398b93;
 $borderRadius: 10px;
 $imageBig: 100px;
 $imageSmall: 60px;
 $padding: 10px;
 
-.table {
+.table-users {
+  border: 1px solid darken($baseColor, 5%);
+  border-radius: $borderRadius;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
   width: 100%;
-  td.mota {
-    display: block;
-    display: -webkit-box;
-    line-height: 2;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+}
+
+table {
+  width: 100%;
+
+  td,
+  th {
+    color: darken($baseColor, 10%);
+    padding: $padding;
+  }
+  .mota {
+    word-break: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 24px; /* fallback */
+    max-height: 130px; /* fallback */
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    max-width: 700px;
   }
-  .td,
-  .th {
-    color: var(--black);
-    padding: 5px;
-    text-align: center;
-    
+  .nameCours{
+    width: 150px;
   }
 
-  .td {
+  td {
     text-align: center;
     vertical-align: middle;
 
-    img.imgTd {
-      // border: 3px solid;
-      // border-color: lighten($baseColor, 50%);
-
-      margin: 0.5rem 0;
-      width: 100px !important;
+    img {
+      width: 150px;
+      height: 120px;
     }
-
     &:last-child {
-      font-size: 0.95em;
+      font-size: 1em;
       line-height: 1.4;
       text-align: left;
     }
   }
 
-  .th {
-    background-color: #00e77f;
-    font-weight: bold;
+  th {
+    background-color: lighten($baseColor, 50%);
+    font-weight: 300;
   }
 
-  .tr {
+  tr {
     &:nth-child(2n) {
-      background-color: var(--white);
+      background-color: white;
     }
     &:nth-child(2n + 1) {
-      background-color: #e3e0e0;
+      background-color: lighten($baseColor, 55%);
     }
   }
 }
 
 @media screen and (max-width: 700px) {
-  .table,
-  .tr,
-  .td {
+  table,
+  tr,
+  td {
     display: block;
   }
-
-  .td {
+  
+  td {
     &:first-child {
       position: absolute;
       top: 50%;
@@ -314,13 +323,14 @@ $padding: 10px;
 
     &:not(:first-child) {
       clear: both;
-      margin-left: $imageBig;
+      margin-left: 170px;
       padding: 4px 20px 4px 90px;
       position: relative;
       text-align: left;
+      
 
       &:before {
-        color: var(--green);
+        color: lighten($baseColor, 30%);
         content: "";
         display: block;
         left: 0;
@@ -329,19 +339,24 @@ $padding: 10px;
     }
 
     &:nth-child(2):before {
-      content: "Khóa Học:";
+      content: "Name:";
     }
     &:nth-child(3):before {
-      content: "Mô Tả:";
+      content: "Email:";
     }
     &:nth-child(4):before {
-      content: "Ngày Tạo:";
+      content: "Phone:";
     }
     &:nth-child(5):before {
+      content: "Comments:";
     }
   }
+  .nameCours{
+    width: 100% !important;
+  }
 
-  .tr {
+
+  tr {
     padding: $padding 0;
     position: relative;
     &:first-child {
@@ -360,18 +375,18 @@ $padding: 10px;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   }
 
-  .img {
-    // border: 3px solid;
-    // border-color: lighten($baseColor, 50%);
+  img {
+    border: 3px solid;
+    border-color: lighten($baseColor, 50%);
     height: $imageBig;
     margin: 0.5rem 0;
     width: $imageBig;
   }
 
-  .td {
+  td {
     &:first-child {
-      // background-color: lighten($baseColor, 45%);
-      // border-bottom: 1px solid lighten($baseColor, 30%);
+      background-color: lighten($baseColor, 45%);
+      border-bottom: 1px solid lighten($baseColor, 30%);
       border-radius: $borderRadius $borderRadius 0 0;
       position: relative;
       top: 0;
@@ -382,7 +397,7 @@ $padding: 10px;
     &:not(:first-child) {
       margin: 0;
       padding: 5px 1em;
-      width: 100% !important;
+      width: 100%;
 
       &:before {
         font-size: 0.8em;
@@ -396,12 +411,12 @@ $padding: 10px;
     }
   }
 
-  .tr {
+  tr {
     background-color: white !important;
     border: 1px solid lighten($baseColor, 20%);
     border-radius: $borderRadius;
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-    margin: 1.5rem 0;
+    margin: 0.5rem 0;
     padding: 0;
   }
 

@@ -234,23 +234,14 @@ const UserProfile = () => {
                 </tr>
                 {profileUsers?.chiTietKhoaHocGhiDanh.map(
                   (listCoursApply, index) => {
-                   
                     return (
-                      <tr className={styles["tr"]} key={index}>
-                        <td className={styles["td"]}>
-                          <img
-                            className={styles["imgTd"]}
-                            src={listCoursApply.hinhAnh}
-                            alt=""
-                          />
+                      <tr key={index}>
+                        <td>
+                          <img src={listCoursApply.hinhAnh} alt="" />
                         </td>
-                        <td className={styles["td"]} style={{ width: "120px" }}>
-                          {listCoursApply.tenKhoaHoc}
-                        </td>
-                        <td className={styles["mota"]}>
-                          {listCoursApply.moTa}
-                        </td>
-                        <td className={styles["td"]} style={{ width: "120px" }}>
+                        <td className={styles["nameCours"]}>{listCoursApply.tenKhoaHoc}</td>
+                        <td className={styles["mota"]}>{listCoursApply.moTa}</td>
+                        <td >
                           {Moment(listCoursApply.ngayTao).format("DD-MM-YYYY")}{" "}
                           <i
                             onClick={() =>
