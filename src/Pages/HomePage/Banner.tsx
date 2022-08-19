@@ -14,16 +14,23 @@ const Banner = () => {
   const { khoaHocPhanTrang, paramsPagination } = useSelector(
     (state: RootState) => state.khoaHocPhanTrang
   );
-  const totalPages = khoaHocPhanTrang.totalPages;
+  const totalPages = khoaHocPhanTrang?.totalPages;
   const ArrayPagination = [];
-  for (let i = 1; i <= totalPages; i++) {
+  for (let i = 1; i <= totalPages!; i++) {
     ArrayPagination[i] = i;
   }
-  console.log(totalPages)
-  const Page = 1;
-  const pageSize = 3;
-  console.log(paramsPagination);
-  console.log(khoaHocPhanTrang);
+  // // console.log(totalPages);
+  // // const pageSize = 8;
+  // console.log(paramsPagination);
+  // console.log(khoaHocPhanTrang);
+
+  // console.log(!khoaHocPhanTrang ? true : false);
+  // console.log(khoaHocPhanTrang?.items);
+  // const arr1  = khoaHocPhanTrang?.items.map((obj)=>{
+  //   return { ...obj, ngayTao: new Date(obj.ngayTao) };
+  // })
+  // console.log(arr1[0].ngayTao)
+  
   return (
     <>
       <section className={styles["home"]}>
@@ -51,8 +58,8 @@ const Banner = () => {
       <section className={styles["count"]}>
         <div className={styles["box-container"]}>
           <ul className={styles["cards"]}>
-            {khoaHocPhanTrang.items.map((khoaHocPhanTrang, index) => {
-              if (index < 6) {
+            {khoaHocPhanTrang?.items.map((khoaHocPhanTrang, index) => {
+              if (index < 8) {
                 return (
                   <li
                     key={khoaHocPhanTrang.maKhoaHoc}
@@ -79,6 +86,7 @@ const Banner = () => {
                               {" "}
                               <span>{khoaHocPhanTrang.soLuongHocVien}</span>
                             </i>
+                            <br />
                             <i className="fa fa-calendar-alt">
                               {" "}
                               <span>{khoaHocPhanTrang.ngayTao}</span>
@@ -118,7 +126,7 @@ const Banner = () => {
             })}
           </ul>
         </div>
-        {ArrayPagination.map((number, indexPagination) => {
+        {/* {ArrayPagination.map((number, indexPagination) => {
           return (
             <button
               key={indexPagination}
@@ -128,7 +136,7 @@ const Banner = () => {
               {number}
             </button>
           );
-        })}
+        })} */}
       </section>
     </>
   );

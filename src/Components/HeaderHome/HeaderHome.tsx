@@ -15,7 +15,7 @@ import {
 } from "Slices/searchCours";
 import { logOut } from "Slices/auth";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
-import { ActionPagination } from "Interface/ActionPagination";
+// import { ActionPagination } from "Interface/ActionPagination";
 
 const HeaderHome = () => {
   //debound value
@@ -27,7 +27,7 @@ const HeaderHome = () => {
 
   const tenKhoaHoc = useDebounce<string>(value, 500);
 
-  let pageSize = 3;
+  let pageSize = 8;
   let page = 1;
 
   const dispatch = useDispatch<AppDispatch>();
@@ -103,12 +103,19 @@ const HeaderHome = () => {
             );
           })}
         </select>
-        <input
-          className={styles["box"]}
-          placeholder="Tìm kiếm khóa học"
-          type="text"
-          onChange={handleSearch}
-        />
+        <div>
+          <input
+            className={styles["box"]}
+            placeholder="Tìm kiếm khóa học"
+            type="text"
+            onChange={handleSearch}
+          />
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
         <nav
           className={
             activeMobile

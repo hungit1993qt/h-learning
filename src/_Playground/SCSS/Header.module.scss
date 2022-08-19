@@ -194,4 +194,23 @@
 }
 
 @media (max-width: 450px) {
+  .header .flex .logo {
+    font-size: 1.5rem;
+    color: var(--white);
+    text-decoration: none;
+    i {
+      color: var(--green);
+    }
+  }
+  .box {
+    border-radius: 0.5rem;
+    background-color: var(--light-bg);
+    font-size: 1.3rem;
+    color: var(--white);
+    // padding: 1.4rem;
+    text-transform: none;
+  }
 }
+
+
+
