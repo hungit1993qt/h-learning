@@ -16,9 +16,10 @@ const Banner = () => {
   );
   const totalPages = khoaHocPhanTrang.totalPages;
   const ArrayPagination = [];
-  for (let i = 1; i < totalPages; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     ArrayPagination[i] = i;
   }
+  console.log(totalPages)
   const Page = 1;
   const pageSize = 3;
   console.log(paramsPagination);
