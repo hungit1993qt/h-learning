@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 const Banner = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const handleSearch = (  
-    
-    number:number,
-    
+  const handleSearch = (
+    paramsPagination: string,
+    page: number,
+    pageSize: number
   ) => {
-    // dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, number, pageSize }));
+    dispatch(getDanhSachKhoaHocPhanTrang({ paramsPagination, page, pageSize }));
   };
-  const { khoaHocPhanTrang } = useSelector(
+  const { khoaHocPhanTrang, paramsPagination } = useSelector(
     (state: RootState) => state.khoaHocPhanTrang
   );
   const totalPages = khoaHocPhanTrang.totalPages;
@@ -19,7 +19,10 @@ const Banner = () => {
   for (let i = 1; i < totalPages; i++) {
     ArrayPagination[i] = i;
   }
-  console.log(khoaHocPhanTrang)
+  const Page = 1;
+  const pageSize = 3;
+  console.log(paramsPagination);
+  console.log(khoaHocPhanTrang);
   return (
     <>
       <section className={styles["home"]}>
@@ -114,9 +117,13 @@ const Banner = () => {
             })}
           </ul>
         </div>
-        {ArrayPagination.map((number,indexPagination) => {
+        {ArrayPagination.map((number, indexPagination) => {
           return (
-            <button key={indexPagination} onClick={() => handleSearch(number)} className="btn">
+            <button
+              key={indexPagination}
+              onClick={() => handleSearch(paramsPagination, number, pageSize)}
+              className="btn"
+            >
               {number}
             </button>
           );

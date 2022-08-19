@@ -9,7 +9,10 @@ import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
-import { getDanhSachKhoaHocPhanTrang } from "Slices/searchCours";
+import {
+  getDanhSachKhoaHocPhanTrang,
+  getParamsPagination,
+} from "Slices/searchCours";
 import { logOut } from "Slices/auth";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { ActionPagination } from "Interface/ActionPagination";
@@ -23,7 +26,7 @@ const HeaderHome = () => {
   };
 
   const tenKhoaHoc = useDebounce<string>(value, 500);
- 
+
   let pageSize = 3;
   let page = 1;
 
@@ -34,7 +37,8 @@ const HeaderHome = () => {
 
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
-    dispatch(getDanhSachKhoaHocPhanTrang({tenKhoaHoc, page, pageSize}));
+    dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    dispatch(getParamsPagination(tenKhoaHoc));
   }, [tenKhoaHoc]);
   // const [visibleLogin, setVisibleLogin] = useState(false);
   // const [visibleRegister, setVisibleRegister] = useState(false);

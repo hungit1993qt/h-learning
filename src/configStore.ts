@@ -20,7 +20,7 @@ const store = configureStore({
     profileUsers,
     inforUpdate,
     inforActionCours,
-    khoaHocPhanTrang
+    khoaHocPhanTrang,
     paramsPagination,
   },
 });

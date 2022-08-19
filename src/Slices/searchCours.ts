@@ -7,7 +7,7 @@ interface State {
   khoaHocPhanTrang: SearchCoursPagination;
   isLoading: boolean;
   error: string | null;
-  paramsPagination:string |null;
+  paramsPagination: any;
 }
 
 const initialState: State = {
@@ -42,21 +42,20 @@ const initialState: State = {
   },
   isLoading: false,
   error: null,
-  paramsPagination:null,
+  paramsPagination: null,
 };
 
 // thunk actions
 export const getDanhSachKhoaHocPhanTrang = createAsyncThunk(
   "course/getDanhSachKhoaHocPhanTrang",
-  async ({ tenKhoaHoc, page, pageSize }: ActionPagination) => {
+  async ({ tenKhoaHoc, page, pageSize }: any) => {
     try {
       const reponse = await courseAPI.getDanhSachKhoaHocPhanTrang(
         tenKhoaHoc,
         page,
         pageSize
       );
-      const paramsPagination = tenKhoaHoc
-      console.log(paramsPagination)
+
       const data: SearchCoursPagination = reponse.data;
       return data;
     } catch (error) {
@@ -68,7 +67,11 @@ export const getDanhSachKhoaHocPhanTrang = createAsyncThunk(
 const courseSlice = createSlice({
   name: "course",
   initialState,
-  reducers: {},
+  reducers: {
+    getParamsPagination: (state, payload:any) => {
+      state.paramsPagination = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getDanhSachKhoaHocPhanTrang.pending, (state) => {
       state.isLoading = true;
@@ -78,7 +81,6 @@ const courseSlice = createSlice({
       (state, { payload }) => {
         state.isLoading = false;
         state.khoaHocPhanTrang = payload;
-        state.paramsPagination = "2"
       }
     );
     builder.addCase(
@@ -92,6 +94,6 @@ const courseSlice = createSlice({
 });
 
 // export actions
-
+export const { getParamsPagination } = courseSlice.actions;
 // export reducer
 export default courseSlice.reducer;
