@@ -1,46 +1,38 @@
 import styles from "_Playground/SCSS/HomePage/Banner.module.scss";
-
+import {getDanhSachKhoaHocPhanTrang} from 'Slices/searchCours'
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "configStore";
 const Banner = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const handleSearch = (e:any)=>{
+    // dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }: ActionPagination))
+  }
   return (
     <>
       <section className={styles["home"]} id="home">
         <div className={styles["row"]}>
           <div className={styles["content"]}>
             <h3>
-              Khóa học <span>Trực tuyến</span>
+              Khóa học <span>Trực tuyến</span><select
+          
+          name="couses"
+          className={styles["selectItemPage"]}
+          onChange={handleSearch}
+          required
+        > 
+        <option value={"6"} selected>
+        6 Items/Page
+      </option>
+          <option  value={"8"}>8 Items/Page</option>
+          <option  value={"10"}>10 Items/Page</option>
+          <option  value={"12"}>12 Items/Page</option>
+        </select>
             </h3>
-            <a href="#contact" className="btn">
-              Gọi ngay !
-            </a>
-          </div>
-          <div className={styles["image"]}>
-            <img className={styles["img-CoursO"]} src="images/homg-img.svg" alt=""/>
           </div>
         </div>
       </section>
       <section className={styles["count"]}>
         <div className={styles["box-container"]}>
-          <div className={styles["box"]}>
-            <i className="fas fa-graduation-cap" />
-            <div className={styles["content"]}>
-              <h3>150+</h3>
-              <p>khóa học</p>
-            </div>
-          </div>
-          <div className={styles["box"]}>
-            <i className="fas fa-user-graduate" />
-            <div className={styles["content"]}>
-              <h3>1300+</h3>
-              <p>học viên</p>
-            </div>
-          </div>
-          <div className={styles["box"]}>
-            <i className="fas fa-chalkboard-user" />
-            <div className={styles["content"]}>
-              <h3>80+</h3>
-              <p>Giảng viên</p>
-            </div>
-          </div>
           <div className={styles["box"]}>
             <i className="fas fa-face-smile" />
             <div className={styles["content"]}>

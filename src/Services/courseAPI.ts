@@ -1,6 +1,7 @@
-
 import axiosClient from "./axiosClient";
 import { ActionCours } from "Interface/ActionCours";
+import { number, string } from "yup";
+import { ActionPagination } from "Interface/ActionPagination";
 
 const courseAPI = {
   getDanhMucKhoaHoc: () => {
@@ -18,6 +19,19 @@ const courseAPI = {
     return axiosClient.get("QuanLyKhoaHoc/LayThongTinKhoaHoc", {
       params: {
         maKhoaHoc: maKhoaHoc,
+      },
+    });
+  },
+  getDanhSachKhoaHocPhanTrang: ({
+    tenKhoaHoc,
+    page,
+    pageSize,
+  }: ActionPagination) => {
+    return axiosClient.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang", {
+      params: {
+        tenKhoaHoc,
+        page,
+        pageSize,
       },
     });
   },
