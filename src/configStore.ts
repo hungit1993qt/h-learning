@@ -7,6 +7,8 @@ import register from "Slices/registerUser";
 import profileUsers from "Slices/profileUser";
 import inforUpdate from "Slices/updateUser";
 import inforActionCours from "Slices/deleteApplyCours";
+import khoaHocPhanTrang from 'Slices/searchCours'
+import paramsPagination from 'Slices/searchCours'
 
 const store = configureStore({
   reducer: {
@@ -18,6 +20,8 @@ const store = configureStore({
     profileUsers,
     inforUpdate,
     inforActionCours,
+    khoaHocPhanTrang
+    paramsPagination,
   },
 });
 

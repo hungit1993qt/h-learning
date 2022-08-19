@@ -1,6 +1,6 @@
 //tsrafce
 import { useState, useRef, useEffect } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useOnClickOutside, useDebounce } from "usehooks-ts";
 import styles from "_Playground/SCSS/Header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
@@ -9,22 +9,41 @@ import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
+import { getDanhSachKhoaHocPhanTrang } from "Slices/searchCours";
 import { logOut } from "Slices/auth";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
+import { ActionPagination } from "Interface/ActionPagination";
 
 const HeaderHome = () => {
+  //debound value
+
+  const [value, setValue] = useState<string>("");
+  const handleSearch = (e: any) => {
+    setValue(e.target.value);
+  };
+
+  const tenKhoaHoc = useDebounce<string>(value, 500);
+ 
+  let pageSize = 3;
+  let page = 1;
+
   const dispatch = useDispatch<AppDispatch>();
   // const [selectCours, seSelectCours] = useState("");
   const navigate = useNavigate();
   const [activeMobile, setActiveMobile] = useState(false);
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
-  },[])
+    dispatch(getDanhSachKhoaHocPhanTrang({tenKhoaHoc, page, pageSize}));
+  }, [tenKhoaHoc]);
   // const [visibleLogin, setVisibleLogin] = useState(false);
   // const [visibleRegister, setVisibleRegister] = useState(false);
   const ShowMenuMobile = () => {
     setActiveMobile(!activeMobile);
   };
+  const { khoaHocPhanTrang } = useSelector(
+    (state: RootState) => state.khoaHocPhanTrang
+  );
   const ref = useRef(null);
   const handleClickOutside = () => {
     //console.log('clicked outside')
@@ -48,10 +67,11 @@ const HeaderHome = () => {
     dispatch(getKhoaHocTheoDanhMuc(e.target.value));
     navigate(`danh-muc-khoa-hoc/${e.target.value}`);
   };
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     dispatch(logOut());
-    navigate("/")
-  }
+    navigate("/");
+  };
+
   return (
     <header className={styles["header"]}>
       <section className={styles["flex"]}>
@@ -79,6 +99,12 @@ const HeaderHome = () => {
             );
           })}
         </select>
+        <input
+          className={styles["box"]}
+          placeholder="Tìm kiếm khóa học"
+          type="text"
+          onChange={handleSearch}
+        />
         <nav
           className={
             activeMobile

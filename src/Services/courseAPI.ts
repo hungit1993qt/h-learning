@@ -22,16 +22,12 @@ const courseAPI = {
       },
     });
   },
-  getDanhSachKhoaHocPhanTrang: ({
-    tenKhoaHoc,
-    page,
-    pageSize,
-  }: ActionPagination) => {
+  getDanhSachKhoaHocPhanTrang: ( tenKhoaHoc:string, page:number, pageSize:number ) => {
     return axiosClient.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang", {
       params: {
-        tenKhoaHoc,
-        page,
-        pageSize,
+         tenKhoaHoc:tenKhoaHoc,
+         page:page ,
+        pageSize:pageSize ,
       },
     });
   },
