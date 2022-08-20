@@ -20,7 +20,6 @@
         width: 100%;
         overflow: hidden;
         object-fit: cover;
-        min-height: 300px;
       }
     }
     .down-content {
@@ -157,6 +156,10 @@
   color: #f48840;
 }
 @media (min-width: 20rem) {
+  .blog-thumb {
+    img {
+      max-height: 250px;
+    }}
   .detailCourses {
     margin-top: 10rem;
     .heading {
@@ -174,7 +177,6 @@
       margin-bottom: 30px;
       .blog-thumb {
         img {
-          max-height: 230px;
         }
       }
       .down-content {
@@ -207,31 +209,14 @@
             }
           }
           .btn {
-            color: #ffffff;
             font-size: 1.4rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            font-weight: 400;
-            display: inline-block;
-            cursor: pointer;
-            background: transparent;
-            border: 1px solid var(--green);
             margin: 6px 10px;
             padding: 8px 11px 7px 11px;
             line-height: 1rem;
-            &:hover {
-              background-color: yellow;
-              color: var(--black);
-              font-weight: bold;
-            }
           }
         }
         h4 {
           font-size: 2.5rem !important;
-          text-transform: capitalize;
-          letter-spacing: 0.5px;
-          font-weight: bold;
-          color: var(--green);
           padding-top: 10px;
           margin: 0px 0px 12px 10px;
         }
@@ -241,41 +226,23 @@
             letter-spacing: 0.25px;
           }
         }
-        ul.post-info {
-          li {
-            display: inline-block;
-            margin-right: 8px;
-            &:after {
-              content: "|";
-              color: #aaa;
-              margin-left: 8px;
-            }
-            a {
-              font-size: 14px;
-              color: #aaa;
-              font-weight: 400;
-              transition: all 0.3s;
-              &:hover {
-                color: #f48840;
-              }
-            }
-          }
-        }
-        ul.post-share {
-          text-align: right;
-        }
       }
     }
   }
 }
 @media (min-width: 40rem) {
+  .blog-thumb {
+    img {
+      max-height: 450px;
+    }
+  }
 }
 
 @media (min-width: 56rem) {
   .detailCourses {
     .blog-thumb {
       img {
-        height: 400px;
+        max-height: 600px;
       }
     }
   }
