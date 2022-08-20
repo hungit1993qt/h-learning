@@ -20,6 +20,7 @@
         width: 100%;
         overflow: hidden;
         object-fit: cover;
+        min-height: 300px;
       }
     }
     .down-content {
@@ -105,7 +106,6 @@
         color: #aaa;
         text-align: right;
         display: inline-block;
-        ;
         li {
           :first-child i {
             color: #f48840;
@@ -134,8 +134,8 @@
             color: #f48840;
             margin-right: 5px;
           }
-          i{
-            margin:0 5px 0 10px;
+          i {
+            margin: 0 5px 0 10px;
           }
           a {
             font-size: 14px;
@@ -151,8 +151,6 @@
     }
   }
 }
-
-
 
 .down-content ul.post-tags li a:hover,
 .down-content ul.post-share li a:hover {
@@ -176,9 +174,7 @@
       margin-bottom: 30px;
       .blog-thumb {
         img {
-          width: 100%;
-          overflow: hidden;
-          object-fit: cover;
+          max-height: 230px;
         }
       }
       .down-content {
@@ -276,4 +272,11 @@
 }
 
 @media (min-width: 56rem) {
+  .detailCourses {
+    .blog-thumb {
+      img {
+        height: 400px;
+      }
+    }
+  }
 }
