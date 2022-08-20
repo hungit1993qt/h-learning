@@ -168,6 +168,7 @@
     border-bottom: 0.1rem solid var(--light-white);
     background-color: var(--light-bg);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    padding: 10px;
   }
 
   .header .flex .navbar.active {
@@ -181,13 +182,15 @@
   .registerBtn,
   .loginBtn {
     display: block !important;
+    width: 100%;
   }
   .registerBtn {
-    margin: 20px;
-    width: 102px;
+    padding: 0;
+    margin: 10px 0 0 0;
   }
   .loginBtn {
-    margin-top: 20px;
+    padding: 0;
+    margin: 0px;
   }
 }
 
