@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import styles from "_Playground/SCSS/Detail/DetailCours.module.scss";
-import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
+//import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
 import { getThongTinKhoaHoc } from "Slices/findDetailCours";
 import { useParams, useNavigate } from "react-router-dom";
 

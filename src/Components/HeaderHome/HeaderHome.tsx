@@ -86,7 +86,7 @@ const HeaderHome = () => {
         <div>
           <input
             className={styles["box"]}
-            placeholder="Tìm kiếm khóa học"
+            placeholder="Tìm khóa học"
             type="text"
             onChange={handleSearch}
           />

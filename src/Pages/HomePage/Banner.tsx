@@ -2,7 +2,9 @@ import styles from "_Playground/SCSS/HomePage/Banner.module.scss";
 import { getDanhSachKhoaHocPhanTrang } from "Slices/searchCours";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
+import { useNavigate } from "react-router-dom";
 const Banner = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const handleSearch = (
     paramsPagination: string,
@@ -30,7 +32,12 @@ const Banner = () => {
   //   return { ...obj, ngayTao: new Date(obj.ngayTao) };
   // })
   // console.log(arr1[0].ngayTao)
-  
+  const handleCheckout = (maKhoaHoc: string) => {
+    navigate(`/dang-ky/${maKhoaHoc}`);
+  };
+  const handleDetail = (maKhoaHoc: string) => {
+    navigate(`/chi-tiet/${maKhoaHoc}`);
+  };
   return (
     <>
       <section className={styles["home"]}>
@@ -102,16 +109,16 @@ const Banner = () => {
                           <div>
                             <button
                               className={`${styles["card_btn"]} ${styles["btn"]}`}
-                              // onClick={() =>
-                              //   handleDetail(khoahoctheodanhmuc.maKhoaHoc)
-                              // }
+                              onClick={() =>
+                                handleDetail(khoaHocPhanTrang.maKhoaHoc)
+                              }
                             >
                               Chi tiết
                             </button>
                             <button
-                              // onClick={() =>
-                              //   handleCheckout(khoahoctheodanhmuc.maKhoaHoc)
-                              // }
+                              onClick={() =>
+                                handleCheckout(khoaHocPhanTrang.maKhoaHoc)
+                              }
                               className={`${styles["card_btn"]} ${styles["btn"]}`}
                             >
                               Đăng ký

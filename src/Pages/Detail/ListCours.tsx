@@ -20,7 +20,6 @@ const ListCours = () => {
   const { danhMucKhoaHoc } = useSelector(
     (state: RootState) => state.danhMucKhoaHoc
   );
-
   const madm = danhMucKhoaHoc.find(
     (khoahoc) => khoahoc.maDanhMuc === maDanhMuc
   );
@@ -101,10 +100,12 @@ const ListCours = () => {
                           onClick={() =>
                             handleCheckout(khoahoctheodanhmuc.maKhoaHoc)
                           }
+                          
                           className={`${styles["card_btn"]} ${styles["btn"]}`}
                         >
                           Đăng ký
                         </button>
+                        
                       </div>
                     </div>
                   </div>
