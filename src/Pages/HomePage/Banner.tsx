@@ -22,7 +22,7 @@ const Banner = () => {
     ArrayPagination[i] = i;
   }
   // // console.log(totalPages);
-  // // const pageSize = 8;
+  const pageSize = 8;
   // console.log(paramsPagination);
   // console.log(khoaHocPhanTrang);
 
@@ -133,7 +133,7 @@ const Banner = () => {
             })}
           </ul>
         </div>
-        {/* {ArrayPagination.map((number, indexPagination) => {
+        {ArrayPagination.map((number, indexPagination) => {
           return (
             <button
               key={indexPagination}
@@ -143,7 +143,7 @@ const Banner = () => {
               {number}
             </button>
           );
-        })} */}
+        })}
       </section>
     </>
   );

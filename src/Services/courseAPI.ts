@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 import { ActionCours } from "Interface/ActionCours";
-import { number, string } from "yup";
-import { ActionPagination } from "Interface/ActionPagination";
+// import { number, string } from "yup";
+// import { ActionPagination } from "Interface/ActionPagination";
 
 const courseAPI = {
   getDanhMucKhoaHoc: () => {
@@ -28,6 +28,7 @@ const courseAPI = {
          tenKhoaHoc:tenKhoaHoc,
          page:page ,
         pageSize:pageSize ,
+        MaNhom: "GP01",
       },
     });
   },
