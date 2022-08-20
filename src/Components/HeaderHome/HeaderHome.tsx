@@ -82,6 +82,19 @@ const HeaderHome = () => {
         <NavLink to={"/"} className={styles["logo"]}>
           H-Learning <i className="fa fa-graduation-cap"></i>
         </NavLink>
+
+        <div>
+          <input
+            className={styles["box"]}
+            placeholder="Tìm kiếm khóa học"
+            type="text"
+            onChange={handleSearch}
+          />
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <select
           defaultValue={"DEFAULT"}
           name="couses"
@@ -103,18 +116,6 @@ const HeaderHome = () => {
             );
           })}
         </select>
-        <div>
-          <input
-            className={styles["box"]}
-            placeholder="Tìm kiếm khóa học"
-            type="text"
-            onChange={handleSearch}
-          />
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
 
         <nav
           className={
