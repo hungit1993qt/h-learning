@@ -206,6 +206,15 @@
       color: var(--green);
     }
   }
+  .titleUser{
+    color: var(--green);
+    font-weight: bold;
+    font-size: 2.2rem !important;
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   .box {
     border-radius: 0.5rem;
     background-color: var(--light-bg);
