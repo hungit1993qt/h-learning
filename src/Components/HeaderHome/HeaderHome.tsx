@@ -156,9 +156,11 @@ const HeaderHome = () => {
           </Button>
 
           <div className={user ? styles["dropdown"] : styles["hide"]}>
+            <div>
             <span className={styles["titleUser"]}>
               {user ? getValueLocalstorage.hoTen : ""}
             </span>
+            </div>
             <div className={styles["dropdown-content"]}>
               <p>
                 <Button
