@@ -13,7 +13,6 @@ const ListCours = () => {
   // const { maDanhMuc } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-   
     dispatch(getThongTinKhoaHoc(params.maKhoaHoc!));
   }, []);
   const { chiTietKhoaHoc } = useSelector(
@@ -68,13 +67,14 @@ const ListCours = () => {
               <div className={styles["col-6"]}>
                 <ul className={styles["post-tags"]}>
                   <li>
-                    <i className="fa fa-tags" />
-                  </li>
-                  <li>
+                    <i className="fa fa-tags"> </i> 
                     <a href="#">
                       {chiTietKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}
-                    </a>{" "}
-                    - <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
+                    </a>
+                   
+                  </li>
+                  <li>
+                  <i className="fa fa-tags"> </i>  <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
                   </li>
                 </ul>
               </div>
