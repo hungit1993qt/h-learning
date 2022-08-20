@@ -44,7 +44,7 @@
 
 @media (max-width: 450px) {
   .home .row .content h3 {
-    font-size: 5rem;
+    font-size: 3rem;
   }
 }
 /* CARDS */
@@ -136,7 +136,11 @@
   display: flex;
   padding: 1rem;
 }
-
+@media (min-width: 15rem) {
+  .cards_item {
+    width: 100%;
+  }
+}
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
@@ -148,7 +152,6 @@
     width: 25%;
   }
 }
-
 .card {
   width: 100%;
   border-radius: 0.25rem;
