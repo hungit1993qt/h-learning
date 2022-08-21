@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-//import { ActionPagination } from "Interface/ActionPagination";
+import { ActionPagination } from "Interface/ActionPagination";
 import { SearchCoursPagination } from "../Interface/SearchCoursPagination";
 import courseAPI from "../Services/courseAPI";
 import Swal from "sweetalert2";
@@ -16,7 +16,7 @@ const initialState: State = {
   khoaHocPhanTrang: null,
   isLoading: false,
   error: null,
-  paramsPagination: null,
+  paramsPagination: "",
 };
 // {
 //   currentPage: 1,
@@ -50,7 +50,7 @@ const initialState: State = {
 // thunk actions
 export const getDanhSachKhoaHocPhanTrang = createAsyncThunk(
   "course/getDanhSachKhoaHocPhanTrang",
-  async ({ tenKhoaHoc, page, pageSize }: any,{dispatch}) => {
+  async ({ tenKhoaHoc, page, pageSize }:ActionPagination,{dispatch}) => {
     try {
       const reponse = await courseAPI.getDanhSachKhoaHocPhanTrang(
         tenKhoaHoc,

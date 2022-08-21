@@ -3,26 +3,38 @@ import { getDanhSachKhoaHocPhanTrang } from "Slices/searchCours";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import {ActionPagination} from 'Interface/ActionPagination'
 const Banner = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const handleSearch = (
-    paramsPagination: string,
-    page: number,
-    pageSize: number
-  ) => {
-    dispatch(getDanhSachKhoaHocPhanTrang({ paramsPagination, page, pageSize }));
-  };
+
+  const pageSize = 8;
+  const page = 1;
+
   const { khoaHocPhanTrang, paramsPagination } = useSelector(
     (state: RootState) => state.khoaHocPhanTrang
   );
+  const tenKhoaHoc = paramsPagination.payload;
+  console.log(paramsPagination.payload)
+  useEffect(() => {
+    dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    console.log(tenKhoaHoc,page,pageSize)
+  }, [tenKhoaHoc]);
+  const handleSearch = (searValue: string, page: number, pageSize: number) => {
+    const pageZ: number = page ? page : 1;
+    console.log(searValue);
+    console.log(page);
+    console.log(pageSize);
+    dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+  };
   const totalPages = khoaHocPhanTrang?.totalPages;
   const ArrayPagination = [];
   for (let i = 1; i <= totalPages!; i++) {
     ArrayPagination[i] = i;
   }
   // // console.log(totalPages);
-  const pageSize = 8;
+
   // console.log(paramsPagination);
   // console.log(khoaHocPhanTrang);
 
@@ -137,7 +149,7 @@ const Banner = () => {
           return (
             <button
               key={indexPagination}
-              onClick={() => handleSearch(paramsPagination, number, pageSize)}
+              onClick={() => handleSearch(tenKhoaHoc, number, pageSize)}
               className="btn"
             >
               {number}

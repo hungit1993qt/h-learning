@@ -27,8 +27,8 @@ const HeaderHome = () => {
 
   const tenKhoaHoc = useDebounce<string>(value, 500);
 
-  let pageSize = 8;
-  let page = 1;
+  // let pageSize = 8;
+  // let page = 1;
 
   const dispatch = useDispatch<AppDispatch>();
   // const [selectCours, seSelectCours] = useState("");
@@ -37,7 +37,7 @@ const HeaderHome = () => {
 
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
-    dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    //  dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
     dispatch(getParamsPagination(tenKhoaHoc));
   }, [tenKhoaHoc]);
   // const [visibleLogin, setVisibleLogin] = useState(false);
@@ -45,9 +45,9 @@ const HeaderHome = () => {
   const ShowMenuMobile = () => {
     setActiveMobile(!activeMobile);
   };
-  const { khoaHocPhanTrang } = useSelector(
-    (state: RootState) => state.khoaHocPhanTrang
-  );
+  // const { khoaHocPhanTrang } = useSelector(
+  //   (state: RootState) => state.khoaHocPhanTrang
+  // );
   const ref = useRef(null);
   const handleClickOutside = () => {
     //console.log('clicked outside')
