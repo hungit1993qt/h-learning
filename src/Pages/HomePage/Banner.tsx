@@ -9,7 +9,7 @@ const Banner = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const pageSize = 8;
+  const pageSize = 4;
   const page = 1;
 
   const { khoaHocPhanTrang, paramsPagination } = useSelector(
