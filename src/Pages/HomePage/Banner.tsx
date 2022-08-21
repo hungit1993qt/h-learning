@@ -148,19 +148,21 @@ const Banner = () => {
         </div>
         <div className={styles["btn-pagination-content"]}>
           {ArrayPagination.map((number, indexPagination) => {
-            return (
-              <button
-                key={indexPagination}
-                onClick={() => handleSearch(tenKhoaHoc, number, pageSize)}
-                className={
-                  number === pageCurent
-                    ? "btn-pagination active-btn-pagination"
-                    : "btn-pagination"
-                }
-              >
-                {number}
-              </button>
-            );
+            if (indexPagination < 9) {
+              return (
+                <button
+                  key={indexPagination}
+                  onClick={() => handleSearch(tenKhoaHoc, number, pageSize)}
+                  className={
+                    number === pageCurent
+                      ? "btn-pagination active-btn-pagination"
+                      : "btn-pagination"
+                  }
+                >
+                  {number}
+                </button>
+              );
+            }
           })}
         </div>
       </section>
