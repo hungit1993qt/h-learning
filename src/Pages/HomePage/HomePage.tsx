@@ -4,18 +4,20 @@ import Courses from "./Courses";
 import Teachers from "./Teachers";
 import ReviewStudent from "./ReviewStudent";
 import Contact from "./Contact";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "configStore";
+import { useEffect } from "react";
+import {isMenuHome} from 'Slices/courseCatalog'
 
 const HomePage = () => {
-  // const dispatch = useDispatch<AppDispatch>();
-  // useEffect(() => {
-  //   dispatch(isMenuHome(true));
-  //   return function cleanup(){
-  //     dispatch(isMenuHome(false));
-  //   }
-  // }, []);
-  // const { activeNavbar } = useSelector(
-  //   (state: RootState) => state.danhMucKhoaHoc
-  // );
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(isMenuHome(true));
+    return function cleanup(){
+      dispatch(isMenuHome(false));
+    }
+  }, []);
+ 
 
   return (
     <div>

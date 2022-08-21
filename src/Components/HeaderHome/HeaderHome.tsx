@@ -75,6 +75,9 @@ const HeaderHome = () => {
     dispatch(logOut());
     navigate("/");
   };
+  const { activeNavbar } = useSelector(
+    (state: RootState) => state.danhMucKhoaHoc
+  );
 
   return (
     <header className={styles["header"]}>
@@ -85,7 +88,7 @@ const HeaderHome = () => {
 
         <div>
           <input
-            className={styles["box"]}
+            className={activeNavbar ? styles["box"] : styles["hide"]}
             placeholder="Tìm khóa học"
             type="text"
             onChange={handleSearch}
@@ -157,9 +160,9 @@ const HeaderHome = () => {
 
           <div className={user ? styles["dropdown"] : styles["hide"]}>
             <div>
-            <span className={styles["titleUser"]}>
-              {user ? getValueLocalstorage.hoTen : ""}
-            </span>
+              <span className={styles["titleUser"]}>
+                {user ? getValueLocalstorage.hoTen : ""}
+              </span>
             </div>
             <div className={styles["dropdown-content"]}>
               <p>

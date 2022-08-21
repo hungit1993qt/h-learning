@@ -29,6 +29,7 @@ const ListCours = () => {
   const handleDetail = (maKhoaHoc: string) => {
     navigate(`/chi-tiet/${maKhoaHoc}`);
   };
+  
 
   return (
     <section className={styles["detailListCourses"]}>

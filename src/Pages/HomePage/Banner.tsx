@@ -16,16 +16,16 @@ const Banner = () => {
     (state: RootState) => state.khoaHocPhanTrang
   );
   const tenKhoaHoc = paramsPagination.payload;
-  console.log(paramsPagination.payload);
+  // console.log(paramsPagination.payload);
   useEffect(() => {
     dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
-    console.log(tenKhoaHoc, page, pageSize);
+    // console.log(tenKhoaHoc, page, pageSize);
   }, [tenKhoaHoc]);
   const handleSearch = (searValue: string, page: number, pageSize: number) => {
     const pageZ: number = page ? page : 1;
-    console.log(searValue);
-    console.log(page);
-    console.log(pageSize);
+    // console.log(searValue);
+    // console.log(page);
+    // console.log(pageSize);
     dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
   };
   const totalPages = khoaHocPhanTrang?.totalPages;
