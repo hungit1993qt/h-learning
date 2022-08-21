@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import {ActionPagination} from 'Interface/ActionPagination'
+import { ActionPagination } from "Interface/ActionPagination";
 const Banner = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -16,10 +16,10 @@ const Banner = () => {
     (state: RootState) => state.khoaHocPhanTrang
   );
   const tenKhoaHoc = paramsPagination.payload;
-  console.log(paramsPagination.payload)
+  console.log(paramsPagination.payload);
   useEffect(() => {
     dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
-    console.log(tenKhoaHoc,page,pageSize)
+    console.log(tenKhoaHoc, page, pageSize);
   }, [tenKhoaHoc]);
   const handleSearch = (searValue: string, page: number, pageSize: number) => {
     const pageZ: number = page ? page : 1;
@@ -29,6 +29,7 @@ const Banner = () => {
     dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
   };
   const totalPages = khoaHocPhanTrang?.totalPages;
+  const pageCurent = khoaHocPhanTrang?.currentPage;
   const ArrayPagination = [];
   for (let i = 1; i <= totalPages!; i++) {
     ArrayPagination[i] = i;
@@ -145,17 +146,23 @@ const Banner = () => {
             })}
           </ul>
         </div>
-        {ArrayPagination.map((number, indexPagination) => {
-          return (
-            <button
-              key={indexPagination}
-              onClick={() => handleSearch(tenKhoaHoc, number, pageSize)}
-              className="btn"
-            >
-              {number}
-            </button>
-          );
-        })}
+        <div className={styles["btn-pagination-content"]}>
+          {ArrayPagination.map((number, indexPagination) => {
+            return (
+              <button
+                key={indexPagination}
+                onClick={() => handleSearch(tenKhoaHoc, number, pageSize)}
+                className={
+                  number === pageCurent
+                    ? "btn-pagination active-btn-pagination"
+                    : "btn-pagination"
+                }
+              >
+                {number}
+              </button>
+            );
+          })}
+        </div>
       </section>
     </>
   );
