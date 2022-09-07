@@ -150,7 +150,12 @@
 
 @media (min-width: 56rem) {
   .cards_item {
-    width: 25%;
+    width: calc(100%/3);
+  }
+}
+@media (min-width: 70rem) {
+  .cards_item {
+    width: calc(100%/4);
   }
 }
 .card {
@@ -192,6 +197,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 30px;
 }
 .made_by {
   font-weight: 400;

@@ -3,24 +3,48 @@ import { getDanhSachKhoaHocPhanTrang } from "Slices/searchCours";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ActionPagination } from "Interface/ActionPagination";
+const getWindowDimensions = () => {
+  const { innerWidth: width } = window;
+  return width;
+};
 const Banner = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const pageSize = 4;
+  //let pageSize = 4;
   const page = 1;
+
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  const [pageSize, setpageSize] = useState(4);
 
   const { khoaHocPhanTrang, paramsPagination } = useSelector(
     (state: RootState) => state.khoaHocPhanTrang
   );
   const tenKhoaHoc = paramsPagination.payload;
   // console.log(paramsPagination.payload);
+  const handleResize = () => {
+    setWindowDimensions(getWindowDimensions());
+    window.addEventListener("resize", handleResize);
+    console.log(windowDimensions);
+    windowDimensions < 1120 && windowDimensions > 895
+      ? setpageSize(6)
+      : setpageSize(4);
+    console.log(pageSize);
+  };
+
   useEffect(() => {
+    handleResize();
+
     dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    return () => window.removeEventListener("resize", handleResize);
+
     // console.log(tenKhoaHoc, page, pageSize);
-  }, [tenKhoaHoc]);
+  }, [tenKhoaHoc,windowDimensions, pageSize]);
   const handleSearch = (searValue: string, page: number, pageSize: number) => {
     const pageZ: number = page ? page : 1;
     // console.log(searValue);
@@ -148,7 +172,7 @@ const Banner = () => {
         </div>
         <div className={styles["btn-pagination-content"]}>
           {ArrayPagination.map((number, indexPagination) => {
-            if (indexPagination < 9) {
+            if (indexPagination < 6) {
               return (
                 <button
                   key={indexPagination}
