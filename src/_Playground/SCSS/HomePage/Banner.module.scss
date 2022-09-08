@@ -173,14 +173,10 @@
     width: 100%;
   }
   .card_text {
-    height: 25px;
+    min-height: 25px!important;
   }
 }
-@media (min-width: 24rem) {
-  .card_text {
-    min-height: 25px !important;
-  }
-}
+
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
