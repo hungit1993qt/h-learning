@@ -25,7 +25,7 @@ const Courses = (props: Props) => {
   return (
     <section className={styles["courses"]} id="courses">
       <h1 className={styles["heading"]}>
-        KHÓA <span> HỌC</span>
+         DANH MỤC <span>KHÓA HỌC</span>
       </h1>
       <Swiper
         slidesPerView={1}

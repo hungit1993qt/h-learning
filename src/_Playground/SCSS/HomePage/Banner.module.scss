@@ -13,8 +13,10 @@
         font-size: 4rem;
         color: var(--white);
         line-height: 1;
+        text-transform: uppercase;
         span {
           color: var(--green);
+          text-transform: uppercase;
         }
       }
     }
@@ -173,7 +175,7 @@
     width: 100%;
   }
   .card_text {
-    min-height: 25px!important;
+    min-height: 25px !important;
   }
 }
 
@@ -191,7 +193,7 @@
   .cards_item {
     width: calc(100% / 4);
   }
-  .card_text{
+  .card_text {
     min-height: 30px !important;
   }
 }

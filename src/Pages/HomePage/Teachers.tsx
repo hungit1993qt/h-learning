@@ -12,7 +12,7 @@ const Teachers = () => {
   return (
     <section className={styles["teachers"]} id="teachers">
       <h1 className="heading">
-        Giảng <span>Viên</span>
+         Đội Ngũ <span>Giảng Viên</span>
       </h1>
       <Swiper
         slidesPerView={1}
