@@ -179,16 +179,15 @@ section {
   background: var(--green) !important;
 }
 .btn-pagination{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   display: inline-block;
-  margin: 1rem 0 0 0.8rem;
+  margin: 0.5rem 0 0 0.5rem;
   border-radius: 5rem;
   background-color: var(--light-bg);
   cursor: pointer;
   color: var(--white);
-  font-size: 1.8rem;
-  padding: 0.1rem 1rem;
+  font-size: 1.5rem;
   &:first-child{
     margin-left: 0;
   }
@@ -196,6 +195,6 @@ section {
 .active-btn-pagination{
   background-color: var(--green);
   color: var(--white);
-  width: 30px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
 }
