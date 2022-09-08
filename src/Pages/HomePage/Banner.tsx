@@ -102,15 +102,17 @@ const Banner = () => {
         <div className={styles["box-container"]}>
           <ul className={styles["cards"]}>
             {khoaHocPhanTrang?.items.map((khoaHocPhanTrang, index) => {
-              if (index < 8) {
+              if (src={khoaHocPhanTrang.hinhAnh}") {
+
+                console.log(<img src={khoaHocPhanTrang.hinhAnh} alt="" />)
                 return (
                   <li
-                    key={khoaHocPhanTrang.maKhoaHoc}
+                    key={khoaHocPhanTrang.maKhoaHoc.}
                     className={styles["cards_item"]}
                   >
                     <div className={styles["card"]}>
                       <div className={styles["card_image"]}>
-                        <img src={khoaHocPhanTrang.hinhAnh} alt="" />
+                        <img src={khoaHocPhanTrang.hinhAnh} alt="" onError={"eror"}/>
                       </div>
                       <div className={styles["card_content"]}>
                         <h2 className={styles["card_title"]}>
