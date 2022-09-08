@@ -9,12 +9,10 @@ import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 import { getKhoaHocTheoDanhMuc } from "Slices/listCourseByCatalog";
-import {
-  getDanhSachKhoaHocPhanTrang,
-  getParamsPagination,
-} from "Slices/searchCours";
+import { getParamsPagination } from "Slices/searchCours";
 import { logOut } from "Slices/auth";
 import { getDanhMucKhoaHoc } from "Slices/courseCatalog";
+import Swal from "sweetalert2";
 // import { ActionPagination } from "Interface/ActionPagination";
 
 const HeaderHome = () => {
@@ -34,12 +32,56 @@ const HeaderHome = () => {
   // const [selectCours, seSelectCours] = useState("");
   const navigate = useNavigate();
   const [activeMobile, setActiveMobile] = useState(false);
+  const [valueSearchListCourse, setValueSearchListCourse] =
+  useState<string>(" ");
+  const searchListAccountGV = () => {
+    (async () => {
+      const { value: tenKhoaHoc } = await Swal.fire({
+        title: "Tìm theo tên Khóa Học",
+        input: "text",
+        inputLabel: "Nhập thông tin",
+        inputPlaceholder: "Thông tin tìm kiếm",
+      });
 
+      if (tenKhoaHoc) {
+        if (tenKhoaHoc === "all") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setValueSearchListCourse("");
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setValueSearchListCourse(tenKhoaHoc);
+        }
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          showConfirmButton: true,
+          showCancelButton: true,
+          title: "Bạn quên điền, Không dữ liệu",
+          text: "Nhấn ok để hiễn thị all dữ liệu.",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setValueSearchListCourse("");
+          }
+        });
+      }
+    })();
+  };
   useEffect(() => {
     dispatch(getDanhMucKhoaHoc());
     //  dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
-    dispatch(getParamsPagination(tenKhoaHoc));
-  }, [tenKhoaHoc]);
+    dispatch(getParamsPagination(valueSearchListCourse));
+  }, [valueSearchListCourse]);
   // const [visibleLogin, setVisibleLogin] = useState(false);
   // const [visibleRegister, setVisibleRegister] = useState(false);
   const ShowMenuMobile = () => {
@@ -79,6 +121,7 @@ const HeaderHome = () => {
     (state: RootState) => state.danhMucKhoaHoc
   );
 
+
   return (
     <header className={styles["header"]}>
       <section className={styles["flex"]}>
@@ -87,12 +130,11 @@ const HeaderHome = () => {
         </NavLink>
 
         <div>
-          <input
+          <label
             className={activeNavbar ? styles["box"] : styles["hide"]}
-            placeholder="Tìm khóa học"
-            type="text"
-            onChange={handleSearch}
-          />
+            
+            onClick={searchListAccountGV}
+          >Tìm khóa học</label>
           <span></span>
           <span></span>
           <span></span>
