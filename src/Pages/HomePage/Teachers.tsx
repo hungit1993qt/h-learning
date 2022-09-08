@@ -50,7 +50,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Dân</h3>
+            
           </div>
         </SwiperSlide>
 
@@ -67,7 +67,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Hiếu</h3>
+            
           </div>
         </SwiperSlide>
 
@@ -84,7 +84,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Tùng</h3>
+           
           </div>
         </SwiperSlide>
 
@@ -101,7 +101,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Nam</h3>
+            
           </div>
         </SwiperSlide>
 
@@ -118,7 +118,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Văn</h3>
+            
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -134,7 +134,7 @@ const Teachers = () => {
               <a href="#" className="fab fa-instagram" />
               <a href="#" className="fab fa-linkedin" />
             </div>
-            <h3 className={styles["title"]}>Thầy Đông</h3>
+            
           </div>
         </SwiperSlide>
       </Swiper>
