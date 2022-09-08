@@ -5,15 +5,25 @@ const About = () => {
     <section className={styles["about"]} id="about">
       <div className={styles["row"]}>
         <div className={styles["image"]}>
-          <img className={styles["img-Choose"]} src="images/about-img.svg" alt="" />
+          <img
+            className={styles["img-Choose"]}
+            src="images/about-img.jpg"
+            alt=""
+          />
         </div>
         <div className={styles["content"]}>
-          <h3>Tại sao chọn chúng tôi?</h3>
-          <p>3 lý do khách hàng chọn H-Learning:</p>
+          <h3>Đào tạo nghề lập trình chuyên sâu từ con số 0</h3>
+          
           <ul>
-            <li>Đặt tiêu chí phục vụ khách hàng lên hàng đầu</li>
-            <li>Được đúc kết từ các chuyên gia trong ngành</li>
-            <li>Dùng kinh nghiệm để đào tạo tốt nhất</li>
+            <li>
+              H-Learning khai thác nhu cầu tuyển dụng lập trình, kết nối việc
+              làm tới doanh nghiệp và tích hợp các dự án với công nghệ mới nhất
+              vào phương pháp đào tạo tích cực cho các học viên học xong có việc
+              làm ngay. Chương trình giảng dạy được biên soạn may đo dành riêng
+              cho các bạn Lập trình từ trái ngành hoặc đã có kiến thức theo
+              cường độ cao, luôn được tinh chỉnh và tối ưu hóa theo thời gian
+              bởi các thành viên sáng lập và giảng viên dày kinh nghiệm.
+            </li>
           </ul>
           <a href="#contact" className="btn">
             Gọi ngay !
