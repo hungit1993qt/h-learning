@@ -173,7 +173,12 @@
     width: 100%;
   }
   .card_text {
-    min-height: 25px;
+    height: 25px;
+  }
+}
+@media (min-width: 24rem) {
+  .card_text {
+    min-height: 25px !important;
   }
 }
 @media (min-width: 40rem) {
@@ -181,7 +186,6 @@
     width: 50%;
   }
 }
-
 @media (min-width: 56rem) {
   .cards_item {
     width: calc(100% / 3);
@@ -190,5 +194,8 @@
 @media (min-width: 70rem) {
   .cards_item {
     width: calc(100% / 4);
+  }
+  .card_text{
+    min-height: 30px !important;
   }
 }
