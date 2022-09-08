@@ -14,7 +14,7 @@ const ReviewStudent = (props: Props) => {
   return (
     <section className="reviews" id="reviews">
       <h1 className="heading">
-        Đánh giá <span> của Học Viên</span>
+        Đánh giá <span> Học Viên</span>
       </h1>
 
       <Swiper

@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <section className={styles["contact"]} id="contact">
       <h1 className="heading">
-      Liên Hệ với <span>Chúng Tôi</span> 
+      Liên Hệ <span>Chúng Tôi</span> 
       </h1>
       <div className={styles["row"]}>
         <div className={styles["image"]}>
