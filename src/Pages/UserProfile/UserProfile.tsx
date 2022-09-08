@@ -13,8 +13,6 @@ import { UserUpdate } from "Interface/userUpdate";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import Moment from "moment";
-import { ProfileUser } from "Interface/ProfileUser";
-import { ChiTietKhoaHocGhiDanh } from "Interface/DetailCoursApply";
 const { TabPane } = Tabs;
 
 const schema = object({
@@ -83,7 +81,7 @@ const UserProfile = () => {
   const handleDeleteApply = (maKhoaHoc: string, taiKhoan: string) => {
     dispatch(postHuyGhiDanh({ maKhoaHoc, taiKhoan }));
   };
- 
+
   return (
     <section className={styles["UserProfile"]}>
       <Tabs defaultActiveKey="1">
@@ -273,7 +271,6 @@ const UserProfile = () => {
             </table>
           </div>
         </TabPane>
-        <TabPane tab="KHÓA HỌC CỦA TÔI phân trang" key="3"></TabPane>
       </Tabs>
     </section>
   );

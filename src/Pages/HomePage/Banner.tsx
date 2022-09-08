@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "configStore";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ActionPagination } from "Interface/ActionPagination";
 const getWindowDimensions = () => {
   const { innerWidth: width } = window;
   return width;

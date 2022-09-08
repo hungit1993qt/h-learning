@@ -1,7 +1,6 @@
 // Một số thư viện làm việc với form trong React: formik, react-final-form, react-hook-form
 import styles from "_Playground/SCSS/Login/Login.module.scss";
 import { useForm, FieldErrors } from "react-hook-form";
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { LoginValue } from "Interface/loginValue";
 import { login } from "Slices/auth";
