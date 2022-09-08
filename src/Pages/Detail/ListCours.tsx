@@ -29,7 +29,6 @@ const ListCours = () => {
   const handleDetail = (maKhoaHoc: string) => {
     navigate(`/chi-tiet/${maKhoaHoc}`);
   };
-  
 
   return (
     <section className={styles["detailListCourses"]}>
@@ -47,7 +46,13 @@ const ListCours = () => {
               >
                 <div className={styles["card"]}>
                   <div className={styles["card_image"]}>
-                    <img src={khoahoctheodanhmuc.hinhAnh} alt=""/>
+                    <img
+                      src={khoahoctheodanhmuc.hinhAnh}
+                      onError={(e: any) =>
+                        (e.target.src = "../images/imgNotFound.png")
+                      }
+                      alt=""
+                    />
                   </div>
                   <div className={styles["card_content"]}>
                     <h2 className={styles["card_title"]}>
@@ -71,21 +76,11 @@ const ListCours = () => {
                           <span>{khoahoctheodanhmuc.ngayTao}</span>
                         </i>
                         <div className={styles["stars"]}>
-                          <i
-                            className={`fas fa-star`}
-                          />
-                          <i
-                            className={`fas fa-star`}
-                          />
-                          <i
-                            className={`fas fa-star`}
-                          />
-                          <i
-                            className={`fas fa-star`}
-                          />
-                          <i
-                            className={`fas fa-star`}
-                          />
+                          <i className={`fas fa-star`} />
+                          <i className={`fas fa-star`} />
+                          <i className={`fas fa-star`} />
+                          <i className={`fas fa-star`} />
+                          <i className={`fas fa-star`} />
                         </div>
                       </div>
                       <div>
@@ -101,12 +96,10 @@ const ListCours = () => {
                           onClick={() =>
                             handleCheckout(khoahoctheodanhmuc.maKhoaHoc)
                           }
-                          
                           className={`${styles["card_btn"]} ${styles["btn"]}`}
                         >
                           Đăng ký
                         </button>
-                        
                       </div>
                     </div>
                   </div>

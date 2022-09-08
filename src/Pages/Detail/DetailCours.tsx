@@ -38,7 +38,11 @@ const ListCours = () => {
       </h1>
       <div className={styles["blog-post"]}>
         <div className={styles["blog-thumb"]}>
-          <img src={chiTietKhoaHoc?.hinhAnh!} alt="" />
+          <img
+            src={chiTietKhoaHoc?.hinhAnh!}
+            onError={(e: any) => (e.target.src = "../images/imgNotFound.png")}
+            alt=""
+          />
         </div>
         <div className={styles["down-content"]}>
           <a href="">
@@ -67,14 +71,14 @@ const ListCours = () => {
               <div className={styles["col-6"]}>
                 <ul className={styles["post-tags"]}>
                   <li>
-                    <i className="fa fa-tags"> </i> 
+                    <i className="fa fa-tags"> </i>
                     <a href="#">
                       {chiTietKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}
                     </a>
-                   
                   </li>
                   <li>
-                  <i className="fa fa-tags"> </i>  <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
+                    <i className="fa fa-tags"> </i>{" "}
+                    <a href="#">{chiTietKhoaHoc?.tenKhoaHoc}</a>
                   </li>
                 </ul>
               </div>
