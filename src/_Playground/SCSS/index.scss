@@ -87,7 +87,7 @@ section {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--green);
+  background-color: var(--green) !important;
 }
 .heading {
   margin-bottom: 2.5rem;
@@ -165,7 +165,7 @@ section {
   }
 
   .heading {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
@@ -178,7 +178,7 @@ section {
 .ant-tabs-ink-bar {
   background: var(--green) !important;
 }
-.btn-pagination{
+.btn-pagination {
   width: 25px;
   height: 25px;
   display: inline-block;
@@ -188,16 +188,14 @@ section {
   cursor: pointer;
   color: var(--white);
   font-size: 1.5rem;
-  &:first-child{
+  &:first-child {
     margin-left: 0;
   }
 }
-.active-btn-pagination{
+.active-btn-pagination {
   background-color: var(--green);
   color: var(--white);
   width: 25px;
   height: 25px;
-  cursor:not-allowed;
-  
-  
+  cursor: not-allowed;
 }
