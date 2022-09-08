@@ -20,7 +20,7 @@ const Banner = () => {
     getWindowDimensions()
   );
 
-  const [pageSize, setpageSize] = useState(4);
+  const [pageSize, setpageSize] = useState(8);
 
   const { khoaHocPhanTrang, paramsPagination } = useSelector(
     (state: RootState) => state.khoaHocPhanTrang
@@ -30,11 +30,10 @@ const Banner = () => {
   const handleResize = () => {
     setWindowDimensions(getWindowDimensions());
     window.addEventListener("resize", handleResize);
-    console.log(windowDimensions);
-    windowDimensions < 1120 && windowDimensions > 895
-      ? setpageSize(6)
-      : setpageSize(4);
-    console.log(pageSize);
+    if (windowDimensions < 1120 && windowDimensions > 895) setpageSize(6);
+    if (windowDimensions < 896) setpageSize(4);
+    if (windowDimensions < 640) setpageSize(2);
+    if(windowDimensions >1120) setpageSize(8)
   };
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const Banner = () => {
     return () => window.removeEventListener("resize", handleResize);
 
     // console.log(tenKhoaHoc, page, pageSize);
-  }, [tenKhoaHoc,windowDimensions, pageSize]);
+  }, [tenKhoaHoc, windowDimensions, pageSize]);
   const handleSearch = (searValue: string, page: number, pageSize: number) => {
     const pageZ: number = page ? page : 1;
     // console.log(searValue);
