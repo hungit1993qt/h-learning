@@ -33,7 +33,7 @@ const Banner = () => {
     if (windowDimensions < 1120 && windowDimensions > 895) setpageSize(6);
     if (windowDimensions < 896) setpageSize(4);
     if (windowDimensions < 640) setpageSize(2);
-    if(windowDimensions >1120) setpageSize(8)
+    if (windowDimensions > 1120) setpageSize(8);
   };
 
   useEffect(() => {
@@ -102,72 +102,72 @@ const Banner = () => {
         <div className={styles["box-container"]}>
           <ul className={styles["cards"]}>
             {khoaHocPhanTrang?.items.map((khoaHocPhanTrang, index) => {
-              if (src={khoaHocPhanTrang.hinhAnh}") {
-
-                console.log(<img src={khoaHocPhanTrang.hinhAnh} alt="" />)
-                return (
-                  <li
-                    key={khoaHocPhanTrang.maKhoaHoc.}
-                    className={styles["cards_item"]}
-                  >
-                    <div className={styles["card"]}>
-                      <div className={styles["card_image"]}>
-                        <img src={khoaHocPhanTrang.hinhAnh} alt="" onError={"eror"}/>
-                      </div>
-                      <div className={styles["card_content"]}>
-                        <h2 className={styles["card_title"]}>
-                          {khoaHocPhanTrang.tenKhoaHoc}
-                        </h2>
-                        <p className={styles["card_text"]}>
-                          {khoaHocPhanTrang.moTa}
-                        </p>
-                        <div className={styles["bottom-card"]}>
-                          <div className={styles["icon-review"]}>
-                            <i className="fa fa-eye">
-                              {" "}
-                              <span>{khoaHocPhanTrang.luotXem}</span>
-                            </i>
-                            <i className="fa fa-users">
-                              {" "}
-                              <span>{khoaHocPhanTrang.soLuongHocVien}</span>
-                            </i>
-                            <br />
-                            <i className="fa fa-calendar-alt">
-                              {" "}
-                              <span>{khoaHocPhanTrang.ngayTao}</span>
-                            </i>
-                            <div className={styles["stars"]}>
-                              <i className={`fas fa-star`} />
-                              <i className={`fas fa-star`} />
-                              <i className={`fas fa-star`} />
-                              <i className={`fas fa-star`} />
-                              <i className={`fas fa-star`} />
-                            </div>
+              return (
+                <li
+                  key={khoaHocPhanTrang.maKhoaHoc}
+                  className={styles["cards_item"]}
+                >
+                  <div className={styles["card"]}>
+                    <div className={styles["card_image"]}>
+                      <img
+                        src={khoaHocPhanTrang.hinhAnh}
+                        onError={(e:any) => e.target.src = "images/imgNotFound.png"}
+                        alt=""
+                      />
+                    </div>
+                    <div className={styles["card_content"]}>
+                      <h2 className={styles["card_title"]}>
+                        {khoaHocPhanTrang.tenKhoaHoc}
+                      </h2>
+                      <p className={styles["card_text"]}>
+                        {khoaHocPhanTrang.moTa}
+                      </p>
+                      <div className={styles["bottom-card"]}>
+                        <div className={styles["icon-review"]}>
+                          <i className="fa fa-eye">
+                            {" "}
+                            <span>{khoaHocPhanTrang.luotXem}</span>
+                          </i>
+                          <i className="fa fa-users">
+                            {" "}
+                            <span>{khoaHocPhanTrang.soLuongHocVien}</span>
+                          </i>
+                          <br />
+                          <i className="fa fa-calendar-alt">
+                            {" "}
+                            <span>{khoaHocPhanTrang.ngayTao}</span>
+                          </i>
+                          <div className={styles["stars"]}>
+                            <i className={`fas fa-star`} />
+                            <i className={`fas fa-star`} />
+                            <i className={`fas fa-star`} />
+                            <i className={`fas fa-star`} />
+                            <i className={`fas fa-star`} />
                           </div>
-                          <div>
-                            <button
-                              className={`${styles["card_btn"]} ${styles["btn"]}`}
-                              onClick={() =>
-                                handleDetail(khoaHocPhanTrang.maKhoaHoc)
-                              }
-                            >
-                              Chi tiết
-                            </button>
-                            <button
-                              onClick={() =>
-                                handleCheckout(khoaHocPhanTrang.maKhoaHoc)
-                              }
-                              className={`${styles["card_btn"]} ${styles["btn"]}`}
-                            >
-                              Đăng ký
-                            </button>
-                          </div>
+                        </div>
+                        <div>
+                          <button
+                            className={`${styles["card_btn"]} ${styles["btn"]}`}
+                            onClick={() =>
+                              handleDetail(khoaHocPhanTrang.maKhoaHoc)
+                            }
+                          >
+                            Chi tiết
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleCheckout(khoaHocPhanTrang.maKhoaHoc)
+                            }
+                            className={`${styles["card_btn"]} ${styles["btn"]}`}
+                          >
+                            Đăng ký
+                          </button>
                         </div>
                       </div>
                     </div>
-                  </li>
-                );
-              }
+                  </div>
+                </li>
+              );
             })}
           </ul>
         </div>
