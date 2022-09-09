@@ -26,21 +26,23 @@ const Banner = () => {
   );
   const tenKhoaHoc = paramsPagination.payload;
   // console.log(paramsPagination.payload);
-  const handleResize = () => {
+  const handleResize = (callback: any) => {
     setWindowDimensions(getWindowDimensions());
     window.addEventListener("resize", handleResize);
+    if (windowDimensions > 1120) setpageSize(8);
     if (windowDimensions < 1120 && windowDimensions > 895) setpageSize(6);
     if (windowDimensions < 896) setpageSize(4);
     if (windowDimensions < 640) setpageSize(2);
-    if (windowDimensions > 1120) setpageSize(8);
+    if (typeof callback === "function") {
+      callback();
+    }
   };
 
   useEffect(() => {
-    handleResize();
-
-    dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    handleResize(() => {
+      dispatch(getDanhSachKhoaHocPhanTrang({ tenKhoaHoc, page, pageSize }));
+    });
     return () => window.removeEventListener("resize", handleResize);
-
     // console.log(tenKhoaHoc, page, pageSize);
   }, [tenKhoaHoc, windowDimensions, pageSize]);
   const handleSearch = (searValue: string, page: number, pageSize: number) => {
@@ -110,7 +112,9 @@ const Banner = () => {
                     <div className={styles["card_image"]}>
                       <img
                         src={khoaHocPhanTrang.hinhAnh}
-                        onError={(e:any) => e.target.src = "images/imgNotFound.png"}
+                        onError={(e: any) =>
+                          (e.target.src = "images/imgNotFound.png")
+                        }
                         alt=""
                       />
                     </div>
