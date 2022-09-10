@@ -126,7 +126,7 @@ section {
   opacity: 0;
   visibility: hidden;
   bottom: 100px;
-  right: 29px;
+  right: 24px;
 }
 .call {
   border: red 1px solid;
@@ -208,15 +208,15 @@ section {
   }
   .messFacebook {
     left: 5%;
-    bottom: 2rem;
+    bottom: 24px;
   }
   .call {
     left: 30%;
-    bottom: 2rem;
+    bottom: 24px;
   }
   .go-top {
-    left: 60%;
-    bottom: 2rem;
+    left: 54%;
+    bottom: 24px;
   }
  
 }
@@ -258,7 +258,7 @@ section {
     transform: rotate(10deg);
   }
   25% {
-    transform: scale(1.15);
+    transform: scale(1.05);
     
   }
   50% {
@@ -280,7 +280,7 @@ section {
     transform: rotate(10deg);
   }
   25% {
-    transform: scale(1.15);
+    transform: scale(1.05);
     
   }
   50% {
