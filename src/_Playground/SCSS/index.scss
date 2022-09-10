@@ -163,9 +163,19 @@ section {
   }
 }
 .fb_dialog.fb_dialog_advanced iframe {
-  right: auto !important;
-  left: 2rem;
-  bottom: 2rem !important;
+  background: none;
+    border-radius: 60px;
+    bottom: 92px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 4px 12px 0px;
+    display: block;
+    height: 50px;
+    overflow: visible;
+    padding: 0px;
+    position: fixed;
+    right: 5px;
+    top: auto;
+    width: 50px;
+    z-index: 2147483644;
 }
 
 .ant-modal-header {
@@ -219,6 +229,8 @@ section {
   }
   .fb_dialog.fb_dialog_advanced iframe {
     right: 5px !important;
+    bottom: 18px !important;
+    margin: 0 !important;
   }
 }
 
