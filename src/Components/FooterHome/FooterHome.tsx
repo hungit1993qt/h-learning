@@ -37,6 +37,18 @@ const FooterHome = () => {
       >
         <i className="fa fa-arrow-up"></i>
       </a>
+      <a
+        href="#"
+        className={"call"}
+      >
+        <i className="fa fa-phone"></i>
+      </a>
+      <a
+        href="#"
+        className={"messFacebook"}
+      >
+       <i className="fab fa-facebook-messenger"></i>
+      </a>
     </footer>
   );
 };

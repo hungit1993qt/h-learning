@@ -1,10 +1,14 @@
 import styles from "_Playground/SCSS/HomePage/About.module.scss";
 
 const About = () => {
+  const handleVideo = ()=>{
+    alert("video")
+  }
   return (
     <section className={styles["about"]} id="about">
       <div className={styles["row"]}>
         <div className={styles["image"]}>
+        <i onClick={handleVideo} className="fa fa-play-circle"></i>
           <img
             className={styles["img-Choose"]}
             src="images/about-img.jpg"
