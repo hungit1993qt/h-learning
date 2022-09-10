@@ -236,7 +236,13 @@ const UserProfile = () => {
                     return (
                       <tr key={index}>
                         <td>
-                          <img src={listCoursApply.hinhAnh} alt="" />
+                          <img
+                            src={listCoursApply.hinhAnh}
+                            onError={(e: any) =>
+                              (e.target.src = "../images/imgNotFound.png")
+                            }
+                            alt=""
+                          />
                         </td>
                         <td className={styles["nameCours"]}>
                           {listCoursApply.tenKhoaHoc}

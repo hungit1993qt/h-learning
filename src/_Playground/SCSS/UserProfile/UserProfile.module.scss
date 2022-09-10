@@ -1,9 +1,9 @@
 .UserProfile {
-  margin-top: 6rem;
+  padding-top: 8rem;
 }
 
 .codepen {
-  margin: 2em auto;
+  margin: 0 auto;
   h1 {
     color: lighten(#151515, 20);
     font-weight: 100;
@@ -250,6 +250,8 @@ $padding: 10px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
+  overflow-y: scroll;
+  max-height: 704px;
 }
 
 table {
@@ -304,6 +306,10 @@ table {
 
   tr {
     border-bottom: var(--light-white) 1px solid;
+    &:first-child{
+      position:sticky;
+      top: 0;
+    }
   }
 }
 
