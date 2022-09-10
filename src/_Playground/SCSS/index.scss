@@ -164,18 +164,18 @@ section {
 }
 .fb_dialog.fb_dialog_advanced iframe {
   background: none;
-    border-radius: 60px;
-    bottom: 92px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 4px 12px 0px;
-    display: block;
-    height: 50px;
-    overflow: visible;
-    padding: 0px;
-    position: fixed;
-    right: 5px;
-    top: auto;
-    width: 50px;
-    z-index: 2147483644;
+  border-radius: 60px;
+  bottom: 92px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 4px 12px 0px;
+  display: block;
+  height: 50px;
+  overflow: visible;
+  padding: 0px;
+  position: fixed;
+  right: 5px;
+  top: auto;
+  width: 50px;
+  z-index: 2147483644;
 }
 
 .ant-modal-header {
@@ -220,12 +220,17 @@ section {
   .heading {
     font-size: 3rem;
   }
-  .messFacebook,
+  .messFacebook {
+    left: 2rem;
+    bottom: 2rem;
+  }
   .call {
-    left: 5px;
+    left: 15rem;
+    bottom: 2rem;
   }
   .go-top {
-    right: 5px;
+    left: 28rem;
+    bottom: 2rem;
   }
   .fb_dialog.fb_dialog_advanced iframe {
     right: 5px !important;
@@ -233,6 +238,7 @@ section {
     margin: 0 !important;
   }
 }
+
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: var(--green) !important;
