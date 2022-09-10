@@ -162,21 +162,7 @@ section {
     border-color: var(--green);
   }
 }
-.fb_dialog.fb_dialog_advanced iframe {
-  background: none;
-  border-radius: 60px;
-  bottom: 92px;
-  box-shadow: rgb(0 0 0 / 15%) 0px 4px 12px 0px;
-  display: block;
-  height: 50px !important;
-  overflow: visible;
-  padding: 0px;
-  position: fixed;
-  right: 5px;
-  top: auto;
-  width: 50px !important;
-  z-index: 2147483644;
-}
+
 
 .ant-modal-header {
   border-bottom: 1px solid var(--green);
@@ -232,11 +218,7 @@ section {
     left: 60%;
     bottom: 2rem;
   }
-  .fb_dialog.fb_dialog_advanced iframe {
-    right: 5% !important;
-    bottom: 2rem !important;
-    margin: 0 !important;
-  }
+ 
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
