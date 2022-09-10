@@ -45,7 +45,7 @@
       h3 {
         margin-bottom: 1.5rem;
         text-align: center;
-        font-size: 4rem;
+        
         color: var(--white);
         text-transform: uppercase;
         line-height: 4.5rem;
@@ -97,6 +97,14 @@
   .card_text {
     min-height: 25px !important;
   }
+  .content {
+    clip-path: none;
+    -webkit-clip-path: none;
+    padding: 2rem;
+    h3{
+      font-size: 3rem;
+    }
+  }
 }
 @media (min-width: 25rem) {
   .about {
@@ -109,7 +117,7 @@
       .content {
         clip-path: none;
         -webkit-clip-path: none;
-        padding: 2rem;
+        padding: 2rem;        
       }
     }
   }

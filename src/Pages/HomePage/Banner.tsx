@@ -80,7 +80,7 @@ const Banner = () => {
       <section className={styles["home"]}>
         <div className={styles["row"]}>
           <div className={styles["content"]}>
-            <h3>
+            <h3 className="heading">
               Khóa học <span>Tìm kiếm</span>
               {/* <select
                 name="couses"

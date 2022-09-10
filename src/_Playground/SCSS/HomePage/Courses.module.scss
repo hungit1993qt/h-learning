@@ -35,4 +35,9 @@
 .navLinkDanhMucKhoaHoc{
   text-decoration: none;
 }
+@media (max-width: 450px) {
+  .heading {
+    font-size: 3rem;
+  }
+}
 

@@ -16,7 +16,7 @@ const About = () => {
           />
         </div>
         <div className={styles["content"]}>
-          <h3>Đào tạo<span> Chuyên sâu</span></h3>
+          <h3 className="heading">Đào tạo<span> Chuyên sâu</span></h3>
           
           <ul>
             <li>

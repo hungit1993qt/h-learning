@@ -10,7 +10,7 @@
       text-align: center;
       h3 {
         margin-bottom: 0rem;
-        font-size: 4rem;
+        
         color: var(--white);
         line-height: 1;
         text-transform: uppercase;
@@ -179,12 +179,14 @@
   .card_text {
     min-height: 25px !important;
   }
+ 
 }
 
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
   }
+ 
 }
 @media (min-width: 56rem) {
   .cards_item {
