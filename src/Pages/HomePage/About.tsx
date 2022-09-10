@@ -29,9 +29,9 @@ const About = () => {
               bởi các thành viên sáng lập và giảng viên dày kinh nghiệm.
             </li>
           </ul>
-          <a href="#contact" className="btn">
+          {/* <a href="#contact" className="btn">
             Gọi ngay !
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
