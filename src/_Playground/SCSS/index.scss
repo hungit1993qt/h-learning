@@ -162,17 +162,10 @@ section {
     border-color: var(--green);
   }
 }
-.fb_dialog.fb_dialog_advanced {
-  right: 18pt;
-  margin-right: 50px;
-}
-iframe.fb_customer_chat_bounce_in_v2 {
-  right: 9pt;
-  margin-right: 50px;
-}
-iframe.fb_customer_chat_bounce_out_v2 {
-  right: 9pt;
-  margin-right: 50px;
+.fb_dialog.fb_dialog_advanced iframe {
+  right: auto !important;
+  left: 2rem;
+  bottom: 2rem !important;
 }
 
 .ant-modal-header {
@@ -223,6 +216,9 @@ iframe.fb_customer_chat_bounce_out_v2 {
   }
   .go-top {
     right: 5px;
+  }
+  .fb_dialog.fb_dialog_advanced iframe {
+    right: 5px !important;
   }
 }
 
