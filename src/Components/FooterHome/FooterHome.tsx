@@ -1,7 +1,5 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "_Playground/SCSS/Footer.module.scss";
-
-
 
 const FooterHome = () => {
   const [backTop, setBackTop] = useState(false);
@@ -37,18 +35,17 @@ const FooterHome = () => {
       >
         <i className="fa fa-arrow-up"></i>
       </a>
-      <a
-        href="#"
-        className={"call btn-footer"}
-      >
+      <a href="tel:0338288248" className={"call btn-footer"}>
         <i className="fa fa-phone"></i>
       </a>
       <a
-        href="#"
+        href="https://zalo.me/0338288248"
         className={"messFacebook btn-footer"}
       >
-       <i className="fab fa-facebook-messenger"></i>
+        <i>zalo</i>
       </a>
+
+      
     </footer>
   );
 };

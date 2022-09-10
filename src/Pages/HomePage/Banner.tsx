@@ -105,6 +105,7 @@ const Banner = () => {
             {khoaHocPhanTrang?.items.map((khoaHocPhanTrang, index) => {
               return (
                 <li
+                  onClick={() => handleDetail(khoaHocPhanTrang.maKhoaHoc)}
                   key={khoaHocPhanTrang.maKhoaHoc}
                   className={styles["cards_item"]}
                 >

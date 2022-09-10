@@ -41,6 +41,7 @@ const ListCours = () => {
           if (index < 6) {
             return (
               <li
+                onClick={() => handleDetail(khoahoctheodanhmuc.maKhoaHoc)}
                 key={khoahoctheodanhmuc.maKhoaHoc}
                 className={styles["cards_item"]}
               >

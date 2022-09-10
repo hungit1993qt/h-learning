@@ -35,6 +35,9 @@
       list-style: none;
       margin: 0;
       padding: 0;
+      li{
+        cursor: pointer;
+      }
       .cards_item {
         display: flex;
         padding: 1rem;
