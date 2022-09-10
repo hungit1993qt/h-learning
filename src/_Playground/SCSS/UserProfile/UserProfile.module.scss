@@ -244,25 +244,25 @@ $imageSmall: 60px;
 $padding: 10px;
 
 .table-users {
-  border: 1px solid darken($baseColor, 5%);
-  border-radius: $borderRadius;
+  border: 1px solid var(--light-bg);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-  max-width: calc(100% - 2em);
-  margin: 1em auto;
+  max-width: 100%;
+  margin: 0 auto;
   overflow: hidden;
-  width: 100%;
+  border-radius: 20px;
 }
 
 table {
   width: 100%;
+  border-radius: 20px;
+  background-color: #e3e0e0;
 
-  td
-   {
+  td {
     color: var(--black);
     padding: $padding;
   }
   th {
-    color: var(--white);
+    color: var(--green);
     padding: $padding;
   }
   .mota {
@@ -277,7 +277,7 @@ table {
     max-width: 700px;
     text-align: left;
   }
-  .nameCours{
+  .nameCours {
     width: 150px;
   }
 
@@ -297,18 +297,13 @@ table {
   }
 
   th {
-    background-color: var(--green);
+    background-color: var(--light-bg);
     font-weight: 300;
     font-weight: bold;
   }
 
   tr {
-    &:nth-child(2n) {
-      background-color: white;
-    }
-    &:nth-child(2n + 1) {
-      background-color: var(--green);
-    }
+    border-bottom: var(--light-white) 1px solid;
   }
 }
 
@@ -318,7 +313,7 @@ table {
   td {
     display: block;
   }
-  
+
   td {
     &:first-child {
       position: absolute;
@@ -333,7 +328,6 @@ table {
       padding: 4px 20px 4px 90px;
       position: relative;
       text-align: left;
-      
 
       &:before {
         color: lighten($baseColor, 30%);
@@ -357,10 +351,9 @@ table {
       content: "Comments:";
     }
   }
-  .nameCours{
+  .nameCours {
     width: 100% !important;
   }
-
 
   tr {
     padding: $padding 0;
@@ -386,7 +379,6 @@ table {
     margin: 0.5rem 0;
     width: 100% !important;
   }
-  
 
   td {
     &:first-child {
@@ -415,9 +407,9 @@ table {
       padding-bottom: 1rem !important;
     }
   }
-  .mota{
+  .mota {
     line-height: 24px !important;
-    -webkit-line-clamp: 5 !important; 
+    -webkit-line-clamp: 5 !important;
   }
   tr {
     background-color: white !important;
