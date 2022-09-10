@@ -162,10 +162,7 @@ section {
     border-color: var(--green);
   }
 }
-.fb-customerchat {
-  bottom: 92px;
-  right: 29px;
-}
+.fb_customer_chat_bubble_pop_in {top:20px!important}
 
 .ant-modal-header {
   border-bottom: 1px solid var(--green);
