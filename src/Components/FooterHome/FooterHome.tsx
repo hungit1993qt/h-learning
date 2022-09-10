@@ -39,13 +39,12 @@ const FooterHome = () => {
         <i className="fa fa-phone"></i>
       </a>
       <a
+        target="_blank"
         href="https://zalo.me/0338288248"
         className={"messFacebook btn-footer"}
       >
         <i>zalo</i>
       </a>
-
-      
     </footer>
   );
 };
