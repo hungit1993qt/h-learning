@@ -32,20 +32,20 @@ const FooterHome = () => {
       </section>
       <a
         href="#top"
-        className={backTop ? "go-top active" : "go-top"}
+        className={backTop ? "go-top btn-footer active" : "go-top btn-footer"}
         data-go-top
       >
         <i className="fa fa-arrow-up"></i>
       </a>
       <a
         href="#"
-        className={"call"}
+        className={"call btn-footer"}
       >
         <i className="fa fa-phone"></i>
       </a>
       <a
         href="#"
-        className={"messFacebook"}
+        className={"messFacebook btn-footer"}
       >
        <i className="fab fa-facebook-messenger"></i>
       </a>

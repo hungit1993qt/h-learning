@@ -101,20 +101,16 @@ section {
   color: var(--green);
   text-transform: uppercase;
 }
-.go-top {
+.btn-footer {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--green);
-  color: var(--white);
+  
   width: 50px;
   height: 50px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-  opacity: 0;
-  visibility: hidden;
+  
   transition: var(--transition-2);
   z-index: 2;
   font-weight: bold;
@@ -124,58 +120,30 @@ section {
     font-size: 2rem;
   }
 }
+.go-top {
+  background: var(--green);
+  color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  bottom: 20px;
+  right: 20px;
+}
 .call {
-  position: fixed;
+  border: red 1px solid;
+  color: red;
   bottom: 20px;
   left: 20px;
-  border:  red 1px solid;
-  color:  red;;
-  width: 50px;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-  transition: var(--transition-2);
-  z-index: 3;
-  font-weight: bold;
-  text-decoration: none;
   animation: call infinite;
-  animation-duration: 0.3s;
-  &:hover{
-    color: #00e77f;
-    border:  #00e77f 1px solid;
-  }
-  i {
-    font-size: 2rem;
-  }
+  animation-duration: 0.5s;
 }
 .messFacebook {
-  position: fixed;
+  border: blue 1px solid;
+  background-color: var(--white);
+  color: blue;
   bottom: 80px;
   left: 20px;
-  border: blue 1px solid;
-  background-color:var(--white);
-  color: blue;;
-  width: 50px;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-  transition: var(--transition-2);
-  z-index: 3;
-  font-weight: bold;
-  text-decoration: none;
   animation: messFacebook infinite;
-  animation-duration: 0.3s;
-  &:hover{
-    color: #00e77f;
-    border:  #00e77f 1px solid;
-  }
-  i {
-    font-size: 2rem;
-  }
+  animation-duration: 0.5s;
 }
 
 .ant-modal-header {
@@ -220,6 +188,12 @@ section {
   .heading {
     font-size: 3rem;
   }
+  .messFacebook,.call{
+    left: 5px;
+  }
+  .go-top{
+    right: 5px;
+  }
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -256,23 +230,23 @@ section {
 @keyframes call {
   0% {
     transform: scale(1.1);
-    transform:rotate(10deg)
+    transform: rotate(10deg);
   }
   25% {
     transform: scale(1.15);
-    transform:rotate(20deg)
+    transform: rotate(20deg);
   }
   50% {
     transform: scale(1.2);
-    transform:rotate(30deg)
+    transform: rotate(30deg);
   }
   75% {
     transform: scale(1.15);
-    transform:rotate(20deg)
+    transform: rotate(20deg);
   }
   100% {
     transform: scale(1.1);
-    transform:rotate(10deg)
+    transform: rotate(10deg);
   }
 }
 @keyframes messFacebook {
